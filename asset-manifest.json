@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/react-publ/static/css/main.073c9b0a.css",
+    "main.js": "/react-publ/static/js/main.d7eb6ef2.js",
+    "index.html": "/react-publ/index.html",
+    "main.073c9b0a.css.map": "/react-publ/static/css/main.073c9b0a.css.map",
+    "main.d7eb6ef2.js.map": "/react-publ/static/js/main.d7eb6ef2.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.d7eb6ef2.js"
+  ]
+}
