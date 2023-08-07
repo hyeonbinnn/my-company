@@ -7,6 +7,7 @@ const HomeHeader = () => {
     <S.Header>
       <S.Container>
         <TopBar />
+        <S.Earth />
         <S.H2>
           Lorem Ipsum is simply
           <br />

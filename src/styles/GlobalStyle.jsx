@@ -49,6 +49,23 @@ const GlobalStyle = createGlobalStyle`
     cursor: pointer;
   }
 
+  .common-button {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    background-color: #d97652;
+    border-radius: 40px;
+    color: #fff;
+
+    @media screen and (min-width: 375px) and (max-width: 1000px) {
+      padding: 11px 24px;
+      font-size: 14px;
+      line-height: 18px;
+    }
+  }
+
   /* 숨김 텍스트 처리 */
   .a11y-hidden {
     clip: rect(1px, 1px, 1px, 1px);
