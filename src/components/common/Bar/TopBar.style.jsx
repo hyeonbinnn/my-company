@@ -14,8 +14,6 @@ export const Nav = styled.nav`
   margin-top: 20px;
   margin-bottom: 226px;
 
-  display: ${(props) => (props.visible ? 'block' : 'none')};
-
   ul {
     display: flex;
     align-items: center;
@@ -29,11 +27,11 @@ export const Nav = styled.nav`
   }
 
   @media screen and (min-width: 375px) and (max-width: 1000px) {
+    display: ${(props) => (props.visible ? 'block' : 'none')};
     margin: 50px -40px 0 0;
 
     ul {
       flex-direction: column;
-
       gap: 20px;
     }
 

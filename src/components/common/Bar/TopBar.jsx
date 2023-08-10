@@ -23,19 +23,19 @@ const TopBar = () => {
       <S.Nav visible={navVisible}>
         <ul>
           <li>
-            <Link to="#home">Home</Link>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="#about">About</Link>
+            <Link to="/about">About</Link>
           </li>
           <li>
-            <Link to="#services">Services</Link>
+            <Link to="/services">Services</Link>
           </li>
           <li>
-            <Link tp="#contact">Contact</Link>
+            <Link to="/contact">Contact</Link>
           </li>
           <li>
-            <Link tp="#recruit">Recruit</Link>
+            <Link to="/recruit">Recruit</Link>
           </li>
         </ul>
       </S.Nav>
