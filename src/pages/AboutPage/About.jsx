@@ -1,7 +1,14 @@
 import React from 'react';
+import AboutHeader from '../../components/Header/AboutHeader';
+import Footer from '../../components/Footer/Footer';
 
-const Brand = () => {
-  return <div>Brand</div>;
+const About = () => {
+  return (
+    <>
+      <AboutHeader />
+      <Footer />
+    </>
+  );
 };
 
-export default Brand;
+export default About;
