@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Sustainability = () => {
-  return <div>Sustainability</div>;
+const Contact = () => {
+  return <div>Contact</div>;
 };
 
-export default Sustainability;
+export default Contact;

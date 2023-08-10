@@ -1,7 +1,7 @@
 import React from 'react';
 
-const News = () => {
-  return <div>News</div>;
+const Services = () => {
+  return <div>Services</div>;
 };
 
-export default News;
+export default Services;
