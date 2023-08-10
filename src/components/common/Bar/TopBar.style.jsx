@@ -14,9 +14,7 @@ export const Nav = styled.nav`
   margin-top: 20px;
   margin-bottom: 226px;
 
-  @media screen and (min-width: 375px) and (max-width: 1000px) {
-    display: none;
-  }
+  display: ${(props) => (props.visible ? 'block' : 'none')};
 
   ul {
     display: flex;
@@ -29,6 +27,20 @@ export const Nav = styled.nav`
     font-weight: 700;
     color: ${({ theme }) => theme.colors.txtColor};
   }
+
+  @media screen and (min-width: 375px) and (max-width: 1000px) {
+    margin: 50px -40px 0 0;
+
+    ul {
+      flex-direction: column;
+
+      gap: 20px;
+    }
+
+    li {
+      font-size: 17px;
+    }
+  }
 `;
 
 export const Button = styled.button`
@@ -36,7 +48,6 @@ export const Button = styled.button`
   float: right;
   width: 32px;
   height: 32px;
-  margin-bottom: 62px;
   background-image: url(${menu});
   background-color: transparent;
   cursor: pointer;

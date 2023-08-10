@@ -59,7 +59,7 @@ export const H2 = styled.h2`
   @media screen and (min-width: 375px) and (max-width: 1000px) {
     font-size: 24px;
     line-height: 30px;
-    padding-top: 50px;
+    padding-top: 60px;
   }
 `;
 

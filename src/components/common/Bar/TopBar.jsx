@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import * as S from './TopBar.style';
 import companyLogo from '../../../assets/companyLogo.png';
 
 const TopBar = () => {
+  const [navVisible, setNavVisible] = useState(false);
+
+  const toggleNav = () => {
+    setNavVisible(!navVisible);
+  };
+
   return (
     <S.Container>
       <S.H1>
@@ -11,7 +17,10 @@ const TopBar = () => {
           <img src={companyLogo} alt="회사 로고" />
         </Link>
       </S.H1>
-      <S.Nav>
+      <S.Button type="button" onClick={toggleNav}>
+        <span className="a11y-hidden">네비게이션 열기</span>
+      </S.Button>
+      <S.Nav visible={navVisible}>
         <ul>
           <li>
             <Link to="#home">Home</Link>
@@ -30,9 +39,6 @@ const TopBar = () => {
           </li>
         </ul>
       </S.Nav>
-      <S.Button type="button">
-        <span className="a11y-hidden">네비게이션 열기</span>
-      </S.Button>
     </S.Container>
   );
 };
