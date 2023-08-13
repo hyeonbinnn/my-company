@@ -1,12 +1,12 @@
 import React from 'react';
 import * as S from './AboutHeader.style';
-import TopBar from '../common/Bar/TopBar';
+import NavBar from '../common/Bar/NavBar';
 
 const AboutHeader = () => {
   return (
     <S.Header>
       <S.Container>
-        <TopBar />
+        <NavBar />
       </S.Container>
     </S.Header>
   );

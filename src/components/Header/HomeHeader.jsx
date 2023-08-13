@@ -1,12 +1,12 @@
 import React from 'react';
-import TopBar from '../common/Bar/TopBar';
+import NavBar from '../common/Bar/NavBar';
 import * as S from './HomeHeader.style';
 
 const HomeHeader = () => {
   return (
     <S.Header>
       <S.Container>
-        <TopBar />
+        <NavBar />
         <S.Earth />
         <S.H2>
           Lorem Ipsum is simply
