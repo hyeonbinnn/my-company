@@ -19,7 +19,7 @@ export const FooterBg = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.5); /* 투명도가 있는 배경 */
+    background: rgba(255, 255, 255, 0.5);
     z-index: 1;
   }
   background: url(${map_l}) center/cover no-repeat;
