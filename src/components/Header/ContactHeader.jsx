@@ -1,8 +1,8 @@
 import React from 'react';
-import * as S from './ServicesHeader.style';
+import * as S from './ContactHeader.style';
 import NavBar from '../common/Bar/NavBar';
 
-const ServicesHeader = () => {
+const ContactHeader = () => {
   return (
     <S.Header>
       <S.Container>
@@ -12,4 +12,4 @@ const ServicesHeader = () => {
   );
 };
 
-export default ServicesHeader;
+export default ContactHeader;
