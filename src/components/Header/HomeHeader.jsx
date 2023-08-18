@@ -4,8 +4,8 @@ import * as S from './HomeHeader.style';
 
 const HomeHeader = () => {
   return (
-    <S.Header>
-      <S.Container>
+    <S.CustomHeader>
+      <S.CustomContainer>
         <NavBar />
         <S.Earth />
         <S.H2>
@@ -19,8 +19,8 @@ const HomeHeader = () => {
           Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
           unknown
         </S.P>
-      </S.Container>
-    </S.Header>
+      </S.CustomContainer>
+    </S.CustomHeader>
   );
 };
 

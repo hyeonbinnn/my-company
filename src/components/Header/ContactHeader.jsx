@@ -4,11 +4,11 @@ import NavBar from '../common/Bar/NavBar';
 
 const ContactHeader = () => {
   return (
-    <S.Header>
-      <S.Container>
+    <S.CustomHeader>
+      <S.CustomContainer>
         <NavBar />
-      </S.Container>
-    </S.Header>
+      </S.CustomContainer>
+    </S.CustomHeader>
   );
 };
 

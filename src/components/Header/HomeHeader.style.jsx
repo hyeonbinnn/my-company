@@ -1,5 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 import earth from '../../assets/earth.png';
+import { Header, Container } from '../common/Layout/HeaderLayout';
 
 const rotateAnimation = keyframes`
   from {
@@ -10,23 +11,13 @@ const rotateAnimation = keyframes`
   }
 `;
 
-export const Header = styled.header`
-  background-color: #f2e9d8;
-  padding: 0px 20px;
-`;
+export const CustomHeader = styled(Header)``;
 
-export const Container = styled.div`
-  max-width: 1280px;
-  margin: 0 auto;
+export const CustomContainer = styled(Container)`
   padding: 20px 0 262px;
-  /* background: url(${earth}) center right no-repeat; */
 
   @media screen and (min-width: 375px) and (max-width: 1000px) {
-    padding: 22px 0 0;
-    height: 100vh;
-    text-align: center;
-    /* background-size: 250px;
-    background-position: 50% 90%; */
+    height: 80vh;
   }
 `;
 

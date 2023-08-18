@@ -30,6 +30,9 @@ export const Figure = styled.figure`
   }
 
   figcaption {
+    @media screen and (min-width: 375px) and (max-width: 1000px) {
+      text-align: center;
+    }
     h2 {
       margin-bottom: 30px;
       font-weight: 700;
