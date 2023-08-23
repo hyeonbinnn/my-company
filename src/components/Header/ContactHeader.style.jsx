@@ -7,6 +7,6 @@ export const CustomContainer = styled(Container)`
   padding: 20px 0 170px;
 
   @media screen and (min-width: 375px) and (max-width: 1000px) {
-    height: 100vh;
+    height: 10vh;
   }
 `;
