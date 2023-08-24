@@ -9,7 +9,7 @@ const SocialBar = () => {
       <S.FooterBg />
       <S.FooterBox>
         <S.H2>
-          <Link to="#home">
+          <Link to="/">
             <img src={companyLogo} alt="하단 배경" />
           </Link>
         </S.H2>

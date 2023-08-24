@@ -13,7 +13,7 @@ const NavBar = () => {
   return (
     <S.Container>
       <S.H1>
-        <Link to="#home">
+        <Link to="/">
           <img src={companyLogo} alt="회사 로고" />
         </Link>
       </S.H1>
