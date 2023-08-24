@@ -1,7 +1,7 @@
-import React from 'react';
+import styled from 'styled-components';
 
-const MainLayout = () => {
-  return <div>MainLayout</div>;
-};
-
-export default MainLayout;
+export const Main = styled.main`
+  position: relative;
+  max-width: 1280px;
+  padding: 0 20px;
+`;

@@ -8,7 +8,7 @@ import animal from '../../assets/animal.jpg';
 
 const HomeMain = () => {
   return (
-    <S.Main>
+    <S.CustomMain>
       <S.Section1>
         <S.Figure>
           <img src={hands} alt="지구를 담은 손" />
@@ -75,7 +75,7 @@ const HomeMain = () => {
           </S.Button>
         </S.Form>
       </S.Subscribe>
-    </S.Main>
+    </S.CustomMain>
   );
 };
 

@@ -11,13 +11,16 @@ const rotateAnimation = keyframes`
   }
 `;
 
-export const CustomHeader = styled(Header)``;
+export const CustomHeader = styled(Header)`
+  background-color: #f2e9d8;
+`;
 
 export const CustomContainer = styled(Container)`
   padding: 20px 0 262px;
 
   @media screen and (min-width: 375px) and (max-width: 1000px) {
     height: 80vh;
+    padding: 20px 0 200px;
   }
 `;
 
@@ -40,6 +43,15 @@ export const Earth = styled.div`
   }
 `;
 
+export const Section = styled.section`
+  @media screen and (min-width: 375px) and (max-width: 1000px) {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+`;
+
 export const H2 = styled.h2`
   clear: both;
   font-weight: 700;
@@ -50,7 +62,7 @@ export const H2 = styled.h2`
   @media screen and (min-width: 375px) and (max-width: 1000px) {
     font-size: 24px;
     line-height: 30px;
-    padding-top: 60px;
+    padding-top: 30px;
   }
 `;
 

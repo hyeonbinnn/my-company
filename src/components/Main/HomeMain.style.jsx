@@ -1,11 +1,9 @@
 import styled from 'styled-components';
 import mail from '../../assets/mail.png';
+import { Main } from './../common/Layout/MainLayout';
 
-export const Main = styled.main`
-  position: relative;
-  max-width: 1280px;
+export const CustomMain = styled(Main)`
   margin: 80px auto 0;
-  padding: 0 20px;
 `;
 
 export const Section1 = styled.section``;
