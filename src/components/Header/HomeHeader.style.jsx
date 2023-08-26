@@ -11,6 +11,10 @@ const rotateAnimation = keyframes`
   }
 `;
 
+const mediaQuery = {
+  mobile: 'screen and (min-width: 375px) and (max-width: 1000px)',
+};
+
 export const CustomHeader = styled(Header)`
   background-color: #f2e9d8;
 `;
@@ -18,7 +22,7 @@ export const CustomHeader = styled(Header)`
 export const CustomContainer = styled(Container)`
   padding: 20px 0 262px;
 
-  @media screen and (min-width: 375px) and (max-width: 1000px) {
+  @media ${mediaQuery.mobile} {
     height: 80vh;
     padding: 20px 0 200px;
   }
@@ -33,7 +37,7 @@ export const Earth = styled.div`
   right: 13%;
   animation: ${rotateAnimation} 20s linear infinite;
 
-  @media screen and (min-width: 375px) and (max-width: 1000px) {
+  @media ${mediaQuery.mobile} {
     background-size: 250px;
     background-position: center center;
     bottom: -5%;
@@ -44,35 +48,35 @@ export const Earth = styled.div`
 `;
 
 export const Section = styled.section`
-  @media screen and (min-width: 375px) and (max-width: 1000px) {
+  h2 {
+    clear: both;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 60px;
+    position: relative;
+  }
+
+  p {
+    max-width: 439px;
+    margin: 40px 0;
+  }
+
+  @media ${mediaQuery.mobile} {
     position: absolute;
     top: 25%;
     left: 50%;
     transform: translateX(-50%);
-  }
-`;
 
-export const H2 = styled.h2`
-  clear: both;
-  font-weight: 700;
-  font-size: 48px;
-  line-height: 60px;
-  position: relative;
+    h2 {
+      font-size: 24px;
+      line-height: 30px;
+      padding-top: 30px;
+    }
 
-  @media screen and (min-width: 375px) and (max-width: 1000px) {
-    font-size: 24px;
-    line-height: 30px;
-    padding-top: 30px;
-  }
-`;
-
-export const P = styled.p`
-  max-width: 439px;
-  margin: 40px 0;
-
-  @media screen and (min-width: 375px) and (max-width: 1000px) {
-    max-width: 280px;
-    margin: 30px auto;
-    font-size: 14px;
+    p {
+      max-width: 280px;
+      margin: 30px auto;
+      font-size: 14px;
+    }
   }
 `;
