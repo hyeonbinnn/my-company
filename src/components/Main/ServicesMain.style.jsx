@@ -10,23 +10,28 @@ export const Article = styled.article`
   padding: 30px;
 `;
 
+const mediaQuery = {
+  mobile: 'screen and (min-width: 375px) and (max-width: 1000px)',
+};
+
 export const H2 = styled.h2`
   img {
     width: 45px;
     height: 45px;
-
-    @media screen and (min-width: 375px) and (max-width: 1000px) {
-      width: 35px;
-      height: 35px;
-    }
   }
 
   strong {
     font-size: 40px;
     line-height: 40px;
     padding-left: 15px;
+  }
 
-    @media screen and (min-width: 375px) and (max-width: 1000px) {
+  @media ${mediaQuery.mobile} {
+    img {
+      width: 35px;
+      height: 35px;
+    }
+    strong {
       font-size: 30px;
       line-height: 30px;
       padding-left: 10px;
