@@ -8,46 +8,47 @@ export const CustomMain = styled(Main)`
 
 export const Section1 = styled.section``;
 
+const mediaQuery = {
+  mobile: 'screen and (min-width: 375px) and (max-width: 1000px)',
+};
+
 export const Figure = styled.figure`
   display: flex;
   align-items: center;
   gap: 110px;
 
-  @media screen and (min-width: 375px) and (max-width: 1000px) {
-    flex-direction: column;
-    gap: 40px;
-  }
-
   img {
     box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.25);
     border-radius: 30px;
-
-    @media screen and (min-width: 375px) and (max-width: 1000px) {
-      max-width: 326px;
-    }
   }
 
   figcaption {
-    @media screen and (min-width: 375px) and (max-width: 1000px) {
-      text-align: center;
-    }
     h2 {
       margin-bottom: 30px;
       font-weight: 700;
       font-size: 36px;
       line-height: 45px;
+    }
+    p {
+      font-size: 14px;
+      line-height: 18px;
+    }
+  }
 
-      @media screen and (min-width: 375px) and (max-width: 1000px) {
+  @media ${mediaQuery.mobile} {
+    flex-direction: column;
+    gap: 40px;
+
+    img {
+      max-width: 326px;
+    }
+
+    figcaption {
+      text-align: center;
+      h2 {
         font-size: 24px;
         line-height: 30px;
         margin-bottom: 20px;
-      }
-    }
-
-    p {
-      @media screen and (min-width: 375px) and (max-width: 1000px) {
-        font-size: 14px;
-        line-height: 18px;
       }
     }
   }
@@ -56,10 +57,6 @@ export const Figure = styled.figure`
 export const Section2 = styled.section`
   margin: 120px 0 90px;
 
-  @media screen and (min-width: 375px) and (max-width: 1000px) {
-    margin: 60px 0 50px;
-  }
-
   h2 {
     margin-bottom: 40px;
     font-weight: 700;
@@ -67,11 +64,6 @@ export const Section2 = styled.section`
     line-height: 60px;
     color: #d97652;
     text-align: center;
-
-    @media screen and (min-width: 375px) and (max-width: 1000px) {
-      font-size: 24px;
-      line-height: 30px;
-    }
   }
 
   p {
@@ -82,59 +74,63 @@ export const Section2 = styled.section`
     }
   }
 
-  br {
-    @media screen and (min-width: 375px) and (max-width: 1000px) {
-      display: none;
-    }
-  }
-
   ul {
     display: flex;
     justify-content: space-between;
     gap: 20px;
     margin: 88px 0 90px;
+  }
 
-    @media screen and (min-width: 375px) and (max-width: 1000px) {
+  button {
+    overflow: hidden;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+    cursor: pointer;
+  }
+
+  @media ${mediaQuery.mobile} {
+    margin: 60px 0 50px;
+
+    h2 {
+      font-size: 24px;
+      line-height: 30px;
+    }
+
+    br {
+      display: none;
+    }
+
+    ul {
       overflow: scroll;
       padding-bottom: 20px;
       margin: 40px -20px 60px 0;
       -webkit-overflow-scrolling: touch;
-    }
-
-    li {
-      @media screen and (min-width: 375px) and (max-width: 1000px) {
+      li {
         flex-shrink: 0;
       }
     }
 
     button {
-      overflow: hidden;
-      box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.25);
-      border-radius: 30px;
-      cursor: pointer;
-
-      @media screen and (min-width: 375px) and (max-width: 1000px) {
-        max-width: 260px;
-        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.15);
-      }
+      max-width: 260px;
+      box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.15);
     }
   }
 `;
 
-export const Services = styled.div`
+export const Post = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 52px;
 
-  @media screen and (min-width: 375px) and (max-width: 1000px) {
+  @media ${mediaQuery.mobile} {
     flex-direction: column;
     align-items: end;
-  }
 
-  p {
-    max-width: 740px;
-    text-align: left;
+    p {
+      max-width: 740px;
+      text-align: left;
+    }
   }
 `;
 
@@ -149,7 +145,7 @@ export const Subscribe = styled.article`
   background-color: #263140;
   color: #fff;
 
-  @media screen and (min-width: 375px) and (max-width: 1000px) {
+  @media ${mediaQuery.mobile} {
     flex-direction: column;
     gap: 30px;
   }
@@ -162,7 +158,7 @@ export const SubBox = styled.div`
     font-size: 36px;
     line-height: 45px;
 
-    @media screen and (min-width: 375px) and (max-width: 1000px) {
+    @media ${mediaQuery.mobile} {
       margin-bottom: 20px;
       font-size: 24px;
       line-height: 30px;
@@ -185,7 +181,7 @@ export const Form = styled.form`
     background-image: url(${mail});
     z-index: 1;
 
-    @media screen and (min-width: 375px) and (max-width: 1000px) {
+    @media ${mediaQuery.mobile} {
       width: 16px;
       height: 14px;
       left: 17px;
@@ -204,14 +200,14 @@ export const Input = styled.input`
   border: none;
   box-sizing: border-box;
 
-  @media screen and (min-width: 375px) and (max-width: 1000px) {
-    padding: 12px 48px;
-    font-size: 12px;
-  }
-
   &:focus-visible {
     outline: 2px solid lightblue;
     outline-offset: 3px;
+  }
+
+  @media ${mediaQuery.mobile} {
+    padding: 12px 48px;
+    font-size: 12px;
   }
 `;
 
@@ -221,7 +217,7 @@ export const Button = styled.button`
   top: 50%;
   transform: translateY(-50%);
 
-  @media screen and (min-width: 375px) and (max-width: 1000px) {
+  @media ${mediaQuery.mobile} {
     position: static;
     transform: none;
     float: right;

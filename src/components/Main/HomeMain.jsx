@@ -44,7 +44,7 @@ const HomeMain = () => {
           </li>
         </ul>
 
-        <S.Services>
+        <S.Post>
           <p>
             Lorem Ipsum is simply dummy text of the printing and typesetting industry.
             <br />
@@ -52,9 +52,9 @@ const HomeMain = () => {
             unknown Ipsum is simply dummy text of the printing and typesetting industry.
           </p>
           <button className="common-button">
-            <Link to="#services">Search More</Link>
+            <Link to="/services">Search More</Link>
           </button>
-        </S.Services>
+        </S.Post>
       </S.Section2>
       <S.Subscribe>
         <S.SubBox>

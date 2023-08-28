@@ -26,6 +26,12 @@ export const H2 = styled.h2`
     padding-left: 15px;
   }
 
+  span {
+    display: block;
+    margin: 30px 0;
+    font-size: 25px;
+  }
+
   @media ${mediaQuery.mobile} {
     img {
       width: 35px;
@@ -36,14 +42,7 @@ export const H2 = styled.h2`
       line-height: 30px;
       padding-left: 10px;
     }
-  }
-
-  span {
-    display: block;
-    margin: 30px 0;
-    font-size: 25px;
-
-    @media screen and (min-width: 375px) and (max-width: 1000px) {
+    span {
       font-size: 20px;
     }
   }
