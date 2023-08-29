@@ -49,7 +49,8 @@ const HomeMain = () => {
             Lorem Ipsum is simply dummy text of the printing and typesetting industry.
             <br />
             Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-            unknown Ipsum is simply dummy text of the printing and typesetting industry.
+            unknown Ipsum is simply dummy text of the printing and typesetting industry. Lorem ipsum
+            dolor sit amet consectetur adipisicing elit.
           </p>
           <button className="common-button">
             <Link to="/services">Search More</Link>

@@ -79,13 +79,13 @@ export const Section2 = styled.section`
     justify-content: space-between;
     gap: 20px;
     margin: 88px 0 90px;
-  }
 
-  button {
-    overflow: hidden;
-    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.25);
-    border-radius: 30px;
-    cursor: pointer;
+    button {
+      overflow: hidden;
+      box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.25);
+      border-radius: 30px;
+      cursor: pointer;
+    }
   }
 
   @media ${mediaQuery.mobile} {
@@ -121,15 +121,18 @@ export const Post = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 52px;
+  gap: 50px;
 
   @media ${mediaQuery.mobile} {
     flex-direction: column;
-    align-items: end;
 
     p {
       max-width: 740px;
       text-align: left;
+    }
+
+    button {
+      align-self: flex-end;
     }
   }
 `;
