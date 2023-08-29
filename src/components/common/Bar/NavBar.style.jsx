@@ -7,6 +7,10 @@ export const H1 = styled.h1`
   width: 150px;
   float: left;
   margin: 0;
+
+  @media ${(props) => props.theme.mediaQuery.mobile} {
+    width: 130px;
+  }
 `;
 
 export const Nav = styled.nav`
@@ -28,11 +32,11 @@ export const Nav = styled.nav`
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
     display: ${(props) => (props.visible ? 'block' : 'none')};
-    margin: 50px -40px 0 0;
+    margin: 45px -40px 0 0;
 
     ul {
       flex-direction: column;
-      gap: 20px;
+      gap: 16px;
     }
 
     li {

@@ -1,12 +1,12 @@
 import React from 'react';
-import ContactHeader from '../../components/Header/ContactHeader';
 import SocialBar from '../../components/common/Bar/SocialBar';
 import ContactMain from './../../components/Main/ContactMain';
+import HeaderLayout from '../../components/common/Layout/HeaderLayout';
 
 const Contact = () => {
   return (
     <>
-      <ContactHeader />
+      <HeaderLayout />
       <ContactMain />
       <SocialBar />
     </>

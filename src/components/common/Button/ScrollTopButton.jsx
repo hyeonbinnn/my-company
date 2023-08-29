@@ -41,6 +41,8 @@ const Button = styled.button`
   img {
     width: 55px;
     height: 55px;
+    background-color: white;
+    border-radius: 50%;
   }
 
   @media ${(props) => props.theme.mediaQuery.mobile} {

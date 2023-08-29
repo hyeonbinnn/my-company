@@ -1,12 +1,12 @@
 import React from 'react';
-import RecruitHeader from '../../components/Header/RecruitHeader';
 import SocialBar from '../../components/common/Bar/SocialBar';
 import RecruitMain from './../../components/Main/RecruitMain';
+import HeaderLayout from '../../components/common/Layout/HeaderLayout';
 
 const Recruit = () => {
   return (
     <>
-      <RecruitHeader />
+      <HeaderLayout />
       <RecruitMain />
       <SocialBar />
     </>

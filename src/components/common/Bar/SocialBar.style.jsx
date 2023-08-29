@@ -46,6 +46,10 @@ export const FooterBox = styled.div`
 
 export const H2 = styled.h2`
   width: 150px;
+
+  @media ${(props) => props.theme.mediaQuery.mobile} {
+    width: 130px;
+  }
 `;
 
 export const SocialLink = styled.ul`

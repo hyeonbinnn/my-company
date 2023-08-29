@@ -2,50 +2,11 @@ import styled from 'styled-components';
 import { Main } from './../common/Layout/MainLayout';
 
 export const CustomMain = styled(Main)`
-  margin: 30px auto;
-  padding: 0px;
-`;
-
-export const Article = styled.article`
-  padding: 30px;
-`;
-
-export const H2 = styled.h2`
-  img {
-    width: 45px;
-    height: 45px;
-  }
-
-  strong {
-    font-size: 40px;
-    line-height: 40px;
-    padding-left: 15px;
-  }
-
-  span {
-    display: block;
-    margin: 30px 0;
-    font-size: 25px;
-  }
-
-  @media ${(props) => props.theme.mediaQuery.mobile} {
-    img {
-      width: 35px;
-      height: 35px;
-    }
-    strong {
-      font-size: 30px;
-      line-height: 30px;
-      padding-left: 10px;
-    }
-    span {
-      font-size: 20px;
-    }
-  }
+  padding: 0 20px;
 `;
 
 export const Section = styled.section`
-  padding: 40px 0px;
+  padding-bottom: 40px;
   ul {
     display: grid;
     /* grid-template-columns: repeat(4, 288px); */

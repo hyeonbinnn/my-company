@@ -1,12 +1,12 @@
 import React from 'react';
-import ServicesHeader from '../../components/Header/ServicesHeader';
-import SocialBar from '../../components/common/Bar/SocialBar';
+import HeaderLayout from '../../components/common/Layout/HeaderLayout';
 import ServicesMain from './../../components/Main/ServicesMain';
+import SocialBar from '../../components/common/Bar/SocialBar';
 
 const Services = () => {
   return (
     <>
-      <ServicesHeader />
+      <HeaderLayout />
       <ServicesMain />
       <SocialBar />
     </>

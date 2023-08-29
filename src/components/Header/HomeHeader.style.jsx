@@ -16,11 +16,11 @@ export const CustomHeader = styled(Header)`
 `;
 
 export const CustomContainer = styled(Container)`
-  padding: 20px 0 262px;
+  padding-bottom: 240px;
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
     height: 80vh;
-    padding: 20px 0 200px;
+    padding-bottom: 200px;
   }
 `;
 
