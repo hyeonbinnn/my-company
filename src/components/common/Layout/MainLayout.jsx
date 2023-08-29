@@ -21,7 +21,6 @@ export const Main = styled.main`
   position: relative;
   max-width: 1280px;
   margin: 30px auto;
-  padding: 0px;
 `;
 
 export const Article = styled.article`

@@ -4,6 +4,7 @@ import { Main } from './../common/Layout/MainLayout';
 
 export const CustomMain = styled(Main)`
   margin: 80px auto 0;
+  padding: 0px 20px;
 `;
 
 export const Section1 = styled.section``;
@@ -11,7 +12,7 @@ export const Section1 = styled.section``;
 export const Figure = styled.figure`
   display: flex;
   align-items: center;
-  gap: 110px;
+  gap: 100px;
 
   img {
     box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.25);
