@@ -5,9 +5,6 @@ import './font.css';
 const GlobalStyle = createGlobalStyle`
   ${normalize}
 
-  :root {
-    --mobile: screen and (min-width: 375px) and (max-width: 1000px);
-  }
 
   body {
     font-size: 14px;

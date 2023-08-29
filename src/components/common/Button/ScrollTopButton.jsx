@@ -43,7 +43,7 @@ const Button = styled.button`
     height: 55px;
   }
 
-  @media screen and (min-width: 375px) and (max-width: 1000px) {
+  @media ${(props) => props.theme.mediaQuery.mobile} {
     bottom: 60px;
     right: 30px;
 

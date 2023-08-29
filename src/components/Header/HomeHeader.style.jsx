@@ -18,7 +18,7 @@ export const CustomHeader = styled(Header)`
 export const CustomContainer = styled(Container)`
   padding: 20px 0 262px;
 
-  @media ${'var(--mobile)'} {
+  @media ${(props) => props.theme.mediaQuery.mobile} {
     height: 80vh;
     padding: 20px 0 200px;
   }
@@ -33,7 +33,7 @@ export const Earth = styled.div`
   right: 10%;
   animation: ${rotateAnimation} 20s linear infinite;
 
-  @media ${'var(--mobile)'} {
+  @media ${(props) => props.theme.mediaQuery.mobile} {
     background-size: 250px;
     background-position: center center;
     bottom: -5%;
@@ -57,7 +57,7 @@ export const Section = styled.section`
     margin: 40px 0;
   }
 
-  @media ${'var(--mobile)'} {
+  @media ${(props) => props.theme.mediaQuery.mobile} {
     position: absolute;
     top: 25%;
     left: 50%;

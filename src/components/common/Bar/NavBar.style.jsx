@@ -26,7 +26,7 @@ export const Nav = styled.nav`
     color: ${({ theme }) => theme.colors.txtColor};
   }
 
-  @media screen and (min-width: 375px) and (max-width: 1000px) {
+  @media ${(props) => props.theme.mediaQuery.mobile} {
     display: ${(props) => (props.visible ? 'block' : 'none')};
     margin: 50px -40px 0 0;
 
@@ -50,7 +50,7 @@ export const Button = styled.button`
   background-color: transparent;
   cursor: pointer;
 
-  @media screen and (min-width: 375px) and (max-width: 1000px) {
+  @media ${(props) => props.theme.mediaQuery.mobile} {
     display: block;
   }
 `;

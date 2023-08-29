@@ -12,6 +12,8 @@ export const FooterBg = styled.div`
   position: relative;
   height: 340px;
   z-index: -1;
+  background: url(${map_l}) center/cover no-repeat;
+
   &::before {
     content: '';
     position: absolute;
@@ -22,9 +24,8 @@ export const FooterBg = styled.div`
     background: rgba(255, 255, 255, 0.5);
     z-index: 1;
   }
-  background: url(${map_l}) center/cover no-repeat;
 
-  @media screen and (min-width: 375px) and (max-width: 1000px) {
+  @media ${(props) => props.theme.mediaQuery.mobile} {
     height: 240px;
     background: url(${map_s}) center/cover no-repeat;
   }
@@ -38,7 +39,7 @@ export const FooterBox = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  @media screen and (min-width: 375px) and (max-width: 1000px) {
+  @media ${(props) => props.theme.mediaQuery.mobile} {
     flex-direction: column;
   }
 `;
@@ -52,10 +53,7 @@ export const SocialLink = styled.ul`
   gap: 20px;
   margin-top: 90px;
 
-  li {
-  }
-
-  @media screen and (min-width: 375px) and (max-width: 1000px) {
+  @media ${(props) => props.theme.mediaQuery.mobile} {
     margin-top: 30px;
   }
 `;
@@ -67,7 +65,7 @@ const aSocial = css`
   background-color: #d97652;
   border-radius: 50%;
 
-  @media screen and (min-width: 375px) and (max-width: 1000px) {
+  @media ${(props) => props.theme.mediaQuery.mobile} {
     width: 33px;
     height: 33px;
   }
@@ -80,7 +78,6 @@ export const BaseLink = styled.a`
 export const InstaLink = styled(BaseLink)`
   background: url(${insta}) #d97652 center no-repeat;
 `;
-
 export const YoutubeLink = styled(BaseLink)`
   background: url(${youtube}) #d97652 center no-repeat;
 `;

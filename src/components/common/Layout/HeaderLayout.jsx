@@ -8,7 +8,7 @@ export const Container = styled.div`
   max-width: 1280px;
   margin: 0 auto;
 
-  @media screen and (min-width: 375px) and (max-width: 1000px) {
+  @media ${(props) => props.theme.mediaQuery.mobile} {
     padding: 22px 0 0;
     text-align: center;
   }

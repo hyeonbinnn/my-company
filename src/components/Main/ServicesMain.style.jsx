@@ -28,7 +28,7 @@ export const H2 = styled.h2`
     font-size: 25px;
   }
 
-  @media ${'var(--mobile)'} {
+  @media ${(props) => props.theme.mediaQuery.mobile} {
     img {
       width: 35px;
       height: 35px;
