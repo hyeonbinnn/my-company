@@ -1,15 +1,22 @@
 import React from 'react';
-import * as S from './AboutHeader.style';
 import NavBar from '../common/Bar/NavBar';
+import { Header, Container } from '../common/Layout/HeaderLayout';
+import styled from 'styled-components';
 
 const AboutHeader = () => {
   return (
-    <S.CustomHeader>
-      <S.CustomContainer>
+    <CustomHeader>
+      <CustomContainer>
         <NavBar />
-      </S.CustomContainer>
-    </S.CustomHeader>
+      </CustomContainer>
+    </CustomHeader>
   );
 };
 
 export default AboutHeader;
+
+export const CustomHeader = styled(Header)``;
+
+export const CustomContainer = styled(Container)`
+  padding: 20px 0 170px;
+`;
