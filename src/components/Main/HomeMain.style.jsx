@@ -8,10 +8,6 @@ export const CustomMain = styled(Main)`
 
 export const Section1 = styled.section``;
 
-const mediaQuery = {
-  mobile: 'screen and (min-width: 375px) and (max-width: 1000px)',
-};
-
 export const Figure = styled.figure`
   display: flex;
   align-items: center;
@@ -35,7 +31,7 @@ export const Figure = styled.figure`
     }
   }
 
-  @media ${mediaQuery.mobile} {
+  @media ${'var(--mobile)'} {
     flex-direction: column;
     gap: 40px;
 
@@ -88,7 +84,7 @@ export const Section2 = styled.section`
     }
   }
 
-  @media ${mediaQuery.mobile} {
+  @media ${'var(--mobile)'} {
     margin: 60px 0 50px;
 
     h2 {
@@ -123,7 +119,7 @@ export const Post = styled.div`
   align-items: center;
   gap: 50px;
 
-  @media ${mediaQuery.mobile} {
+  @media ${'var(--mobile)'} {
     flex-direction: column;
 
     p {
@@ -148,7 +144,7 @@ export const Subscribe = styled.article`
   background-color: #263140;
   color: #fff;
 
-  @media ${mediaQuery.mobile} {
+  @media ${'var(--mobile)'} {
     flex-direction: column;
     gap: 30px;
   }
@@ -161,7 +157,7 @@ export const SubBox = styled.div`
     font-size: 36px;
     line-height: 45px;
 
-    @media ${mediaQuery.mobile} {
+    @media ${'var(--mobile)'} {
       margin-bottom: 20px;
       font-size: 24px;
       line-height: 30px;
@@ -184,7 +180,7 @@ export const Form = styled.form`
     background-image: url(${mail});
     z-index: 1;
 
-    @media ${mediaQuery.mobile} {
+    @media ${'var(--mobile)'} {
       width: 16px;
       height: 14px;
       left: 17px;
@@ -208,7 +204,7 @@ export const Input = styled.input`
     outline-offset: 3px;
   }
 
-  @media ${mediaQuery.mobile} {
+  @media ${'var(--mobile)'} {
     padding: 12px 48px;
     font-size: 12px;
   }
@@ -220,7 +216,7 @@ export const Button = styled.button`
   top: 50%;
   transform: translateY(-50%);
 
-  @media ${mediaQuery.mobile} {
+  @media ${'var(--mobile)'} {
     position: static;
     transform: none;
     float: right;

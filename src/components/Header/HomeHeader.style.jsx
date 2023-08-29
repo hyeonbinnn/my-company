@@ -11,10 +11,6 @@ const rotateAnimation = keyframes`
   }
 `;
 
-const mediaQuery = {
-  mobile: 'screen and (min-width: 375px) and (max-width: 1000px)',
-};
-
 export const CustomHeader = styled(Header)`
   background-color: #f2e9d8;
 `;
@@ -22,7 +18,7 @@ export const CustomHeader = styled(Header)`
 export const CustomContainer = styled(Container)`
   padding: 20px 0 262px;
 
-  @media ${mediaQuery.mobile} {
+  @media ${'var(--mobile)'} {
     height: 80vh;
     padding: 20px 0 200px;
   }
@@ -34,10 +30,10 @@ export const Earth = styled.div`
   background: url(${earth}) center right no-repeat;
   position: absolute;
   bottom: 30%;
-  right: 13%;
+  right: 10%;
   animation: ${rotateAnimation} 20s linear infinite;
 
-  @media ${mediaQuery.mobile} {
+  @media ${'var(--mobile)'} {
     background-size: 250px;
     background-position: center center;
     bottom: -5%;
@@ -61,7 +57,7 @@ export const Section = styled.section`
     margin: 40px 0;
   }
 
-  @media ${mediaQuery.mobile} {
+  @media ${'var(--mobile)'} {
     position: absolute;
     top: 25%;
     left: 50%;

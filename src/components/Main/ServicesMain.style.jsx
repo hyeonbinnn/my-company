@@ -10,10 +10,6 @@ export const Article = styled.article`
   padding: 30px;
 `;
 
-const mediaQuery = {
-  mobile: 'screen and (min-width: 375px) and (max-width: 1000px)',
-};
-
 export const H2 = styled.h2`
   img {
     width: 45px;
@@ -32,7 +28,7 @@ export const H2 = styled.h2`
     font-size: 25px;
   }
 
-  @media ${mediaQuery.mobile} {
+  @media ${'var(--mobile)'} {
     img {
       width: 35px;
       height: 35px;
