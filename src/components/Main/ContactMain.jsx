@@ -5,15 +5,16 @@ import MainLayout from '../common/Layout/MainLayout';
 
 const ContactMain = () => {
   return (
-    <MainLayout
-      icon={contact}
-      iconTxt="연락망 아이콘"
-      title="Contact"
-      desc="콜미콜미 나에게로 전화해줘"
-    >
+    <S.CustomMain>
+      <MainLayout
+        icon={contact}
+        iconTxt="연락망 아이콘"
+        title="Contact"
+        desc="콜미콜미 나에게로 전화해줘"
+      ></MainLayout>
       <S.Section1></S.Section1>
       <S.Section2></S.Section2>
-    </MainLayout>
+    </S.CustomMain>
   );
 };
 

@@ -25,6 +25,10 @@ export const Main = styled.main`
 
 export const Article = styled.article`
   padding: 30px 0px;
+
+  @media ${(props) => props.theme.mediaQuery.mobile} {
+    padding: 10px 0px;
+  }
 `;
 
 export const H2 = styled.h2`

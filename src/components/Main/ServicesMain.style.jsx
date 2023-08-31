@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Main } from './../common/Layout/MainLayout';
 
 export const CustomMain = styled(Main)`
-  padding: 0 20px;
+  padding: 0px 30px;
 `;
 
 export const Section = styled.section`
@@ -16,7 +16,7 @@ export const Section = styled.section`
   }
 
   li {
-    border-radius: 8px;
+    border-radius: 20px;
     overflow: hidden;
     box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.1);
     background: #fff;
