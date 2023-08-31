@@ -16,7 +16,7 @@ export const Section = styled.section`
   }
 
   li {
-    border-radius: 20px;
+    border-radius: 30px;
     overflow: hidden;
     box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.1);
     background: #fff;

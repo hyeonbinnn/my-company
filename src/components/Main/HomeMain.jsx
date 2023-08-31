@@ -67,7 +67,7 @@ const HomeMain = () => {
           </p>
         </S.SubBox>
         <S.Form>
-          <label for="inpEmail" class="a11y-hidden">
+          <label for="inpEmail" className="a11y-hidden">
             구독 이메일 입력창
           </label>
           <S.Input type="email" required placeholder="Enter your e-mail address" />
