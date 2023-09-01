@@ -16,7 +16,7 @@ export const CustomHeader = styled(Header)`
 `;
 
 export const CustomContainer = styled(Container)`
-  padding-bottom: 240px;
+  padding-bottom: 270px;
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
     height: 80vh;
@@ -29,7 +29,7 @@ export const Earth = styled.div`
   height: 420px;
   background: url(${earth}) center right no-repeat;
   position: absolute;
-  bottom: 30%;
+  bottom: 29%;
   right: 10%;
   animation: ${rotateAnimation} 20s linear infinite;
 
