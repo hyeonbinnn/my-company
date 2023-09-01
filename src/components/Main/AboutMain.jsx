@@ -2,6 +2,7 @@ import React from 'react';
 import * as S from './AboutMain.style';
 import about from '../../assets/about.png';
 import building from '../../assets/building.jpg';
+import companyColor from '../../assets/companyColor.png';
 import MainLayout from './../common/Layout/MainLayout';
 
 const AboutMain = () => {
@@ -13,6 +14,7 @@ const AboutMain = () => {
         title="About"
         desc="COMPANY는 지구의 평화를 위해, 세계인과 함께 합니다."
       ></MainLayout>
+
       <S.Section1>
         <ul>
           <li>
@@ -53,29 +55,63 @@ const AboutMain = () => {
           <img src={building} alt="회사 건물 이미지" />
         </div>
       </S.Section1>
-      <S.Line />
+
       <S.Section2>
         <h2>CEO</h2>
         <ul>
           <S.Li1>
             <button>
               <h3 className="a11y-hidden">CEO 경영자</h3>
-              <span>Jain</span>
+              <span>Jain Austin Oliver</span>
             </button>
           </S.Li1>
           <S.Li2>
             <button>
               <h3 className="a11y-hidden">CEO 경영자 말씀</h3>
-              <span>
-                If the earth and the environment cannot coexist, <br /> we have no future.
-              </span>
+              <p>
+                If the earth and the environment cannot coexist, <br /> we have no future
+              </p>
             </button>
           </S.Li2>
         </ul>
       </S.Section2>
-      <S.Line />
+
       <S.Section3>
-        <h2>Company</h2>
+        <h2>Brand</h2>
+        <S.Wrap>
+          <S.Brand>
+            <S.Title>
+              <strong>3 colors of the company</strong>
+              <p>Earth, Environment, People</p>
+            </S.Title>
+            <S.Desc>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem doloremque
+                vel eos saepe accusamus eum ipsa beatae veniam assumenda, neque esse architecto
+                similique odio eligendi necessitatibus dignissimos quia quasi soluta? Lorem ipsum
+                dolor sit amet consectetur adipisicing elit. Dolor recusandae explicabo assumenda
+                adipisci? Inventore, earum. Enim, nemo omnis laudantium laborum quasi nam unde
+                veritatis dolores, voluptatum doloribus, eius iusto aliquam.
+              </p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque dignissimos
+                laborum, quae aperiam soluta illo ex obcaecati necessitatibus consectetur officiis
+                reiciendis, voluptas hic error debitis quos veniam eaque velit eveniet? Lorem ipsum,
+                dolor sit amet consectetur adipisicing elit. Accusamus, illum possimus impedit,
+                ipsam adipisci eos quae quaerat ex dolore placeat dolores, sapiente voluptas at!
+                Nobis voluptate nulla qui atque laboriosam.
+              </p>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum a quibusdam explicabo
+                molestias ipsam quisquam doloribus. Ullam, necessitatibus molestias! Error aperiam
+                modi minus natus, obcaecati amet cumque facere ducimus atque.
+              </p>
+            </S.Desc>
+          </S.Brand>
+          <S.Color>
+            <img src={companyColor} alt="회사 상징 컬러 이미지" />
+          </S.Color>
+        </S.Wrap>
       </S.Section3>
     </S.CustomMain>
   );

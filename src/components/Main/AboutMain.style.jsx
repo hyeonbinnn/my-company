@@ -9,7 +9,19 @@ export const CustomMain = styled(Main)`
 
 export const Section1 = styled.section`
   display: flex;
+  position: relative;
+  margin-bottom: 140px;
   gap: 50px;
+
+  ::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: #edeeef;
+    position: absolute;
+    bottom: -80px;
+  }
 
   ul {
     display: flex;
@@ -18,8 +30,8 @@ export const Section1 = styled.section`
     margin: auto;
 
     h2 {
-      font-size: 30px;
-      margin-bottom: 20px;
+      font-size: 35px;
+      margin-bottom: 22px;
     }
   }
 
@@ -41,24 +53,35 @@ export const Section1 = styled.section`
       gap: 50px;
 
       h2 {
-        font-size: 25px;
-        margin-bottom: 15px;
+        font-size: 30px;
+        margin-bottom: 17px;
+      }
+    }
+
+    div {
+      img {
+        width: 350px;
       }
     }
   }
 `;
 
-export const Line = styled.div`
-  display: block;
-  width: 100%;
-  height: 4px;
-  background-color: #edeeef;
-  margin: 90px auto;
-`;
-
 export const Section2 = styled.section`
+  position: relative;
+  margin-bottom: 140px;
+
+  ::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: #edeeef;
+    position: absolute;
+    bottom: -80px;
+  }
+
   h2 {
-    font-size: 30px;
+    font-size: 35px;
     margin-bottom: 50px;
   }
 
@@ -69,19 +92,46 @@ export const Section2 = styled.section`
     gap: 30px;
 
     li {
+      position: relative;
       width: 100%;
       max-width: 610px;
       height: 410px;
       box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
       border-radius: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      ::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+        border-radius: 30px;
+      }
 
       button {
         color: white;
         font-size: 17px;
-        background-color: rgba(0, 0, 0, 0.3);
         padding: 20px;
-        border-radius: 30px;
-        border: 1px solid #e0e0e0;
+        border-radius: 20px;
+        z-index: 2;
+        margin: auto;
+
+        span,
+        p {
+          font-size: 20px;
+          line-height: 30px;
+
+          ::after {
+            content: '>';
+            margin-left: 10px;
+          }
+        }
       }
     }
   }
@@ -92,6 +142,10 @@ export const Section2 = styled.section`
       justify-content: center;
       align-items: center;
       gap: 50px;
+    }
+
+    h2 {
+      font-size: 30px;
     }
   }
 `;
@@ -108,8 +162,77 @@ export const Li2 = styled.li`
 `;
 
 export const Section3 = styled.section`
+  margin-bottom: 140px;
+
   h2 {
+    font-size: 35px;
+    margin-bottom: 30px;
+  }
+
+  @media ${(props) => props.theme.mediaQuery.mobile} {
+    h2 {
+      font-size: 30px;
+      margin-bottom: 50px;
+    }
+  }
+`;
+
+export const Wrap = styled.div`
+  display: flex;
+  gap: 50px;
+
+  @media ${(props) => props.theme.mediaQuery.mobile} {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+  }
+`;
+
+export const Brand = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  margin: auto;
+`;
+
+export const Title = styled.div`
+  strong {
+    display: block;
     font-size: 30px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 25px;
+  }
+
+  @media ${(props) => props.theme.mediaQuery.mobile} {
+    strong {
+      font-size: 25px;
+    }
+
+    p {
+      font-size: 20px;
+    }
+  }
+`;
+
+export const Desc = styled.div`
+  p:not(:last-child) {
+    margin-bottom: 30px;
+  }
+`;
+
+export const Color = styled.div`
+  img {
+    width: 310px;
+    gap: 50px;
+  }
+
+  @media ${(props) => props.theme.mediaQuery.mobile} {
+    img {
+      width: 270px;
+    }
   }
 `;
