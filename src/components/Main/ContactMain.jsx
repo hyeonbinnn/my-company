@@ -12,8 +12,12 @@ const ContactMain = () => {
         title="Contact"
         desc="찾아오시는 길"
       ></MainLayout>
-      <S.Section1></S.Section1>
-      <S.Section2></S.Section2>
+      <S.Section1>
+        <h2 className="a11y-hidden">찾아오시는 길 Map 지도</h2>
+      </S.Section1>
+      <S.Section2>
+        <h3 className="a11y-hidden">회사 정보 카드</h3>
+      </S.Section2>
     </S.CustomMain>
   );
 };
