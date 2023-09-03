@@ -32,10 +32,10 @@ const NavBar = () => {
             <Link to="/services">Services</Link>
           </li>
           <li>
-            <Link to="/contact">Contact</Link>
+            <Link to="/recruit">Recruit</Link>
           </li>
           <li>
-            <Link to="/recruit">Recruit</Link>
+            <Link to="/contact">Contact</Link>
           </li>
         </ul>
       </S.Nav>
