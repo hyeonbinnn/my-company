@@ -10,7 +10,7 @@ const ContactMain = () => {
         icon={contact}
         iconTxt="연락망 아이콘"
         title="Contact"
-        desc="콜미콜미 나에게로 전화해줘"
+        desc="찾아오시는 길"
       ></MainLayout>
       <S.Section1></S.Section1>
       <S.Section2></S.Section2>
