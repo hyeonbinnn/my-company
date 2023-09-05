@@ -226,13 +226,13 @@ export const Desc = styled.div`
 
 export const Color = styled.div`
   img {
-    width: 310px;
+    width: 300px;
     gap: 50px;
   }
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
     img {
-      width: 270px;
+      width: 250px;
     }
   }
 `;
