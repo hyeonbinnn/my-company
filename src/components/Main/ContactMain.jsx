@@ -2,8 +2,7 @@ import React from 'react';
 import * as S from './ContactMain.style';
 import contact from '../../assets/contact.png';
 import MainLayout from '../common/Layout/MainLayout';
-import { Map } from 'react-kakao-maps-sdk';
-import { MapMarker } from 'react-kakao-maps-sdk';
+import { Map, MapMarker } from 'react-kakao-maps-sdk';
 
 const ContactMain = () => {
   const center = {
