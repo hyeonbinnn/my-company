@@ -30,7 +30,7 @@ export const Earth = styled.div`
   background: url(${earth}) center right no-repeat;
   position: absolute;
   bottom: 29%;
-  right: 10%;
+  right: 14%;
   animation: ${rotateAnimation} 20s linear infinite;
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
