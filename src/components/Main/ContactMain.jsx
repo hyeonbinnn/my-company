@@ -6,8 +6,8 @@ import { Map, MapMarker } from 'react-kakao-maps-sdk';
 
 const ContactMain = () => {
   const center = {
-    lat: 33.450701,
-    lng: 126.570667,
+    lat: 37.566535,
+    lng: 126.9779692,
   };
 
   return (
@@ -35,6 +35,28 @@ const ContactMain = () => {
       </S.Section1>
       <S.Section2>
         <h3 className="a11y-hidden">회사 정보 카드</h3>
+        <S.Inform>
+          <ul>
+            <li>
+              <strong>주소</strong>
+              <span>|</span>서울특별시 가나구 다라동 마바내로 7 사아자빌딩 2층
+            </li>
+            <li>
+              <strong>TEL</strong>
+              <span>|</span>02-1234-6789 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <strong>FAX</strong>
+              <span>|</span>02-1234-6780
+            </li>
+            <li>
+              <strong>버스</strong>
+              <span>|</span>가나역 : 12, 34, 123, 789, 345
+            </li>
+            <li>
+              <strong>지하철</strong>
+              <span>|</span>가나구청역 7번 출구
+            </li>
+          </ul>
+        </S.Inform>
       </S.Section2>
     </S.CustomMain>
   );
