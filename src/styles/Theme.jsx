@@ -2,7 +2,7 @@ const colors = {
   primary: '#263140',
   secondary: '#d97652',
   third: '#f2e9d8',
-  fourth: '#FFF7F9',
+  fourth: '#ffffff',
 };
 
 const mediaQuery = {
