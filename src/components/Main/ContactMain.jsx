@@ -20,7 +20,8 @@ const ContactMain = () => {
       ></MainLayout>
       <S.Section1>
         <h2 className="a11y-hidden">찾아오시는 길 Map 지도</h2>
-        <Map // 지도 표시
+        <Map
+          // 지도 표시
           center={center}
           style={{
             // 지도의 크기
@@ -30,7 +31,9 @@ const ContactMain = () => {
           }}
           level={3} // 지도의 확대 레벨
         >
-          <MapMarker position={center} />
+          <MapMarker position={center}>
+            <div style={{ color: '#000', marginLeft: '45px' }}>Company</div>
+          </MapMarker>
         </Map>
       </S.Section1>
       <S.Section2>
