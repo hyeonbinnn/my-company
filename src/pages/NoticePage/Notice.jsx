@@ -1,16 +1,16 @@
 import React from 'react';
 import SocialBar from '../../components/common/Bar/SocialBar';
-import RecruitMain from './../../components/Main/RecruitMain';
+import NoticeMain from '../../components/Main/NoticeMain';
 import HeaderLayout from '../../components/common/Layout/HeaderLayout';
 
-const Recruit = () => {
+const Notice = () => {
   return (
     <>
       <HeaderLayout />
-      <RecruitMain />
+      <NoticeMain />
       <SocialBar />
     </>
   );
 };
 
-export default Recruit;
+export default Notice;

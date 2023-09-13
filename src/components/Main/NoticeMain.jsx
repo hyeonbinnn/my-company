@@ -1,16 +1,16 @@
 import React from 'react';
-import * as S from './RecruitMain.style';
-import recruit from '../../assets/recruit.png';
+import * as S from './NoticeMain.style';
+import notice from '../../assets/notice.png';
 import MainLayout from '../common/Layout/MainLayout';
 
-const RecruitMain = () => {
+const NoticeMain = () => {
   return (
     <S.CustomMain>
       <MainLayout
-        icon={recruit}
+        icon={notice}
         iconTxt="채용 모집 아이콘"
-        title="Recruit"
-        desc="콜미콜미 나를 채용해줘 모집모집"
+        title="Notice"
+        desc="공지 게시판"
       ></MainLayout>
       <S.Section1></S.Section1>
       <S.Section2></S.Section2>
@@ -18,4 +18,4 @@ const RecruitMain = () => {
   );
 };
 
-export default RecruitMain;
+export default NoticeMain;
