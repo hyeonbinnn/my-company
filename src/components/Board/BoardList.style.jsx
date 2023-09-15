@@ -1,23 +1,5 @@
 import styled from 'styled-components';
 
-export const Button = styled.button`
-  display: flex;
-  gap: 7px;
-  background-color: ${({ theme }) => theme.colors.primary};
-  border-radius: 10px;
-  padding: 7px 10px;
-  margin-left: auto;
-
-  strong {
-    color: ${({ theme }) => theme.colors.white};
-  }
-
-  img {
-    width: 15px;
-    padding-top: 2px;
-  }
-`;
-
 export const Table = styled.table`
   width: 100%;
   text-align: center;
@@ -49,5 +31,22 @@ export const Tbody = styled.tbody`
     font-size: 16px;
     padding: 18px;
     border-bottom: ${({ theme }) => `1px dotted ${theme.colors.gray}`};
+  }
+`;
+
+export const Button = styled.button`
+  float: right;
+  background-color: ${({ theme }) => theme.colors.primary};
+  border-radius: 10px;
+  padding: 7px 10px;
+
+  strong {
+    color: ${({ theme }) => theme.colors.white};
+    margin-right: 1px;
+  }
+
+  img {
+    width: 17px;
+    padding-top: 1px;
   }
 `;

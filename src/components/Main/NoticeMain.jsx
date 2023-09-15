@@ -9,7 +9,7 @@ const NoticeMain = () => {
     <S.CustomMain>
       <MainLayout
         icon={notice}
-        iconTxt="채용 모집 아이콘"
+        iconTxt="공지 아이콘"
         title="Notice"
         desc="공지 게시판"
       ></MainLayout>
