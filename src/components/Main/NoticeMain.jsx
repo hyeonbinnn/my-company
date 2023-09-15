@@ -2,6 +2,7 @@ import React from 'react';
 import * as S from './NoticeMain.style';
 import notice from '../../assets/notice.png';
 import MainLayout from '../common/Layout/MainLayout';
+import BoardList from '../Board/BoardList';
 
 const NoticeMain = () => {
   return (
@@ -12,8 +13,10 @@ const NoticeMain = () => {
         title="Notice"
         desc="공지 게시판"
       ></MainLayout>
-      <S.Section1></S.Section1>
-      <S.Section2></S.Section2>
+      <S.Section>
+        <h1 className="a11y-hidden">공지 게시판</h1>
+        <BoardList />
+      </S.Section>
     </S.CustomMain>
   );
 };
