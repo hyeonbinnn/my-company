@@ -1,66 +1,74 @@
 import React, { useState } from 'react';
 import * as S from './BoardForm.style';
+import { useNavigate } from 'react-router-dom';
 import check from '../../assets/check.png';
 
-const BoardForm = ({ onPostSubmit }) => {
-  const [formData, setFormData] = useState({ name: '', title: '', content: '' });
+const BoardForm = () => {
+  const navigate = useNavigate();
 
-  const handleInputChange = (e) => {
+  const [formData, setFormData] = useState({
+    name: '',
+    title: '',
+    content: '',
+  });
+
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
       [name]: value,
     });
-    console.log(formData);
   };
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
-    // 게시글 데이터를 생성
-    const newPost = {
-      name: formData.name,
-      title: formData.title,
-    };
+    // 현재 날짜 생성
+    const currentDate = new Date().toLocaleDateString();
 
-    // 게시글 작성 완료 후 부모 컴포넌트로 데이터 전달
-    onPostSubmit(newPost);
+    // 이전에 저장된 게시글 수를 가져와 새로운 Num 생성
+    const prevNum = localStorage.getItem('num') || 0;
+    const newNum = parseInt(prevNum) + 1;
 
-    // 폼 초기화
-    setFormData({
-      name: '',
-      title: '',
-      content: '',
-    });
+    // 게시글 데이터를 로컬스토리지에 저장
+    localStorage.setItem(
+      `board_${newNum}`,
+      JSON.stringify({
+        num: newNum,
+        name: formData.name,
+        title: formData.title,
+        date: currentDate,
+      })
+    );
+
+    // Num 업데이트
+    localStorage.setItem('num', newNum);
+
+    // 공지 페이지로 이동
+    navigate('/notice');
   };
+
   return (
     <>
       <S.Form onSubmit={handleFormSubmit}>
         <S.Section>
-          <S.Div1>
+          <S.Div>
             <S.Name
               type="text"
               name="name"
               placeholder="이름"
               value={formData.name}
-              onChange={handleInputChange}
+              onChange={handleChange}
             />
             <S.Title
               type="text"
               name="title"
               placeholder="제목"
               value={formData.title}
-              onChange={handleInputChange}
+              onChange={handleChange}
             />
-          </S.Div1>
-
-          <S.Content
-            type="text"
-            name="content"
-            placeholder="내용"
-            value={formData.content}
-            onChange={handleInputChange}
-          />
+          </S.Div>
+          <S.Content type="text" name="content" placeholder="내용" />
         </S.Section>
         <S.Button type="submit">
           <strong>등록</strong> <img src={check} alt="게시글 등록 버튼 이미지" />

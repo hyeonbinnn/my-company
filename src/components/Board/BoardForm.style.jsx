@@ -15,7 +15,7 @@ export const Section = styled.section`
   overflow-x: hidden;
 `;
 
-export const Div1 = styled.div`
+export const Div = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
