@@ -38,6 +38,7 @@ const BoardForm = () => {
         name: formData.name,
         title: formData.title,
         date: currentDate,
+        content: formData.content,
       })
     );
 
@@ -68,7 +69,13 @@ const BoardForm = () => {
               onChange={handleChange}
             />
           </S.Div>
-          <S.Content type="text" name="content" placeholder="내용" />
+          <S.Content
+            type="text"
+            name="content"
+            placeholder="내용"
+            value={formData.content}
+            onChange={handleChange}
+          />
         </S.Section>
         <S.Button type="submit">
           <strong>등록</strong> <img src={check} alt="게시글 등록 버튼 이미지" />

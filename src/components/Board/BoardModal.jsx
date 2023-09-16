@@ -1,15 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const BoardModal = () => {
+const BoardModal = ({ boardData, selectedNum }) => {
+  // 선택된 게시글 데이터 찾기 (일치하는 번호 기준)
+  const selectedBoard = boardData.find((item) => item.num === selectedNum);
+
+  console.log('selectedNum:', selectedNum);
+  console.log('selectedBoard:', selectedBoard);
+
+  if (!selectedBoard) {
+    return <div>게시글을 찾을 수 없습니다 😭</div>;
+  }
+
   return (
     <>
       <Header>
-        <h2>Name : </h2>
-        <h2>Title : </h2>
+        <h2>Name : {selectedBoard.name}</h2>
+        <h2>Title : {selectedBoard.title}</h2>
       </Header>
       <Content>
-        <p>내용</p>
+        <p>{selectedBoard.content}</p>
       </Content>
     </>
   );
@@ -26,6 +36,10 @@ const Header = styled.div`
   border-radius: 20px;
   padding: 20px;
 
+  h2 {
+    font-size: 18px;
+  }
+
   h2:nth-child(1) {
     margin-right: 90px;
   }
@@ -37,7 +51,7 @@ const Header = styled.div`
     margin-bottom: 30px;
 
     h2 {
-      font-size: 18px;
+      font-size: 16px;
     }
 
     h2:nth-child(1) {

@@ -9,6 +9,7 @@ import BoardModal from './BoardModal';
 
 const BoardList = () => {
   const modalRef = useRef();
+  const [selectedNum, setSelectedNum] = useState(null);
   const [boardData, setBoardData] = useState(() => {
     const num = localStorage.getItem('num') || 0;
     const initialData = [];
@@ -25,8 +26,12 @@ const BoardList = () => {
 
   useEffect(() => {}, []);
 
-  const openModal = () => {
-    setShowModal(true);
+  const openModal = (num) => {
+    const selectedBoard = boardData.find((item) => item.num === num);
+    if (selectedBoard) {
+      setSelectedNum(num);
+      setShowModal(true);
+    }
   };
 
   const closeModal = () => {
@@ -61,7 +66,7 @@ const BoardList = () => {
             <TableColumn>
               <span
                 onClick={() => {
-                  openModal();
+                  openModal(item.num);
                   increaseViews(item.num);
                 }}
               >
@@ -81,7 +86,7 @@ const BoardList = () => {
       {showModal && (
         <ModalBg onClick={handleModalClick}>
           <ModalContent ref={modalRef}>
-            <BoardModal />
+            <BoardModal boardData={boardData} selectedNum={selectedNum} />
           </ModalContent>
         </ModalBg>
       )}
