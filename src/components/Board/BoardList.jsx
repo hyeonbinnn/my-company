@@ -1,63 +1,138 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import * as S from './BoardList.style';
+import styled from 'styled-components';
 import add from '../../assets/add.png';
+import TableWrap from './../common/Table/TableWrap';
+import TableRow from './../common/Table/TableRow';
+import TableColumn from './../common/Table/TableColumn';
 import BoardModal from './BoardModal';
 
 const BoardList = () => {
+  const modalRef = useRef();
+  const [boardData, setBoardData] = useState(() => {
+    const num = localStorage.getItem('num') || 0;
+    const initialData = [];
+
+    for (let i = 1; i <= num; i++) {
+      const boardItem = JSON.parse(localStorage.getItem(`board_${i}`));
+      initialData.push(boardItem);
+    }
+
+    return initialData;
+  });
+
   const [showModal, setShowModal] = useState(false);
-  const [selectedPost, setSelectedPost] = useState(null);
 
-  const [posts, setPosts] = useState([]);
+  useEffect(() => {}, []);
 
-  const handlePostSubmit = (newPost) => {
-    // 새로운 게시글을 목록에 추가
-    setPosts([...posts, newPost]);
-  };
-
-  const handleModalOpen = (post) => {
-    setSelectedPost(post);
+  const openModal = () => {
     setShowModal(true);
   };
 
-  const handleModalClose = () => {
-    setSelectedPost(null);
+  const closeModal = () => {
     setShowModal(false);
+  };
+
+  const handleModalClick = (e) => {
+    if (modalRef.current && !modalRef.current.contains(e.target)) {
+      closeModal();
+    }
+  };
+
+  const increaseViews = (num) => {
+    const updatedData = boardData.map((item) => {
+      if (item.num === num) {
+        const updatedViews = (item.views || 0) + 1;
+        localStorage.setItem(`board_${num}`, JSON.stringify({ ...item, views: updatedViews }));
+        return { ...item, views: updatedViews };
+      }
+      return item;
+    });
+    setBoardData(updatedData);
   };
 
   return (
     <>
-      <S.Table>
-        <S.Thead>
-          <tr>
-            <th>Num</th>
-            <th>Name</th>
-            <th>Title</th>
-            <th>Date</th>
-            <th>Views</th>
-          </tr>
-        </S.Thead>
-        <S.Tbody>
-          {posts.map((post, index) => (
-            <tr key={index} onClick={() => handleModalOpen(post)}>
-              <td>{index + 1}</td>
-              <td>{post.name}</td>
-              <td>{post.title}</td>
-              <td>{post.date}</td>
-              <td>{post.views}</td>
-            </tr>
-          ))}
-        </S.Tbody>
-      </S.Table>
-      <S.Button>
+      <TableWrap headersName={['Num', 'Name', 'Title', 'Date', 'Views']}>
+        {boardData.map((item) => (
+          <TableRow key={item.num}>
+            <TableColumn>{item.num}</TableColumn>
+            <TableColumn>{item.name}</TableColumn>
+            <TableColumn>
+              <span
+                onClick={() => {
+                  openModal();
+                  increaseViews(item.num);
+                }}
+              >
+                {item.title}
+              </span>
+            </TableColumn>
+            <TableColumn>{item.date}</TableColumn>
+            <TableColumn>{item.views !== undefined ? item.views : 0}</TableColumn>
+          </TableRow>
+        ))}
+      </TableWrap>
+      <Button>
         <Link to="/board">
           <strong>게시글</strong> <img src={add} alt="게시글 추가 버튼 이미지" />
         </Link>
-      </S.Button>
-
-      {showModal && selectedPost && <BoardModal post={selectedPost} onClose={handleModalClose} />}
+      </Button>
+      {showModal && (
+        <ModalBg onClick={handleModalClick}>
+          <ModalContent ref={modalRef}>
+            <BoardModal />
+          </ModalContent>
+        </ModalBg>
+      )}
     </>
   );
 };
 
 export default BoardList;
+
+const Button = styled.button`
+  display: flex;
+  background-color: ${({ theme }) => theme.colors.primary};
+  border-radius: 10px;
+  padding: 7px 10px;
+  margin-left: auto;
+
+  strong {
+    color: ${({ theme }) => theme.colors.white};
+    margin-right: 1px;
+  }
+
+  img {
+    width: 17px;
+    padding-top: 1px;
+  }
+`;
+
+const ModalBg = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+`;
+
+const ModalContent = styled.div`
+  width: 80%;
+  max-width: 900px;
+  background-color: ${({ theme }) => theme.colors.third};
+  border-radius: 20px;
+  padding: 50px;
+  height: 500px;
+
+  @media ${(props) => props.theme.mediaQuery.mobile} {
+    width: 60%;
+    min-width: 320px;
+    height: auto;
+  }
+`;
