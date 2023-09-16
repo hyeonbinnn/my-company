@@ -70,6 +70,7 @@ const Content = styled.div`
     font-weight: bold;
     font-size: 15px;
     white-space: pre-line;
+    line-height: 1.6;
   }
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
