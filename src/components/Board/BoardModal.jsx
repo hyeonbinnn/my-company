@@ -5,8 +5,8 @@ const BoardModal = ({ boardData, selectedNum }) => {
   // 선택된 게시글 데이터 찾기 (일치하는 번호 기준)
   const selectedBoard = boardData.find((item) => item.num === selectedNum);
 
-  console.log('selectedNum:', selectedNum);
-  console.log('selectedBoard:', selectedBoard);
+  // console.log('selectedNum:', selectedNum);
+  // console.log('selectedBoard:', selectedBoard);
 
   if (!selectedBoard) {
     return <div>게시글을 찾을 수 없습니다 😭</div>;
@@ -34,10 +34,10 @@ const Header = styled.div`
   margin-bottom: 50px;
   background-color: ${({ theme }) => theme.colors.white};
   border-radius: 20px;
-  padding: 20px;
+  padding: 20px 30px;
 
   h2 {
-    font-size: 18px;
+    font-size: 17px;
   }
 
   h2:nth-child(1) {
@@ -62,13 +62,14 @@ const Header = styled.div`
 
 const Content = styled.div`
   background-color: ${({ theme }) => theme.colors.white};
-  padding: 30px 20px;
+  padding: 30px;
   border-radius: 20px;
   height: 300px;
 
   p {
     font-weight: bold;
     font-size: 15px;
+    white-space: pre-line;
   }
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
