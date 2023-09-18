@@ -1,12 +1,51 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import hands from '../../assets/hands.jpg';
 import * as S from './HomeMain.style';
 import astronaut from '../../assets/astronaut.jpg';
 import earthGirl from '../../assets/earthGirl.jpg';
 import animal from '../../assets/animal.jpg';
+import SubscribeModal from '../Modal/SubscribeModal';
 
 const HomeMain = () => {
+  const [email, setEmail] = useState('');
+  const [isValidEmail, setIsValidEmail] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // 이메일 주소 유효성 검사 정규식
+  const validateEmail = (email) => {
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    return emailRegex.test(email);
+  };
+
+  // input 값이 변경될 때마다 호출돼 유효성 검사하고 상태를 업데이트
+  const handleEmailChange = (e) => {
+    const inputEmail = e.target.value;
+    setEmail(inputEmail);
+    setIsValidEmail(validateEmail(inputEmail));
+  };
+
+  // submit 버튼을 클릭하면 handleSubmit 함수가 호출돼 유효한 이메일 주소인지 확인하고 처리
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (isValidEmail) {
+      // 유효한 이메일 주소를 사용하여 구독 신청을 처리
+      console.log('유효한 이메일 주소:', email);
+
+      // 완료 모달 나타나기
+      setIsModalOpen(true);
+
+      // 입력창 초기화
+      setEmail('');
+    } else {
+      alert('유효하지 않은 이메일 주소입니다.');
+    }
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <S.CustomMain>
       <S.Section1>
@@ -66,16 +105,24 @@ const HomeMain = () => {
             Lorem Ipsum has been the industry's standard dummy text
           </p>
         </S.SubBox>
-        <S.Form>
+        <S.Form onSubmit={handleSubmit}>
           <label for="inpEmail" className="a11y-hidden">
             구독 이메일 입력창
           </label>
-          <S.Input type="email" required placeholder="Enter your e-mail address" />
+          <S.Input
+            type="email"
+            required
+            placeholder="Enter your e-mail address"
+            value={email}
+            onChange={handleEmailChange}
+            className={!isValidEmail ? 'invalid-email' : ''}
+          />
           <S.Button type="submit" className="common-button">
             subscribe
           </S.Button>
         </S.Form>
       </S.Subscribe>
+      {isModalOpen && <SubscribeModal onClose={closeModal} />}
     </S.CustomMain>
   );
 };
