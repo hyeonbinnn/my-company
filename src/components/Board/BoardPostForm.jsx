@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import * as S from './BoardForm.style';
+import * as S from './BoardPostForm.style';
 import { useNavigate } from 'react-router-dom';
 import check from '../../assets/check.png';
 
-const BoardForm = () => {
+const BoardPostForm = () => {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -85,4 +85,4 @@ const BoardForm = () => {
   );
 };
 
-export default BoardForm;
+export default BoardPostForm;

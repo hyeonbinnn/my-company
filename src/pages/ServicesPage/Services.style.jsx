@@ -1,12 +1,12 @@
 import styled from 'styled-components';
-import { Main } from './../common/Layout/MainLayout';
+import { Main } from '../../components/common/Layout/MainLayout';
 
 export const CustomMain = styled(Main)`
   padding: 0px 30px;
 `;
 
 export const Section = styled.section`
-  padding-bottom: 40px;
+  padding-bottom: 80px;
   ul {
     display: grid;
     /* grid-template-columns: repeat(4, 288px); */

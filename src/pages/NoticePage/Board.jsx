@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import HeaderLayout from '../../components/common/Layout/HeaderLayout';
 import SocialBar from '../../components/common/Bar/SocialBar';
-import BoardForm from '../../components/Board/BoardForm';
+import BoardPostForm from '../../components/Board/BoardPostForm';
 import { Main } from '../../components/common/Layout/MainLayout';
 import board from '../../assets/board.png';
 import MainLayout from '../../components/common/Layout/MainLayout';
@@ -22,7 +22,7 @@ const Board = () => {
           title="Board"
           desc="게시글 작성"
         ></MainLayout>
-        <BoardForm />
+        <BoardPostForm />
       </CustomMain>
       <SocialBar />
     </>

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Main } from './../common/Layout/MainLayout';
+import { Main } from '../../components/common/Layout/MainLayout';
 
 export const CustomMain = styled(Main)`
   padding: 0px 30px;

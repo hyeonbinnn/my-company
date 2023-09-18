@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import mail from '../../assets/mail.png';
-import { Main } from './../common/Layout/MainLayout';
+import { Main } from '../../components/common/Layout/MainLayout';
 
 export const CustomMain = styled(Main)`
   margin: 80px auto 0;
