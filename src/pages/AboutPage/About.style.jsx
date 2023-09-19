@@ -53,7 +53,7 @@ export const Section1 = styled.section`
       gap: 50px;
 
       h2 {
-        font-size: 30px;
+        font-size: 28px;
         margin-bottom: 17px;
       }
     }
@@ -145,7 +145,7 @@ export const Section2 = styled.section`
     }
 
     h2 {
-      font-size: 30px;
+      font-size: 28px;
     }
   }
 `;
@@ -171,8 +171,8 @@ export const Section3 = styled.section`
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
     h2 {
-      font-size: 30px;
-      margin-bottom: 50px;
+      font-size: 28px;
+      margin-bottom: 40px;
     }
   }
 `;
