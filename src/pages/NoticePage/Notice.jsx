@@ -4,7 +4,7 @@ import SocialBar from '../../components/common/Bar/SocialBar';
 import HeaderLayout from '../../components/common/Layout/HeaderLayout';
 import notice from '../../assets/notice.png';
 import MainLayout from '../../components/common/Layout/MainLayout';
-import BoardList from '../../components/Board/BoardList';
+import PostList from '../../components/Post/PostList';
 
 const Notice = () => {
   return (
@@ -19,7 +19,7 @@ const Notice = () => {
         ></MainLayout>
         <S.Section>
           <h1 className="a11y-hidden">공지 게시판</h1>
-          <BoardList />
+          <PostList />
         </S.Section>
       </S.CustomMain>
       <SocialBar />
