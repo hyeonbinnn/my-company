@@ -6,7 +6,7 @@ import Services from '../pages/ServicesPage/Services';
 import Contact from '../pages/ContactPage/Contact';
 import Notice from '../pages/NoticePage/Notice';
 import Post from '../pages/NoticePage/Post';
-// import Error404 from '../pages/ErrorPage/Error404';
+import Error404 from '../pages/ErrorPage/Error404';
 
 const Router = () => {
   return (
@@ -18,8 +18,8 @@ const Router = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/notice" element={<Notice />} />
         <Route path="/notice/post" element={<Post />} />
-        {/* <Route path="*" element={<Error404 />} />
-        <Route path="/notfound" element={<Error404 />} /> */}
+        <Route path="*" element={<Error404 />} />
+        <Route path="/error" element={<Error404 />} />
       </Routes>
     </BrowserRouter>
   );
