@@ -2,9 +2,9 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from '../pages/HomePage/Home';
 import About from '../pages/AboutPage/About';
-import Ceo from '../pages/AboutPage/Ceo';
-import Services from '../pages/ServicesPage/Services';
-import ServiceDetail from '../pages/ServicesPage/ServiceDetail';
+import AboutCeo from '../pages/AboutPage/AboutCeo';
+import Service from '../pages/ServicePage/Service';
+import ServiceDetail from '../pages/ServicePage/ServiceDetail';
 import Contact from '../pages/ContactPage/Contact';
 import Notice from '../pages/NoticePage/Notice';
 import Post from '../pages/NoticePage/Post';
@@ -16,9 +16,9 @@ const Router = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/about/ceo" element={<Ceo />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/services/detail" element={<ServiceDetail />} />
+        <Route path="/about/ceo" element={<AboutCeo />} />
+        <Route path="/service" element={<Service />} />
+        <Route path="/service/detail" element={<ServiceDetail />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/notice" element={<Notice />} />
         <Route path="/notice/post" element={<Post />} />
