@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import * as S from './Service.style';
 import HeaderLayout from '../../components/common/Layout/HeaderLayout';
 import SocialBar from '../../components/common/Bar/SocialBar';
@@ -22,13 +21,11 @@ const Service = () => {
           <ul>
             {servicesData.map((service, index) => (
               <li key={service.id}>
-                <Link to="/service/detail">
-                  <img src={service.imgSrc} alt={`서비스 ${index + 1}`} />
-                  <div>
-                    <h3>{service.title}</h3>
-                    <span>{service.desc}</span>
-                  </div>
-                </Link>
+                <img src={service.imgSrc} alt={`서비스 ${index + 1}`} />
+                <div>
+                  <h3>{service.title}</h3>
+                  <span>{service.desc}</span>
+                </div>
               </li>
             ))}
           </ul>
