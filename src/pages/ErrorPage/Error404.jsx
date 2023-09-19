@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import companyMini from '../../assets/companyMini.png';
 
@@ -10,23 +10,21 @@ const Error404 = () => {
     navigate(-1);
   };
 
-  const goMain = () => {
-    navigate('/');
-  };
-
   return (
     <Main>
       <Container>
         <ErrorBox>
           <h2>Error 404</h2>
           <p>
-            서비스 이용에 불편을 들 죄송합니다. <br />
+            서비스 이용에 불편을 드려 죄송합니다. <br />
             페이지를 찾을 수 없습니다.
           </p>
         </ErrorBox>
         <ErrorButton>
           <Btn1 onClick={goBack}>이전 페이지</Btn1>
-          <Btn2 onClick={goMain}>메인 페이지</Btn2>
+          <Link to="/">
+            <Btn2>메인 페이지</Btn2>
+          </Link>
         </ErrorButton>
       </Container>
     </Main>
@@ -78,6 +76,8 @@ const ErrorButton = styled.div`
 
 const Btn1 = styled.button`
   border: ${({ theme }) => `3px solid ${theme.colors.secondary}`};
+
+  };
 `;
 const Btn2 = styled.button`
   border: ${({ theme }) => `3px solid ${theme.colors.primary}`};
