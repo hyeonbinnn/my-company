@@ -1,14 +1,24 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 import * as S from './About.style';
 import HeaderLayout from '../../components/common/Layout/HeaderLayout';
 import SocialBar from './../../components/common/Bar/SocialBar';
 import MainLayout from '../../components/common/Layout/MainLayout';
+import CeoModal from '../../components/Modal/CeoModal';
 import about from '../../assets/about.png';
 import building from '../../assets/building.jpg';
 import companyColor from '../../assets/companyColor.png';
 
 const About = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <>
       <HeaderLayout />
@@ -65,25 +75,22 @@ const About = () => {
           <h2>CEO</h2>
           <ul>
             <S.Li1>
-              <button>
+              <button onClick={openModal}>
                 <h3 className="a11y-hidden">CEO 경영자</h3>
-                <Link to="/about/ceo">
-                  <span>Jain Austin Oliver</span>
-                </Link>
+                <span>Jain Austin Oliver</span>
               </button>
             </S.Li1>
             <S.Li2>
-              <button>
+              <button onClick={openModal}>
                 <h3 className="a11y-hidden">CEO 경영자 말씀</h3>
-                <Link to="/about/ceo">
-                  <p>
-                    If the earth and the environment cannot coexist, <br /> we have no future
-                  </p>
-                </Link>
+                <p>
+                  If the earth and the environment cannot coexist, <br /> we have no future
+                </p>
               </button>
             </S.Li2>
           </ul>
         </S.Section2>
+        {isModalOpen && <CeoModal onClose={closeModal} />}
 
         <S.Section3>
           <h2>Brand</h2>
