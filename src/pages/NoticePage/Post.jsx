@@ -19,7 +19,7 @@ const Post = () => {
         <MainLayout
           icon={post}
           iconTxt="게시글 작성 아이콘"
-          title="Board"
+          title="Post"
           desc="게시글 작성"
         ></MainLayout>
         <PostForm />
