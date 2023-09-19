@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import * as S from './About.style';
 import HeaderLayout from '../../components/common/Layout/HeaderLayout';
 import SocialBar from './../../components/common/Bar/SocialBar';
@@ -66,15 +67,19 @@ const About = () => {
             <S.Li1>
               <button>
                 <h3 className="a11y-hidden">CEO 경영자</h3>
-                <span>Jain Austin Oliver</span>
+                <Link to="/about/ceo">
+                  <span>Jain Austin Oliver</span>
+                </Link>
               </button>
             </S.Li1>
             <S.Li2>
               <button>
                 <h3 className="a11y-hidden">CEO 경영자 말씀</h3>
-                <p>
-                  If the earth and the environment cannot coexist, <br /> we have no future
-                </p>
+                <Link to="/about/ceo">
+                  <p>
+                    If the earth and the environment cannot coexist, <br /> we have no future
+                  </p>
+                </Link>
               </button>
             </S.Li2>
           </ul>
