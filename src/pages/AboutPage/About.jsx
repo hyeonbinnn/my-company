@@ -28,7 +28,7 @@ const About = () => {
           iconTxt="회사 건물 아이콘"
           title="About"
           desc="COMPANY는 지구의 평화를 위해, 세계인과 함께 합니다."
-        ></MainLayout>
+        />
 
         <S.Section1>
           <ul>

@@ -101,7 +101,7 @@ export const Section2 = styled.section`
       overflow: scroll;
       padding-bottom: 20px;
       margin: 40px -20px 60px 0;
-      -webkit-overflow-scrolling: touch;
+
       li {
         flex-shrink: 0;
       }

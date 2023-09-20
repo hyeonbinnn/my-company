@@ -19,9 +19,9 @@ const Service = () => {
         />
         <S.Section>
           <ul>
-            {servicesData.map((service, index) => (
+            {servicesData.map((service) => (
               <li key={service.id}>
-                <img src={service.imgSrc} alt={`서비스 ${index + 1}`} />
+                <img src={service.imgSrc} alt={service.title} />
                 <div>
                   <h3>{service.title}</h3>
                   <span>{service.desc}</span>

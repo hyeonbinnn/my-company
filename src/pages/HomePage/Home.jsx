@@ -95,7 +95,7 @@ const Home = () => {
               ipsum dolor sit amet consectetur adipisicing elit.
             </p>
             <button className="common-button">
-              <Link to="/services">Search More</Link>
+              <Link to="/service">Search More</Link>
             </button>
           </S.Post>
         </S.Section2>
@@ -109,7 +109,7 @@ const Home = () => {
             </p>
           </S.SubBox>
           <S.Form onSubmit={handleSubmit}>
-            <label for="inpEmail" className="a11y-hidden">
+            <label htmlFor="inpEmail" className="a11y-hidden">
               구독 이메일 입력창
             </label>
             <S.Input
