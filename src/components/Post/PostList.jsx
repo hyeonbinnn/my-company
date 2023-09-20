@@ -128,16 +128,15 @@ const ModalBg = styled.div`
 `;
 
 const ModalContent = styled.div`
-  width: 80%;
-  max-width: 900px;
+  max-width: 80%;
+  width: 800px;
+  height: 500px;
   background-color: ${({ theme }) => theme.colors.third};
   border-radius: 20px;
   padding: 50px;
-  height: 500px;
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
-    width: 60%;
-    min-width: 320px;
-    height: auto;
+    max-width: 70%;
+    padding: 40px;
   }
 `;

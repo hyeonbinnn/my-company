@@ -67,24 +67,18 @@ const ModalBg = styled.div`
 
 const Modal = styled.div`
   position: relative;
-  width: 700px;
+  width: 800px;
   max-width: 90%;
-  height: 80%;
+  height: 85%;
   background-color: ${({ theme }) => theme.colors.white};
   border-radius: 20px;
   padding: 20px;
   overflow-y: auto;
+  overflow-x: hidden;
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
-    width: 90%;
+    max-width: 80%;
   }
-
-  /* button {
-    float: right;
-    img {
-      width: 35px;
-    }
-  } */
 `;
 
 const BtnBox = styled.div`
@@ -92,6 +86,12 @@ const BtnBox = styled.div`
 
   img {
     width: 40px;
+  }
+
+  @media ${(props) => props.theme.mediaQuery.mobile} {
+    img {
+      width: 35px;
+    }
   }
 `;
 
@@ -103,7 +103,8 @@ const Section = styled.section`
   text-align: center;
 
   img {
-    width: 500px;
+    max-width: 100%;
+    width: 550px;
     margin: 30px auto 50px;
   }
 
@@ -123,7 +124,7 @@ const Section = styled.section`
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
     img {
-      width: 400px;
+      width: 380px;
     }
   }
 `;
