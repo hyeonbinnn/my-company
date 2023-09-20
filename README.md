@@ -76,10 +76,11 @@
 
 |   메인 홈 페이지   |   소개 페이지    |  서비스 페이지  | 공지 게시판 | 지도 및 연락망 |
 | :---------: | :---------: | :---------: | :---------: | :---------: |
-| ![home](https://github.com/hyeonbinnn/my-company/assets/117449788/5c0f01d3-1b19-4c3d-a4d1-52d9e99974ef) | ![about](https://github.com/hyeonbinnn/my-company/assets/117449788/d5115ce4-4412-4936-a21f-98276833ca4f) | ![service](https://github.com/hyeonbinnn/my-company/assets/117449788/d32bf6a9-ffd8-4793-97dd-f501a796ae34) | ![notice](https://github.com/hyeonbinnn/my-company/assets/117449788/7c970fbc-830b-4975-b05b-7fa739949bea) | ![contact](https://github.com/hyeonbinnn/my-company/assets/117449788/3465701c-128f-4c26-95e9-fdcf7531a1b6) |
+| ![home](https://github.com/hyeonbinnn/my-company/assets/117449788/ead60c7c-3e1a-48bb-b312-89421c6e8b4b) | ![about](https://github.com/hyeonbinnn/my-company/assets/117449788/d5115ce4-4412-4936-a21f-98276833ca4f) | ![service](https://github.com/hyeonbinnn/my-company/assets/117449788/d32bf6a9-ffd8-4793-97dd-f501a796ae34) | ![notice](https://github.com/hyeonbinnn/my-company/assets/117449788/7c970fbc-830b-4975-b05b-7fa739949bea) | ![contact](https://github.com/hyeonbinnn/my-company/assets/117449788/3465701c-128f-4c26-95e9-fdcf7531a1b6) |
 
 <br>
 <br>
+
 
 ### PC ver.
 
