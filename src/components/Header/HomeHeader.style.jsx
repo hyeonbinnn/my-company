@@ -20,7 +20,7 @@ export const CustomContainer = styled(Container)`
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
     height: 80vh;
-    padding-bottom: 200px;
+    padding-bottom: 190px;
   }
 `;
 
@@ -75,7 +75,7 @@ export const Earth = styled.div`
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
     text-align: center;
-    bottom: 40px;
+    bottom: 50px;
     left: 50%;
     transform: translateX(-50%);
 
