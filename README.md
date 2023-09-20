@@ -1,70 +1,79 @@
-# Getting Started with Create React App
+# 🏢 My-Company 
+![스크린샷 2023-09-20 210745](https://github.com/hyeonbinnn/my-company/assets/117449788/96fb4f07-edae-4fe9-b518-d314be4db88c)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<br>
+<br>
 
-## Available Scripts
+## 목차
+- [프로젝트 정보](#프로젝트-정보)
+- [폴더 구조](#폴더-구조)
+- [사용 기술](#사용-기술)
+- [구현 페이지](#구현-페이지)
+- [트러블 슈팅](#트러블-슈팅)
 
-In the project directory, you can run:
+<br>
+<br>
 
-### `npm start`
+## 프로젝트 정보
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+> ### 🏛️ My-Company : 회사 홈페이지 만들기
+> **구현 기간 :**  `2023.08.20 ~ 2023.08.31` <br>
+>
+> **배포 사이트 :**  <strong>[`배포 URL 바로가기`](https://my-companyyy.netlify.app)</strong>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<br>
+<br>
 
-### `npm test`
+## 폴더 구조
+```
+🏛️ MY-COMPANY
+├─ 📦 public
+│  ├─ ⭐ company.ico
+│  └─ 📃 index.html
+├─ 📦 src
+│  ├─ 📂 assets
+│  ├─ 📂 components
+│  │  ├─ 📂 common
+│  │  │  ├─ 📂 Bar
+│  │  │  ├─ 📂 Button
+│  │  │  ├─ 📂 Layout
+│  │  │  └─ 📂 Table
+│  │  ├─ 📂 Header
+│  │  ├─ 📂 Modal
+│  │  └─ 📂 Post
+│  ├─ 📂 pages
+│  │  ├─ 📂 AboutPage
+│  │  ├─ 📂 ContactPage
+│  │  ├─ 📂 ErrorPage
+│  │  ├─ 📂 HomePage
+│  │  ├─ 📂 NoticePage
+│  │  └─ 📂 ServicePage
+│  ├─ 📂 routes
+│  ├─ 📂 styles
+|  ├─ 📜 App.js
+|  └─ 📜 index.js
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<br>
+<br>
 
-### `npm run build`
+## 사용 기술
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<div>
+<img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white">
+<img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white">
+<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black">
+<img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black">
+<img src="https://img.shields.io/badge/Styled Components-DB7093?style=flat-square&logo=styled components&logoColor=white">
+</div>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<br>
+<br>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 구현 페이지
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- ### Home | 회사 메인 홈페이지
+- ### About | 회사 소개 페이지
+- ### Service | 회사 서비스 페이지
+- ### Notice | 회사 공지 게시판 페이지
+- ### Contact | 회사 지도 및 연락망 페이지
