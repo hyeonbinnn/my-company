@@ -1,13 +1,13 @@
 import React from 'react';
 import NavBar from '../common/Bar/NavBar';
 import * as S from './HomeHeader.style';
+import earth from '../../assets/earth.png';
 
 const HomeHeader = () => {
   return (
     <S.CustomHeader>
       <S.CustomContainer>
         <NavBar />
-        <S.Earth />
         <S.Section>
           <h2>
             Lorem Ipsum is simply
@@ -21,6 +21,9 @@ const HomeHeader = () => {
             unknown
           </p>
         </S.Section>
+        <S.Earth>
+          <img src={earth} alt="지구 모양 아이콘" />
+        </S.Earth>
       </S.CustomContainer>
     </S.CustomHeader>
   );

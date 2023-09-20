@@ -1,5 +1,4 @@
 import styled, { keyframes } from 'styled-components';
-import earth from '../../assets/earth.png';
 import { Header, Container } from '../common/Layout/HeaderLayout';
 
 const rotateAnimation = keyframes`
@@ -16,6 +15,7 @@ export const CustomHeader = styled(Header)`
 `;
 
 export const CustomContainer = styled(Container)`
+  position: relative;
   padding-bottom: 270px;
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
@@ -24,32 +24,16 @@ export const CustomContainer = styled(Container)`
   }
 `;
 
-export const Earth = styled.div`
-  width: 420px;
-  height: 420px;
-  background: url(${earth}) center right no-repeat;
-  position: absolute;
-  bottom: 29%;
-  right: 14%;
-  animation: ${rotateAnimation} 20s linear infinite;
-
-  @media ${(props) => props.theme.mediaQuery.mobile} {
-    background-size: 250px;
-    background-position: center center;
-    bottom: -5%;
-    right: 50%;
-    transform: translateX(50%);
-    animation: none;
-  }
-`;
-
 export const Section = styled.section`
+  position: relative;
+
   h2 {
     clear: both;
     font-weight: 700;
     font-size: 48px;
     line-height: 60px;
     position: relative;
+    z-index: 2;
   }
 
   p {
@@ -73,6 +57,30 @@ export const Section = styled.section`
       max-width: 280px;
       margin: 30px auto;
       font-size: 14px;
+    }
+  }
+`;
+
+export const Earth = styled.div`
+  position: absolute;
+  bottom: 26%;
+  left: 87%;
+  transform: translateX(-50%);
+  text-align: right;
+
+  img {
+    width: 400px;
+    animation: ${rotateAnimation} 20s linear infinite;
+  }
+
+  @media ${(props) => props.theme.mediaQuery.mobile} {
+    text-align: center;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    img {
+      width: 250px;
     }
   }
 `;
