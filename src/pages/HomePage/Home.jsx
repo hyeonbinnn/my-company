@@ -20,7 +20,7 @@ const Home = () => {
     return emailRegex.test(email);
   };
 
-  // input 값이 변경될 때마다 호출돼 유효성 검사하고 상태를 업데이트
+  // input 값이 변경될 때마다 호출돼, 유효성 검사를 하고 상태를 업데이트
   const handleEmailChange = (e) => {
     const inputEmail = e.target.value;
     setEmail(inputEmail);
