@@ -25,8 +25,6 @@ export const CustomContainer = styled(Container)`
 `;
 
 export const Section = styled.section`
-  position: relative;
-
   h2 {
     clear: both;
     font-weight: 700;
@@ -37,8 +35,9 @@ export const Section = styled.section`
   }
 
   p {
-    max-width: 439px;
+    max-width: 550px;
     margin: 40px 0;
+    line-height: 2;
   }
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
@@ -54,9 +53,10 @@ export const Section = styled.section`
     }
 
     p {
-      max-width: 280px;
+      max-width: 300px;
       margin: 30px auto;
       font-size: 14px;
+      line-height: 1.5;
     }
   }
 `;
@@ -75,7 +75,7 @@ export const Earth = styled.div`
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
     text-align: center;
-    bottom: 50px;
+    bottom: 40px;
     left: 50%;
     transform: translateX(-50%);
 
