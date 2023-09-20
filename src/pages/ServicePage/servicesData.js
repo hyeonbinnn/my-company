@@ -1,12 +1,12 @@
-import service01 from '../../assets/service01.jpg';
-import service02 from '../../assets/service02.jpg';
-import service03 from '../../assets/service03.jpg';
-import service04 from '../../assets/service04.jpg';
-import service05 from '../../assets/service05.jpg';
-import service06 from '../../assets/service06.jpg';
-import service07 from '../../assets/service07.jpg';
-import service08 from '../../assets/service08.jpg';
-import service09 from '../../assets/service09.jpg';
+import service01 from '../../assets/service01.webp';
+import service02 from '../../assets/service02.webp';
+import service03 from '../../assets/service03.webp';
+import service04 from '../../assets/service04.webp';
+import service05 from '../../assets/service05.webp';
+import service06 from '../../assets/service06.webp';
+import service07 from '../../assets/service07.webp';
+import service08 from '../../assets/service08.webp';
+import service09 from '../../assets/service09.webp';
 
 const servicesData = [
   {
