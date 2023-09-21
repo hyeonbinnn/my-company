@@ -98,4 +98,128 @@
 <br>
 
 ## 트러블 슈팅
+### ✔️ 게시글 클릭 시 조회수(Views) 관련 오류
+#### 문제점
+1. 초기 화면에 조회수(views) 부분이 0으로 나타나지 않는다.<br>
+2. 조회수가 올라가도 새로고침하면 다시 초기화된다.
+
+<br>
+
+#### 왜? Why?
+1. `useEffect`는 비동기로 동작하기 때문에 초기 렌더링 이후에 실행된다. 그래서 초기 렌더링 시, `boardData`에 데이터가 비어 있으니까 0으로? 표시되지 않는다. 즉, `useEffect`를 통해 데이터를 불러오는 비동기 작업이 발생하는 시점과 렌더링 시점에 따른 차이 때문이라고 생각한다. <br>
+2. 조회수도 로컬스토리지에 저장해야 새로고침해도 초기화가 안되는 거 아닐까...? 
+
+
+<br>
+
+#### 문제 코드
+```jsx
+const BoardList = () => {
+  const modalRef = useRef();
+  const [boardData, setBoardData] = useState(() => {
+    const num = localStorage.getItem('num') || 0;
+    const initialData = [];
+
+    for (let i = 1; i <= num; i++) {
+      const boardItem = JSON.parse(localStorage.getItem(`board_${i}`));
+      initialData.push(boardItem);
+    }
+
+    return initialData;
+  });
+
+  const [showModal, setShowModal] = useState(false);
+
+  useEffect(() => {}, []);
+
+  const openModal = () => {
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
+  const handleModalClick = (e) => {
+    if (modalRef.current && !modalRef.current.contains(e.target)) {
+      closeModal();
+    }
+  };
+
+  const increaseViews = (num) => {
+    const updatedData = boardData.map((item) => {
+      if (item.num === num) {
+        const updatedViews = (item.views || 0) + 1;
+        return { ...item, views: updatedViews };
+      }
+      return item;
+    });
+    setBoardData(updatedData);
+  };
+
+  return (
+    <>
+      <TableWrap headersName={['Num', 'Name', 'Title', 'Date', 'Views']}>
+        {boardData.map((item) => (
+          <TableRow key={item.num}>
+            <TableColumn>{item.num}</TableColumn>
+            <TableColumn>{item.name}</TableColumn>
+            <TableColumn>
+              <span
+                onClick={() => {
+                  openModal();
+                  increaseViews(item.num);
+                }}
+              >
+                {item.title}
+              </span>
+            </TableColumn>
+            <TableColumn>{item.date}</TableColumn>
+            <TableColumn>{item.views}</TableColumn>
+          </TableRow>
+        ))}
+      </TableWrap>
+      <Button>
+        <Link to="/board">
+          <strong>게시글</strong> <img src={add} alt="게시글 추가 버튼 이미지" />
+        </Link>
+      </Button>
+      {showModal && (
+        <ModalBg onClick={handleModalClick}>
+          <ModalContent ref={modalRef}>
+            <BoardModal />
+          </ModalContent>
+        </ModalBg>
+      )}
+    </>
+  );
+};
+
+export default BoardList;
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
