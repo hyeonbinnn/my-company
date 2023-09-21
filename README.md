@@ -106,9 +106,8 @@
 <br>
 
 #### 왜? Why?
-1. `useEffect`는 비동기로 동작하기 때문에 초기 렌더링 이후에 실행된다. 그래서 초기 렌더링 시, `boardData`에 데이터가 비어 있으니까 0으로? 표시되지 않는다. 즉, `useEffect`를 통해 데이터를 불러오는 비동기 작업이 발생하는 시점과 렌더링 시점에 따른 차이 때문이라고 생각한다. <br>
-2. 조회수도 로컬스토리지에 저장해야 새로고침해도 초기화가 안되는 거 아닐까...? 
-
+1. 조회수가 없을 때 0 대신 아무것도 표시되지 않는 이유는 **React**에서 0은 `falsy` 값으로 간주되니까... 값이 없을 경우 0으로 나타나게 조건으로 처리해야하지 않을까? <br>
+2. 아래 문제 코드에서는 조회수를 브라우저의 메모리에서만 관리하고 있으니까... 초기화되지 않으려면, 조회수도 값을 로컬스토리지에 저장해야 새로고침해야하지 않을까?
 
 <br>
 
@@ -129,8 +128,6 @@ const BoardList = () => {
   });
 
   const [showModal, setShowModal] = useState(false);
-
-  useEffect(() => {}, []);
 
   const openModal = () => {
     setShowModal(true);
@@ -197,19 +194,34 @@ const BoardList = () => {
 
 export default BoardList;
 ```
+<br>
+<br>
 
+#### 해결 방안
+1. `item.views`가 정의되어 있으면 그 조회수 값을 반환하고, 그렇지 않으면 0을 반환하면 된다.
+2. `localStorage.setItem`을 사용해 저장하고, 게시글을 클릭할 때 조회수를 증가시키면서 함께 로컬 스토리지에 업데이트하면 된다.
 
+<br>
 
+#### 해결 코드
+```jsx
+// 게시글 클릭 시, 조회수 증가 및 로컬 스토리지 업데이트
+const increaseViews = (num) => {
+  const updatedData = boardData.map((item) => {
+    if (item.num === num) {
+      const updatedViews = (item.views || 0) + 1;
+      // 로컬 스토리지에 업데이트된 조회수 저장
+      localStorage.setItem(`board_${num}`, JSON.stringify({ ...item, views: updatedViews }));
+      return { ...item, views: updatedViews };
+    }
+    return item;
+  });
+  setBoardData(updatedData);
+};
 
-
-
-
-
-
-
-
-
-
+// 조회수가 없을 때 0으로 대체
+<TableColumn>{item.views !== undefined ? item.views : 0}</TableColumn>
+```
 
 
 
