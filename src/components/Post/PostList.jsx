@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import add from '../../assets/add.png';
@@ -23,8 +23,6 @@ const PostList = () => {
   });
 
   const [showModal, setShowModal] = useState(false);
-
-  useEffect(() => {}, []);
 
   const openModal = (num) => {
     const selectedBoard = boardData.find((item) => item.num === num);
