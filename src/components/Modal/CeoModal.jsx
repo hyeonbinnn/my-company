@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import close from '../../assets/close.png';
-import people3 from '../../assets/people3.jpg';
+import people3 from '../../assets/people3.jpeg';
 
 const CeoModal = ({ onClose }) => {
   return (

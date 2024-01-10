@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import * as S from './Home.style';
 import HomeHeader from '../../components/Header/HomeHeader';
 import SocialBar from '../../components/Bar/SocialBar';
-import hands from '../../assets/hands.jpg';
-import astronaut from '../../assets/astronaut.jpg';
-import earthGirl from '../../assets/earthGirl.jpg';
-import animal from '../../assets/animal.jpg';
+import hands from '../../assets/hands.jpeg';
+import astronaut from '../../assets/astronaut.jpeg';
+import earthGirl from '../../assets/earthGirl.jpeg';
+import animal from '../../assets/animal.jpeg';
 import SubscribeModal from './../../components/Modal/SubscribeModal';
 
 const Home = () => {

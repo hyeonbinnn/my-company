@@ -5,7 +5,7 @@ import SocialBar from '../../components/Bar/SocialBar';
 import MainLayout from '../../components/Layout/MainLayout';
 import CeoModal from '../../components/Modal/CeoModal';
 import about from '../../assets/about.png';
-import building from '../../assets/building.jpg';
+import building from '../../assets/building.jpeg';
 import companyColor from '../../assets/companyColor.png';
 
 const About = () => {

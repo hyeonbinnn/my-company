@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
-import map_l from '../../assets/map_l.jpg';
-import map_s from '../../assets/map_s.jpg';
+import map_l from '../../assets/map_l.jpeg';
+import map_s from '../../assets/map_s.jpeg';
 import insta from '../../assets/insta.svg';
 import facebook from '../../assets/facebook.svg';
 import youtube from '../../assets/youtube.svg';
