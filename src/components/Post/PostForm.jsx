@@ -23,14 +23,13 @@ const BoardPostForm = () => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
-    // 현재 날짜 생성
     const currentDate = new Date().toLocaleDateString();
 
     // 이전에 저장된 게시글 수를 가져와 새로운 Num 생성
     const prevNum = localStorage.getItem('num') || 0;
     const newNum = parseInt(prevNum) + 1;
 
-    // 게시글 데이터를 로컬스토리지에 저장
+    // 게시글 데이터 로컬스토리지에 저장
     localStorage.setItem(
       `board_${newNum}`,
       JSON.stringify({
@@ -45,7 +44,6 @@ const BoardPostForm = () => {
     // Num 업데이트
     localStorage.setItem('num', newNum);
 
-    // 공지 페이지로 이동
     navigate('/notice');
   };
 

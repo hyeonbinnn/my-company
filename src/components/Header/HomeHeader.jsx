@@ -1,5 +1,5 @@
 import React from 'react';
-import NavBar from '../common/Bar/NavBar';
+import NavBar from '../Bar/NavBar';
 import * as S from './HomeHeader.style';
 import earth from '../../assets/earth.png';
 

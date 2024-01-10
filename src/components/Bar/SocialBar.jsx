@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import companyLogo from '../../../assets/companyLogo.png';
+import companyLogo from '../../assets/companyLogo.png';
 import * as S from './SocialBar.style';
 
 const SocialBar = () => {

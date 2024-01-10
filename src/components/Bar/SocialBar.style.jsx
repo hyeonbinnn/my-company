@@ -1,10 +1,10 @@
 import styled, { css } from 'styled-components';
-import map_l from '../../../assets/map_l.jpg';
-import map_s from '../../../assets/map_s.jpg';
-import insta from '../../../assets/insta.svg';
-import facebook from '../../../assets/facebook.svg';
-import youtube from '../../../assets/youtube.svg';
-import blog from '../../../assets/blog.svg';
+import map_l from '../../assets/map_l.jpg';
+import map_s from '../../assets/map_s.jpg';
+import insta from '../../assets/insta.svg';
+import facebook from '../../assets/facebook.svg';
+import youtube from '../../assets/youtube.svg';
+import blog from '../../assets/blog.svg';
 
 export const Footer = styled.footer``;
 

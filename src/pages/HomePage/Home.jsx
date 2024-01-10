@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import * as S from './Home.style';
 import HomeHeader from '../../components/Header/HomeHeader';
-import SocialBar from '../../components/common/Bar/SocialBar';
+import SocialBar from '../../components/Bar/SocialBar';
 import hands from '../../assets/hands.jpg';
 import astronaut from '../../assets/astronaut.jpg';
 import earthGirl from '../../assets/earthGirl.jpg';

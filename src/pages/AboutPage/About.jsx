@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import * as S from './About.style';
-import HeaderLayout from '../../components/common/Layout/HeaderLayout';
-import SocialBar from './../../components/common/Bar/SocialBar';
-import MainLayout from '../../components/common/Layout/MainLayout';
+import HeaderLayout from '../../components/Layout/HeaderLayout';
+import SocialBar from '../../components/Bar/SocialBar';
+import MainLayout from '../../components/Layout/MainLayout';
 import CeoModal from '../../components/Modal/CeoModal';
 import about from '../../assets/about.png';
 import building from '../../assets/building.jpg';

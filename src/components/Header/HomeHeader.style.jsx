@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import { Header, Container } from '../common/Layout/HeaderLayout';
+import { Header, Container } from '../Layout/HeaderLayout';
 
 const rotateAnimation = keyframes`
   from {

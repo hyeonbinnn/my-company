@@ -1,9 +1,9 @@
 import React from 'react';
 import * as S from './Notice.style';
-import SocialBar from '../../components/common/Bar/SocialBar';
-import HeaderLayout from '../../components/common/Layout/HeaderLayout';
+import SocialBar from '../../components/Bar/SocialBar';
+import HeaderLayout from '../../components/Layout/HeaderLayout';
 import notice from '../../assets/notice.png';
-import MainLayout from '../../components/common/Layout/MainLayout';
+import MainLayout from '../../components/Layout/MainLayout';
 import PostList from '../../components/Post/PostList';
 
 const Notice = () => {

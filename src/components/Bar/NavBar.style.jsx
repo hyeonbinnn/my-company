@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import menu from '../../../assets/menu.svg';
+import menu from '../../assets/menu.svg';
 
 export const Container = styled.header``;
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import * as S from './NavBar.style';
-import companyLogo from '../../../assets/companyLogo.png';
+import companyLogo from '../../assets/companyLogo.png';
 
 const NavBar = () => {
   const [navVisible, setNavVisible] = useState(false);

@@ -1,8 +1,8 @@
 import React from 'react';
 import * as S from './Service.style';
-import HeaderLayout from '../../components/common/Layout/HeaderLayout';
-import SocialBar from '../../components/common/Bar/SocialBar';
-import MainLayout from '../../components/common/Layout/MainLayout';
+import HeaderLayout from '../../components/Layout/HeaderLayout';
+import SocialBar from '../../components/Bar/SocialBar';
+import MainLayout from '../../components/Layout/MainLayout';
 import servicesData from './servicesData';
 import service from '../../assets/service.png';
 
@@ -21,7 +21,7 @@ const Service = () => {
           <ul>
             {servicesData.map((service) => (
               <li key={service.id}>
-                <img src={service.imgSrc} alt={service.title} />
+                <img src={service.imgSrc} alt={service.title} loading="lazy" />
                 <div>
                   <h3>{service.title}</h3>
                   <span>{service.desc}</span>
