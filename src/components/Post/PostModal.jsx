@@ -5,9 +5,6 @@ const PostModal = ({ boardData, selectedNum }) => {
   // 선택된 게시글 데이터 찾기 (일치하는 번호 기준)
   const selectedBoard = boardData.find((item) => item.num === selectedNum);
 
-  // console.log('selectedNum:', selectedNum);
-  // console.log('selectedBoard:', selectedBoard);
-
   if (!selectedBoard) {
     return <div>게시글을 찾을 수 없습니다 😭</div>;
   }
