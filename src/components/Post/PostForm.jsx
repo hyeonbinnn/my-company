@@ -26,7 +26,7 @@ const PostForm = () => {
       reset();
       goToNotice();
     } catch (error) {
-      console.log('게시글 업로드 실패', error);
+      console.error('게시글 업로드 실패', error);
     } finally {
       setLoading(false);
     }

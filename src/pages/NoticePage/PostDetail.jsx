@@ -25,7 +25,7 @@ const PostDetail = () => {
       const postData = await getDetailPost(id);
       setPost(postData);
     } catch (error) {
-      console.log('게시글 세부 정보 불러오는 중 오류 발생', error);
+      console.error('게시글 세부 정보 불러오는 중 오류 발생', error);
     }
   };
 

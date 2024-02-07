@@ -13,18 +13,18 @@ const PostList = () => {
   const [deletedPost] = useRecoilState(deletedPostState);
 
   useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const postsData = await getPost();
+        const latestPosts = postsData.slice(0, 20);
+        setPosts(latestPosts);
+      } catch (error) {
+        console.error('게시글을 불러오다 오류 발생', error);
+      }
+    };
+
     fetchPosts();
   }, []);
-
-  const fetchPosts = async () => {
-    try {
-      const postsData = await getPost();
-      const latestPosts = postsData.slice(0, 20);
-      setPosts(latestPosts);
-    } catch (error) {
-      console.log('게시글을 불러오다 오류 발생', error);
-    }
-  };
 
   return (
     <>
