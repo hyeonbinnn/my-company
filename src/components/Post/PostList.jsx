@@ -2,9 +2,9 @@ import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import add from '../../assets/add.png';
-import TableWrap from '../common/Table/TableWrap';
-import TableRow from '../common/Table/TableRow';
-import TableColumn from '../common/Table/TableColumn';
+import TableWrap from '../Table/TableWrap';
+import TableRow from '../Table/TableRow';
+import TableColumn from '../Table/TableColumn';
 import PostModal from './PostModal';
 
 const PostList = () => {

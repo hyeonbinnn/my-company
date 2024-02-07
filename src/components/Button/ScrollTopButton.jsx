@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import upArrow from '../../../assets/upArrow.png';
+import upArrow from '../../assets/upArrow.png';
 
 const ScrollTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);

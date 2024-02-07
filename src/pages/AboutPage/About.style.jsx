@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Main } from '../../components/common/Layout/MainLayout';
+import { Main } from '../../components/Layout/MainLayout';
 import people1 from '../../assets/people1.jpeg';
 import people2 from '../../assets/people2.jpeg';
 
