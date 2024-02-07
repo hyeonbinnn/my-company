@@ -7,6 +7,7 @@ import Contact from '../pages/ContactPage/Contact';
 import Notice from '../pages/NoticePage/Notice';
 import UploadPost from '../pages/NoticePage/UploadPost';
 import Error404 from '../pages/ErrorPage/Error404';
+import PostDetail from './../pages/NoticePage/PostDetail';
 
 const Router = () => {
   return (
@@ -18,7 +19,7 @@ const Router = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/notice" element={<Notice />} />
         <Route path="/notice/upload" element={<UploadPost />} />
-        {/* <Route path="/notice/:post_id" " element={<Post />} /> */}
+        <Route path="/notice/:id" element={<PostDetail />} />
         <Route path="*" element={<Error404 />} />
         <Route path="/error" element={<Error404 />} />
       </Routes>

@@ -18,12 +18,6 @@ export const createPost = async () => {
   return res.data;
 };
 
-// 포스터 수정
-export const putPost = async (id) => {
-  const res = await instance.put(`/posts/${id}`);
-  return res.data;
-};
-
 // 포스터 삭제
 export const deletePost = async (id) => {
   const res = await instance.delete(`/posts/${id}`);
