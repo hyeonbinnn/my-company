@@ -11,7 +11,7 @@ export const CustomMain = styled(Main)`
   padding: 0px 30px;
 `;
 
-const Post = () => {
+const UploadPost = () => {
   return (
     <>
       <HeaderLayout />
@@ -29,4 +29,4 @@ const Post = () => {
   );
 };
 
-export default Post;
+export default UploadPost;

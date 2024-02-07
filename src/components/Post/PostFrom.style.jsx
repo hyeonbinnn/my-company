@@ -11,26 +11,15 @@ export const Section = styled.section`
   flex-direction: column;
   gap: 20px;
   max-height: 600px;
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: hidden;
 `;
 
-export const Div = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  height: 50px;
-`;
-
-export const Name = styled.input`
-  width: 30%;
-  margin-right: 50px;
-  padding: 10px 20px;
-  outline: none;
-`;
+export const TitleBox = styled.div``;
+export const ContentBox = styled.div``;
 
 export const Title = styled.input`
-  width: 70%;
+  width: 100%;
+  height: 30px;
   padding: 10px 20px;
   outline: none;
 `;
@@ -45,21 +34,14 @@ export const Content = styled.textarea`
   border: none;
 `;
 
-export const Button = styled.button`
+export const UploadButton = styled.button`
   display: flex;
   gap: 5px;
   background-color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.white};
+  font-weight: bold;
   border-radius: 10px;
-  padding: 7px 10px;
+  padding: 10px;
   margin-top: 20px;
   margin-left: auto;
-
-  strong {
-    color: ${({ theme }) => theme.colors.white};
-  }
-
-  img {
-    width: 18px;
-    padding: 1px;
-  }
 `;

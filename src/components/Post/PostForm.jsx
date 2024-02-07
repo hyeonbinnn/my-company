@@ -1,86 +1,56 @@
-import React, { useState } from 'react';
-import * as S from './PostForm.style';
+import React from 'react';
+import * as S from './PostFrom.style';
+import { useForm } from 'react-hook-form';
+import { createPost } from '../../api/post';
 import { useNavigate } from 'react-router-dom';
-import check from '../../assets/check.png';
 
-const BoardPostForm = () => {
+const PostForm = () => {
+  const { register, handleSubmit, reset } = useForm();
+
   const navigate = useNavigate();
 
-  const [formData, setFormData] = useState({
-    name: '',
-    title: '',
-    content: '',
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
-
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-
-    const currentDate = new Date().toLocaleDateString();
-
-    // 이전에 저장된 게시글 수를 가져와 새로운 Num 생성
-    const prevNum = localStorage.getItem('num') || 0;
-    const newNum = parseInt(prevNum) + 1;
-
-    // 게시글 데이터 로컬스토리지에 저장
-    localStorage.setItem(
-      `board_${newNum}`,
-      JSON.stringify({
-        num: newNum,
-        name: formData.name,
-        title: formData.title,
-        date: currentDate,
-        content: formData.content,
-      })
-    );
-
-    // Num 업데이트
-    localStorage.setItem('num', newNum);
-
+  const goToNotice = () => {
     navigate('/notice');
   };
 
+  const onSubmit = handleSubmit((data) => {
+    createPost(data)
+      .then((res) => {
+        console.log('게시글이 업로드되었습니다.', res);
+        reset();
+        goToNotice();
+      })
+      .catch((error) => {
+        console.log('게시글 업로드 실패', error);
+      });
+  });
+
   return (
     <>
-      <S.Form onSubmit={handleFormSubmit}>
+      <S.Form onSubmit={onSubmit}>
         <S.Section>
-          <S.Div>
-            <S.Name
-              type="text"
-              name="name"
-              placeholder="이름"
-              value={formData.name}
-              onChange={handleChange}
+          <S.TitleBox>
+            <label htmlFor="title" className="a11y-hidden">
+              제목
+            </label>
+            <S.Title type="text" id="title" placeholder="제목" {...register('title')} />
+          </S.TitleBox>
+          <S.ContentBox>
+            <label htmlFor="content" className="a11y-hidden">
+              내용
+            </label>
+            <S.Content
+              type="body"
+              id="content"
+              placeholder="내용을 입력해주세요."
+              {...register('content')}
             />
-            <S.Title
-              type="text"
-              name="title"
-              placeholder="제목"
-              value={formData.title}
-              onChange={handleChange}
-            />
-          </S.Div>
-          <S.Content
-            type="text"
-            name="content"
-            placeholder="내용"
-            value={formData.content}
-            onChange={handleChange}
-          />
+          </S.ContentBox>
         </S.Section>
-        <S.Button type="submit">
-          <strong>등록</strong> <img src={check} alt="게시글 등록 버튼 이미지" />
-        </S.Button>
+        <S.UploadButton type="submit">업로드</S.UploadButton>
       </S.Form>
     </>
   );
 };
 
-export default BoardPostForm;
+export default PostForm;
