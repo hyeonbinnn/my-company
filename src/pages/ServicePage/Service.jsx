@@ -3,7 +3,7 @@ import * as S from './Service.style';
 import HeaderLayout from '../../components/Layout/HeaderLayout';
 import SocialBar from '../../components/Bar/SocialBar';
 import MainLayout from '../../components/Layout/MainLayout';
-import servicesData from './servicesData';
+import servicesData from '../../data/servicesData';
 import service from '../../assets/service.png';
 
 const Service = () => {
