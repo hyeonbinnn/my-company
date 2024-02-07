@@ -6,5 +6,5 @@ export const CustomMain = styled(Main)`
 `;
 
 export const Section = styled.section`
-  margin: -20px 0 80px 0;
+  margin: -20px 0 120px 0;
 `;

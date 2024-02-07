@@ -1,33 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 import * as S from './PostFrom.style';
 import { useForm } from 'react-hook-form';
 import { createPost } from '../../api/post';
 import { useNavigate } from 'react-router-dom';
+import { createdPostState, loadingState } from '../../recoil/atom/atoms';
+import { useSetRecoilState } from 'recoil';
 
 const PostForm = () => {
   const { register, handleSubmit, reset } = useForm();
-
+  const setLoading = useSetRecoilState(loadingState);
+  const setCreatedPost = useSetRecoilState(createdPostState);
   const navigate = useNavigate();
 
   const goToNotice = () => {
     navigate('/notice');
   };
 
-  const onSubmit = handleSubmit((data) => {
-    createPost(data)
-      .then((res) => {
-        console.log('게시글이 업로드되었습니다.', res);
-        reset();
-        goToNotice();
-      })
-      .catch((error) => {
-        console.log('게시글 업로드 실패', error);
-      });
-  });
+  const onSubmit = async (data) => {
+    setLoading(true);
+
+    try {
+      const res = await createPost(data);
+      console.log('게시글이 업로드되었습니다.', res);
+      setCreatedPost((prevPost) => [...prevPost, res]);
+      reset();
+      goToNotice();
+    } catch (error) {
+      console.log('게시글 업로드 실패', error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <>
-      <S.Form onSubmit={onSubmit}>
+      <S.Form onSubmit={handleSubmit(onSubmit)}>
         <S.Section>
           <S.TitleBox>
             <label htmlFor="title" className="a11y-hidden">
