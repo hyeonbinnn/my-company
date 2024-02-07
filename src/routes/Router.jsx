@@ -5,7 +5,7 @@ import About from '../pages/AboutPage/About';
 import Service from '../pages/ServicePage/Service';
 import Contact from '../pages/ContactPage/Contact';
 import Notice from '../pages/NoticePage/Notice';
-import Post from '../pages/NoticePage/Post';
+import UploadPost from '../pages/NoticePage/UploadPost';
 import Error404 from '../pages/ErrorPage/Error404';
 
 const Router = () => {
@@ -17,7 +17,8 @@ const Router = () => {
         <Route path="/service" element={<Service />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/notice" element={<Notice />} />
-        <Route path="/notice/post" element={<Post />} />
+        <Route path="/notice/upload" element={<UploadPost />} />
+        {/* <Route path="/notice/:post_id" " element={<Post />} /> */}
         <Route path="*" element={<Error404 />} />
         <Route path="/error" element={<Error404 />} />
       </Routes>
