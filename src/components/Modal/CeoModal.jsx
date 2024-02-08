@@ -1,18 +1,18 @@
 import React from 'react';
-import styled from 'styled-components';
+import * as S from './Modal.style';
 import close from '../../assets/close.png';
-import people3 from '../../assets/people3.jpeg';
+import people3 from '../../assets/people3.webp';
 
 const CeoModal = ({ onClose }) => {
   return (
-    <ModalBg>
-      <Modal>
-        <BtnBox>
+    <S.ModalBg>
+      <S.CeoModal>
+        <S.CloseBox>
           <button onClick={onClose}>
             <img src={close} alt="닫기 버튼 이미지" />
           </button>
-        </BtnBox>
-        <Section>
+        </S.CloseBox>
+        <S.Section>
           <img src={people3} alt="CEO 이미지" />
           <h2>CEO - Jain Austin Oliver</h2>
           <span>
@@ -44,87 +44,10 @@ const CeoModal = ({ onClose }) => {
             mollitia, quod laudantium enim voluptates tempore, autem illum libero aperiam inventore
             cumque veniam dignissimos, deleniti asperiores doloribus alias.
           </p>
-        </Section>
-      </Modal>
-    </ModalBg>
+        </S.Section>
+      </S.CeoModal>
+    </S.ModalBg>
   );
 };
 
 export default CeoModal;
-
-const ModalBg = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2;
-`;
-
-const Modal = styled.div`
-  position: relative;
-  width: 800px;
-  max-width: 90%;
-  height: 85%;
-  background-color: ${({ theme }) => theme.colors.white};
-  border-radius: 20px;
-  padding: 20px;
-  overflow-y: auto;
-  overflow-x: hidden;
-
-  @media ${(props) => props.theme.mediaQuery.mobile} {
-    max-width: 80%;
-  }
-`;
-
-const BtnBox = styled.div`
-  text-align: right;
-
-  img {
-    width: 40px;
-  }
-
-  @media ${(props) => props.theme.mediaQuery.mobile} {
-    img {
-      width: 35px;
-    }
-  }
-`;
-
-const Section = styled.section`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-
-  img {
-    max-width: 100%;
-    width: 550px;
-    margin: 30px auto 50px;
-  }
-
-  h2 {
-    margin-bottom: 15px;
-  }
-
-  span {
-    font-size: 17px;
-    font-weight: bold;
-    margin-bottom: 40px;
-  }
-
-  p {
-    margin-bottom: 40px;
-  }
-
-  @media ${(props) => props.theme.mediaQuery.mobile} {
-    img {
-      width: 380px;
-    }
-  }
-`;

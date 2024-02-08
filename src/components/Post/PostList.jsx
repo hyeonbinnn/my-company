@@ -27,7 +27,7 @@ const PostList = () => {
 
   return (
     <>
-      <TableWrap headersName={['ID', 'Title', 'Date', 'Views']}>
+      <TableWrap headersName={['ID', 'Title']}>
         {posts
           .filter((post) => !deletedPost.includes(post.id))
           .map((post) => (
@@ -36,8 +36,6 @@ const PostList = () => {
               <TableColumn>
                 <Link to={`/notice/${post.id}`}>{post.title}</Link>
               </TableColumn>
-              <TableColumn></TableColumn>
-              <TableColumn></TableColumn>
             </TableRow>
           ))}
       </TableWrap>

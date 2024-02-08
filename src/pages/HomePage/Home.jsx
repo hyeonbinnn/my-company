@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import * as S from './Home.style';
 import HomeHeader from '../../components/Header/HomeHeader';
 import SocialBar from '../../components/Bar/SocialBar';
-import hands from '../../assets/hands.jpeg';
+import hands from '../../assets/hands.webp';
 import astronaut from '../../assets/astronaut.jpeg';
 import earthGirl from '../../assets/earthGirl.jpeg';
 import animal from '../../assets/animal.jpeg';

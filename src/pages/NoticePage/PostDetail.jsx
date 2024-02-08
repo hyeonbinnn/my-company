@@ -9,11 +9,14 @@ import { getDetailPost, deletePost } from '../../api/post';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import { deletedPostState } from '../../recoil/atom/atoms';
+import DeleteModal from './../../components/Modal/DeleteModal';
+import { goToNotice } from './../../utils/utils';
 
 const PostDetail = () => {
+  const navigate = useNavigate();
   const { id } = useParams();
   const [post, setPost] = useState(null);
-  const navigate = useNavigate();
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [deletedPost, setDeletedPost] = useRecoilState(deletedPostState);
 
   useEffect(() => {
@@ -29,19 +32,25 @@ const PostDetail = () => {
     }
   };
 
-  const goToNotice = () => {
-    navigate('/notice');
-  };
-
   const handleDeletePost = async () => {
     try {
       await deletePost(id);
       setDeletedPost([...deletedPost, id]);
-      goToNotice();
+      goToNotice(navigate);
+      closeModal();
     } catch (error) {
       console.log('게시글 삭제 중 오류 발생', error);
     }
   };
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <>
       <HeaderLayout />
@@ -57,7 +66,7 @@ const PostDetail = () => {
             <S.PostSection>
               <S.Title>
                 <S.H3>{post.title}</S.H3>
-                <S.DeleteBtn onClick={handleDeletePost}>
+                <S.DeleteBtn onClick={openModal}>
                   <S.DeleteImg src={trash} alt="쓰레기통 아이콘" />
                 </S.DeleteBtn>
               </S.Title>
@@ -68,6 +77,7 @@ const PostDetail = () => {
         </S.Container>
       </S.CustomMain>
       <SocialBar />
+      {isModalOpen && <DeleteModal onClose={closeModal} onConfirm={handleDeletePost} />}
     </>
   );
 };

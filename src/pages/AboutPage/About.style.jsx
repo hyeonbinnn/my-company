@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Main } from '../../components/Layout/MainLayout';
-import people1 from '../../assets/people1.jpeg';
-import people2 from '../../assets/people2.jpeg';
+import people1 from '../../assets/people1.webp';
+import people2 from '../../assets/people2.webp';
 
 export const CustomMain = styled(Main)`
   padding: 0px 30px;

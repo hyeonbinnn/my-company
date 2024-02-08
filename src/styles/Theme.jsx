@@ -4,6 +4,9 @@ const colors = {
   third: '#f2e9d8',
   white: '#ffffff',
   gray: '#c9c9c9b8',
+  black: '#000000',
+  lightGray: '#7a7a7a',
+  darkGray: '#575757',
 };
 
 const mediaQuery = {

@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import map_l from '../../assets/map_l.jpeg';
+import map_l from '../../assets/map_l.webp';
 import map_s from '../../assets/map_s.jpeg';
 import insta from '../../assets/insta.svg';
 import facebook from '../../assets/facebook.svg';
