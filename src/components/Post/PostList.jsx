@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
 import TableWrap from './../Table/TableWrap';
 import TableRow from './../Table/TableRow';
 import TableColumn from './../Table/TableColumn';
@@ -42,20 +41,8 @@ const PostList = () => {
             </TableRow>
           ))}
       </TableWrap>
-      <Link to="/notice/upload">
-        <CreateBtn>게시글 작성</CreateBtn>
-      </Link>
     </>
   );
 };
 
 export default PostList;
-
-const CreateBtn = styled.button`
-  float: right;
-  background-color: ${({ theme }) => theme.colors.primary};
-  color: ${({ theme }) => theme.colors.white};
-  font-weight: bold;
-  border-radius: 10px;
-  padding: 10px;
-`;
