@@ -60,6 +60,11 @@ const ErrorBox = styled.div`
     font-size: 30px;
     margin-bottom: 30px;
   }
+
+  p {
+    font-weight: bold;
+    color: ${({ theme }) => theme.colors.black};
+  }
 `;
 
 const ErrorButton = styled.div`
@@ -71,14 +76,15 @@ const ErrorButton = styled.div`
     width: 100px;
     height: 40px;
     border-radius: 15px;
+    font-weight: bold;
   }
 `;
 
 const Btn1 = styled.button`
-  border: ${({ theme }) => `3px solid ${theme.colors.secondary}`};
-
-  };
+  border: ${({ theme }) => `3px solid ${theme.colors.lightGray}`};
+  color: ${({ theme }) => theme.colors.darkGray};
 `;
 const Btn2 = styled.button`
-  border: ${({ theme }) => `3px solid ${theme.colors.primary}`};
+  background-color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.white};
 `;
