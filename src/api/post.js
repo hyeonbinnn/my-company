@@ -43,3 +43,14 @@ export const deletePost = async (id) => {
     throw error;
   }
 };
+
+// 포스트 디테일 댓글
+export const getComment = async (id) => {
+  try {
+    const res = await postInstance.get(`/posts/${id}/comments`);
+    return res.data;
+  } catch (error) {
+    console.error('댓글 추가 중 에러 발생', error);
+    throw error;
+  }
+};
