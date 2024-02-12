@@ -36,7 +36,7 @@ export const Title = styled.div`
 
 export const H3 = styled.h3`
   @media ${(props) => props.theme.mediaQuery.mobile} {
-    max-width: 370px;
+    max-width: 340px;
     word-wrap: break-word;
   }
 `;

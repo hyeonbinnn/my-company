@@ -11,6 +11,8 @@ import { useRecoilState } from 'recoil';
 import { deletedPostState } from '../../recoil/atom/atoms';
 import DeleteModal from './../../components/Modal/DeleteModal';
 import { goToNotice } from './../../utils/utils';
+import CommentForm from '../../components/Comment/CommentForm';
+import CommentList from '../../components/Comment/CommentList';
 
 const PostDetail = () => {
   const navigate = useNavigate();
@@ -70,10 +72,11 @@ const PostDetail = () => {
                   <S.DeleteImg src={trash} alt="쓰레기통 아이콘" />
                 </S.DeleteBtn>
               </S.Title>
-
               <S.Content>{post.body}</S.Content>
             </S.PostSection>
           )}
+          <CommentForm />
+          <CommentList />
         </S.Container>
       </S.CustomMain>
       <SocialBar />
