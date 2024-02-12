@@ -29,7 +29,7 @@ export const Content = styled.textarea`
   height: 500px;
   padding: 20px;
   resize: vertical;
-  overflow-y: auto;
+  overflow: auto;
   outline: none;
   border: none;
 `;
