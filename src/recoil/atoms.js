@@ -10,6 +10,11 @@ export const createdPostState = atom({
   default: [],
 });
 
+export const postsState = atom({
+  key: 'postsState',
+  default: [],
+});
+
 export const loadingState = atom({
   key: 'loadingState',
   default: false,
