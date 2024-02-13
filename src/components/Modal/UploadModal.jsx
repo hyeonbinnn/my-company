@@ -1,15 +1,16 @@
 import React from 'react';
 import * as S from './Modal.style';
-import { useNavigate } from 'react-router-dom';
 import close from '../../assets/close.png';
-import { goToNotice } from './../../utils/utils';
+import { useNavigate } from 'react-router-dom';
+import { navigateTo, scrollToTop } from './../../utils/utils';
 
 const UploadModal = ({ onClose }) => {
   const navigate = useNavigate();
 
   const handleCloseAndNavigate = () => {
     onClose();
-    goToNotice(navigate);
+    navigateTo(navigate, '/notice');
+    scrollToTop();
   };
 
   return (

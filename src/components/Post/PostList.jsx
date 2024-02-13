@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import TableWrap from './../Table/TableWrap';
 import TableRow from './../Table/TableRow';
 import TableColumn from './../Table/TableColumn';
 import { getPost } from '../../api/post';
-import { useRecoilState } from 'recoil';
-import { deletedPostState } from '../../recoil/atom/atoms';
+import { useRecoilValue, useRecoilState } from 'recoil';
+import { deletedPostState, postsState } from '../../recoil/atoms';
 
 const PostList = () => {
-  const [posts, setPosts] = useState([]);
-  const [deletedPost] = useRecoilState(deletedPostState);
+  const [posts, setPosts] = useRecoilState(postsState);
+  const deletedPost = useRecoilValue(deletedPostState);
 
   useEffect(() => {
     const fetchPosts = async () => {

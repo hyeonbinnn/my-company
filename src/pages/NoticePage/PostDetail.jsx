@@ -8,9 +8,9 @@ import trash from '../../assets/trash.png';
 import { getDetailPost, deletePost } from '../../api/post';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
-import { deletedPostState } from '../../recoil/atom/atoms';
+import { deletedPostState } from '../../recoil/atoms';
 import DeleteModal from './../../components/Modal/DeleteModal';
-import { goToNotice } from './../../utils/utils';
+import { navigateTo, scrollToTop } from './../../utils/utils';
 import CommentForm from '../../components/Comment/CommentForm';
 import CommentList from '../../components/Comment/CommentList';
 
@@ -22,31 +22,27 @@ const PostDetail = () => {
   const [deletedPost, setDeletedPost] = useRecoilState(deletedPostState);
 
   useEffect(() => {
+    const fetchPostDetail = async () => {
+      try {
+        const postData = await getDetailPost(id);
+        setPost(postData);
+      } catch (error) {
+        console.error('게시글 세부 정보 불러오는 중 오류 발생', error);
+      }
+    };
     fetchPostDetail();
   }, [id]);
-
-  const fetchPostDetail = async () => {
-    try {
-      const postData = await getDetailPost(id);
-      setPost(postData);
-    } catch (error) {
-      console.error('게시글 세부 정보 불러오는 중 오류 발생', error);
-    }
-  };
 
   const handleDeletePost = async () => {
     try {
       await deletePost(id);
       setDeletedPost([...deletedPost, id]);
-      goToNotice(navigate);
+      navigateTo(navigate, '/notice');
+      scrollToTop();
       closeModal();
     } catch (error) {
       console.log('게시글 삭제 중 오류 발생', error);
     }
-  };
-
-  const openModal = () => {
-    setIsModalOpen(true);
   };
 
   const closeModal = () => {
@@ -68,7 +64,7 @@ const PostDetail = () => {
             <S.PostSection>
               <S.Title>
                 <S.H3>{post.title}</S.H3>
-                <S.DeleteBtn onClick={openModal}>
+                <S.DeleteBtn onClick={setIsModalOpen}>
                   <S.DeleteImg src={trash} alt="쓰레기통 아이콘" />
                 </S.DeleteBtn>
               </S.Title>
