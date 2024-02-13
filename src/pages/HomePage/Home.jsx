@@ -14,7 +14,7 @@ import { navigateTo, scrollToTop } from '../../utils/utils';
 const Home = () => {
   const [email, setEmail] = useState('');
   const [isValidEmail, setIsValidEmail] = useState(true);
-  const { isModalOpen, openModal, closeModal } = useModal;
+  const { isModalOpen, openModal, closeModal } = useModal();
   const navigate = useNavigate();
 
   const validateEmail = (email) => {
