@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import * as S from './About.style';
 import HeaderLayout from '../../components/Layout/HeaderLayout';
 import SocialBar from '../../components/Bar/SocialBar';
@@ -7,17 +7,10 @@ import CeoModal from '../../components/Modal/CeoModal';
 import about from '../../assets/about.png';
 import building from '../../assets/building.jpeg';
 import companyColor from '../../assets/companyColor.png';
+import useModal from './../../hooks/useModal';
 
 const About = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
+  const { isModalOpen, openModal, closeModal } = useModal();
 
   return (
     <>

@@ -1,16 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import * as S from './PostFrom.style';
 import { useForm } from 'react-hook-form';
 import { createPost } from '../../api/post';
-import { createdPostState, loadingState } from '../../recoil/atom/atoms';
+import { createdPostState, loadingState } from '../../recoil/atoms';
 import { useSetRecoilState } from 'recoil';
 import UploadModal from './../Modal/UploadModal';
+import useModal from './../../hooks/useModal';
 
 const PostForm = () => {
   const { register, handleSubmit, reset } = useForm();
   const setLoading = useSetRecoilState(loadingState);
   const setCreatedPost = useSetRecoilState(createdPostState);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { isModalOpen, openModal, closeModal } = useModal();
 
   const onSubmit = async (data) => {
     setLoading(true);
@@ -20,16 +21,12 @@ const PostForm = () => {
       console.log('게시글이 업로드되었습니다.', res);
       setCreatedPost((prevPost) => [...prevPost, res]);
       reset();
-      setIsModalOpen(true);
+      openModal();
     } catch (error) {
       console.error('게시글 업로드 실패', error);
     } finally {
       setLoading(false);
     }
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
   };
 
   return (

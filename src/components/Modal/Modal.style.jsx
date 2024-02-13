@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-// UploadModal, SubscribeModal
 export const ModalBg = styled.div`
   position: fixed;
   top: 0;
@@ -14,6 +13,7 @@ export const ModalBg = styled.div`
   z-index: 2;
 `;
 
+// UploadModal, SubscribeModal
 export const Modal = styled.div`
   position: relative;
   width: 350px;

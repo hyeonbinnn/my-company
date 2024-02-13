@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import * as S from './Home.style';
 import HomeHeader from '../../components/Header/HomeHeader';
 import SocialBar from '../../components/Bar/SocialBar';
@@ -8,45 +8,42 @@ import astronaut from '../../assets/astronaut.jpeg';
 import earthGirl from '../../assets/earthGirl.jpeg';
 import animal from '../../assets/animal.jpeg';
 import SubscribeModal from './../../components/Modal/SubscribeModal';
+import useModal from './../../hooks/useModal';
+import { navigateTo, scrollToTop } from '../../utils/utils';
 
 const Home = () => {
   const [email, setEmail] = useState('');
   const [isValidEmail, setIsValidEmail] = useState(true);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { isModalOpen, openModal, closeModal } = useModal;
+  const navigate = useNavigate();
 
-  // 이메일 주소 유효성 검사 정규식
   const validateEmail = (email) => {
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     return emailRegex.test(email);
   };
 
-  // input 값이 변경될 때마다 호출돼, 유효성 검사를 하고 상태를 업데이트
   const handleEmailChange = (e) => {
     const inputEmail = e.target.value;
     setEmail(inputEmail);
     setIsValidEmail(validateEmail(inputEmail));
   };
 
-  // submit 버튼을 클릭하면 handleSubmit 함수가 호출돼 유효한 이메일 주소인지 확인하고 처리
   const handleSubmit = (e) => {
     e.preventDefault();
     if (isValidEmail) {
-      // 유효한 이메일 주소를 사용하여 구독 신청을 처리
       console.log('유효한 이메일 주소:', email);
-
-      // 완료 모달 나타나기
-      setIsModalOpen(true);
-
-      // 입력창 초기화
+      openModal();
       setEmail('');
     } else {
       alert('유효하지 않은 이메일 주소입니다.');
     }
   };
 
-  const closeModal = () => {
-    setIsModalOpen(false);
+  const goToService = () => {
+    navigateTo(navigate, '/service');
+    scrollToTop();
   };
+
   return (
     <>
       <HomeHeader />
@@ -94,8 +91,8 @@ const Home = () => {
               unknown Ipsum is simply dummy text of the printing and typesetting industry. Lorem
               ipsum dolor sit amet consectetur adipisicing elit.
             </p>
-            <button className="common-button">
-              <Link to="/service">Search More</Link>
+            <button className="common-button" onClick={goToService}>
+              Search More
             </button>
           </S.Post>
         </S.Section2>

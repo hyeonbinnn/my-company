@@ -2,24 +2,22 @@ import React, { useState } from 'react';
 import * as S from './CommentForm.style';
 import comment from '../../assets/comment.png';
 import CommentModal from '../Modal/CommentModal';
+import useModal from './../../hooks/useModal';
 
 const CommentForm = () => {
   const [inputComment, setInputComment] = useState('');
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
+  const { isModalOpen, openModal, closeModal } = useModal();
 
   const onSubmit = (e) => {
     e.preventDefault();
-    setIsModalOpen(true);
+    openModal();
     setInputComment('');
   };
 
   const handleInputChange = (e) => {
     setInputComment(e.target.value);
   };
+
   return (
     <>
       <S.MainWrap>
