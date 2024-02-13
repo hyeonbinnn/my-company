@@ -4,9 +4,9 @@ import HeaderLayout from '../../components/Layout/HeaderLayout';
 import SocialBar from '../../components/Bar/SocialBar';
 import MainLayout from '../../components/Layout/MainLayout';
 import CeoModal from '../../components/Modal/CeoModal';
-import about from '../../assets/about.png';
+import about from '../../assets/about.svg';
 import building from '../../assets/building.jpeg';
-import companyColor from '../../assets/companyColor.png';
+import companyColor from '../../assets/companyColor.webp';
 import useModal from './../../hooks/useModal';
 
 const About = () => {
