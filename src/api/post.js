@@ -1,6 +1,6 @@
 import { postInstance } from './../axios';
 
-// 포스트 검색
+// 게시글 목록 가져오기
 export const getPost = async () => {
   try {
     const res = await postInstance.get('/posts');
@@ -11,7 +11,7 @@ export const getPost = async () => {
   }
 };
 
-// 포스트 디테일
+// 게시글 상세 가져오기
 export const getDetailPost = async (id) => {
   try {
     const res = await postInstance.get(`/posts/${id}`);
@@ -22,7 +22,7 @@ export const getDetailPost = async (id) => {
   }
 };
 
-// 포스트 생성
+// 게시글 생성
 export const createPost = async () => {
   try {
     const res = await postInstance.post('/posts');
@@ -33,7 +33,7 @@ export const createPost = async () => {
   }
 };
 
-// 포스터 삭제
+// 게시글 삭제제
 export const deletePost = async (id) => {
   try {
     const res = await postInstance.delete(`/posts/${id}`);
@@ -44,7 +44,7 @@ export const deletePost = async (id) => {
   }
 };
 
-// 포스트 디테일 댓글
+// 게시글 상세 댓글 가져오기
 export const getComment = async (id) => {
   try {
     const res = await postInstance.get(`/posts/${id}/comments`);
