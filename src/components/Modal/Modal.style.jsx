@@ -13,7 +13,7 @@ export const ModalBg = styled.div`
   z-index: 2;
 `;
 
-// UploadModal, SubscribeModal
+// UploadModal, SubscribeModal, CommentMOdal
 export const Modal = styled.div`
   position: relative;
   width: 350px;
@@ -21,13 +21,6 @@ export const Modal = styled.div`
   background-color: ${({ theme }) => theme.colors.white};
   border-radius: 20px;
   padding: 10px;
-`;
-
-export const Button = styled.button`
-  float: right;
-`;
-export const Img = styled.img`
-  width: 35px;
 `;
 
 export const ContentBox = styled.div`
@@ -107,24 +100,10 @@ export const CeoModal = styled(Modal)`
 `;
 
 export const CloseBox = styled.div`
-  text-align: right;
-
-  img {
-    width: 40px;
-  }
-
-  @media ${(props) => props.theme.mediaQuery.mobile} {
-    img {
-      width: 35px;
-    }
-  }
+  margin-bottom: 20px;
 `;
 
 export const Section = styled.section`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   text-align: center;
 
   img {

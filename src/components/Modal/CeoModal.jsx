@@ -1,16 +1,14 @@
 import React from 'react';
 import * as S from './Modal.style';
-import close from '../../assets/close.png';
 import people3 from '../../assets/people3.webp';
+import CloseButton from '../Button/CloseButton';
 
 const CeoModal = ({ onClose }) => {
   return (
     <S.ModalBg>
       <S.CeoModal>
         <S.CloseBox>
-          <button onClick={onClose}>
-            <img src={close} alt="닫기 버튼 이미지" />
-          </button>
+          <CloseButton onClose={onClose} />
         </S.CloseBox>
         <S.Section>
           <img src={people3} alt="CEO 이미지" />
