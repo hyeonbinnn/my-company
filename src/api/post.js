@@ -33,7 +33,7 @@ export const createPost = async () => {
   }
 };
 
-// 게시글 삭제제
+// 게시글 삭제
 export const deletePost = async (id) => {
   try {
     const res = await postInstance.delete(`/posts/${id}`);
