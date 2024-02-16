@@ -18,21 +18,20 @@
 <br>
 
 ## 프로젝트 정보
+### 🏢 My-Company : 회사 홈페이지 만들기
+마이 컴퍼니는 회사 소개, 제공하는 서비스, 뉴스 구독, 소통을 위한 게시판, 댓글, 연락망을 통해 사용자와 하나로 연결되는 웹사이트입니다. <br>
 
-> ### 🏢 My-Company : 회사 홈페이지 만들기
-> 마이 컴퍼니는 회사 소개, 제공하는 서비스, 뉴스 구독, 소통을 위한 게시판, 댓글, 연락망을 통해 사용자와 하나로 연결되는 웹사이트입니다. <br>
->
-> - **구현 기간 :**  `2023.12.02 ~ 2023.12.28`
-> - **배포 사이트 :**  <strong>[`배포 URL 바로가기`](https://my-companyyy.netlify.app)</strong>
-> <br><br>
-> 
-> 
-> ### 🏢 My-Company 소개
-> - 🌍 회사가 추구하는 가치와 방향성을 담아냈습니다. <br>
-> - 📩 이메일을 통해 구독 서비스를 제공합니다. <br>
-> - 💻 회사 브랜드와, CEO, 제공하는 서비스를 보여줍니다.<br>
-> - 🪧 게시판을 통해 게시글과 댓글을 작성하며 소통할 수 있습니다. <br>
-> - 🗺️ 지도기능과 위치 서비스를 통해 연락망을 구축합니다. <br>
+- **구현 기간 :**  `2023.12.02 ~ 2023.12.28`
+- **배포 사이트 :**  <strong>[`배포 URL 바로가기`](https://my-companyyy.netlify.app)</strong>
+<br>
+<br>
+
+### 🏢 My-Company 소개
+- 🌍 회사가 추구하는 가치와 방향성을 담아냈습니다. <br>
+- 📩 이메일을 통해 구독 서비스를 제공합니다. <br>
+- 💻 회사 브랜드와, CEO, 제공하는 서비스를 보여줍니다.<br>
+- 🪧 게시판을 통해 게시글과 댓글을 작성하며 소통할 수 있습니다. <br>
+- 🗺️ 지도기능과 위치 서비스를 통해 연락망을 구축합니다. <br>
 
 
 <br>
@@ -82,7 +81,7 @@
 <br>
 
 ## 사용 기술
-
+### [ FrontEnd ]
 <div>
 <img src="https://img.shields.io/badge/React-61DAFB?style=square&logo=react&logoColor=black">
 <img src="https://img.shields.io/badge/React Query-FF4154?style=square&logo=react query&logoColor=white">
@@ -90,6 +89,29 @@
 <img src="https://img.shields.io/badge/Recoil-3578E5?style=square&logo=recoil&logoColor=white">
 <img src="https://img.shields.io/badge/Styled Components-DB7093?style=square&logo=styled components&logoColor=white">
 </div>
+
+<br>
+
+#### [ BackEnd ]
+**FAKE API 사용**
+
+<br>
+
+#### [ Version ]
+```
+"axios": "^1.6.7",
+"eslint-plugin-jsx-a11y": "^6.7.1",
+"react": "^18.2.0",
+"react-dom": "^18.2.0",
+"react-hook-form": "^7.50.1",
+"react-kakao-maps-sdk": "^1.1.15",
+"react-query": "^3.39.3",
+"react-router-dom": "^6.14.2",
+"react-scripts": "5.0.1",
+"recoil": "^0.7.7",
+"styled-components": "^5.3.11",
+"styled-normalize": "^8.0.7",
+```
 
 <br>
 <br>
