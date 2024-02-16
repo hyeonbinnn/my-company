@@ -10,6 +10,7 @@
 - [폴더 구조](#폴더-구조)
 - [사용 기술](#사용-기술)
 - [구현 페이지](#구현-페이지)
+- [핵심 기술](#핵심-기술)
 - [트러블 슈팅](#트러블-슈팅)
 
 <br>
@@ -19,9 +20,20 @@
 ## 프로젝트 정보
 
 > ### 🏢 My-Company : 회사 홈페이지 만들기
-> **구현 기간 :**  `2023.05.20 ~ 2023.05.27` <br>
+> 마이 컴퍼니는 회사 소개, 제공하는 서비스, 뉴스 구독, 소통을 위한 게시판, 댓글, 연락망을 통해 사용자와 하나로 연결되는 웹사이트입니다. <br>
 >
-> **배포 사이트 :**  <strong>[`배포 URL 바로가기`](https://my-companyyy.netlify.app)</strong>
+> - **구현 기간 :**  `2023.12.02 ~ 2023.12.28`
+> - **배포 사이트 :**  <strong>[`배포 URL 바로가기`](https://my-companyyy.netlify.app)</strong>
+> <br><br>
+> 
+> 
+> ### 🏢 My-Company 소개
+> - 🌍 회사가 추구하는 가치와 방향성을 담아냈습니다. <br>
+> - 📩 이메일을 통해 구독 서비스를 제공합니다. <br>
+> - 💻 회사 브랜드와, CEO, 제공하는 서비스를 보여줍니다.<br>
+> - 🪧 게시판을 통해 게시글과 댓글을 작성하며 소통할 수 있습니다. <br>
+> - 🗺️ 지도기능과 위치 서비스를 통해 연락망을 구축합니다. <br>
+
 
 <br>
 <br>
@@ -34,15 +46,21 @@
 │  ├─ ⭐ company.ico
 │  └─ 📃 index.html
 ├─ 📦 src
+│  ├─ 📂 api
 │  ├─ 📂 assets
 │  ├─ 📂 components
 │  │  ├─ 📂 Bar
 │  │  ├─ 📂 Button
+│  │  ├─ 📂 Comment
+│  │  ├─ 📂 Error
 │  │  ├─ 📂 Header
 │  │  ├─ 📂 Layout
+│  │  ├─ 📂 Loading
 │  │  ├─ 📂 Modal
 │  │  ├─ 📂 Post
 │  │  └─ 📂 Table
+│  ├─ 📂 data
+│  ├─ 📂 hooks
 │  ├─ 📂 pages
 │  │  ├─ 📂 AboutPage
 │  │  ├─ 📂 ContactPage
@@ -50,9 +68,12 @@
 │  │  ├─ 📂 HomePage
 │  │  ├─ 📂 NoticePage
 │  │  └─ 📂 ServicePage
+│  ├─ 📂 recoil
 │  ├─ 📂 routes
 │  ├─ 📂 styles
+│  ├─ 📂 utils
 |  ├─ 📜 App.js
+|  ├─ 📜 axios.js
 |  └─ 📜 index.js
 ```
 
@@ -63,8 +84,11 @@
 ## 사용 기술
 
 <div>
-<img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black">
-<img src="https://img.shields.io/badge/Styled Components-DB7093?style=flat-square&logo=styled components&logoColor=white">
+<img src="https://img.shields.io/badge/React-61DAFB?style=square&logo=react&logoColor=black">
+<img src="https://img.shields.io/badge/React Query-FF4154?style=square&logo=react query&logoColor=white">
+<img src="https://img.shields.io/badge/Axios-5A29E4?style=square&logo=Axios&logoColor=white">
+<img src="https://img.shields.io/badge/Recoil-3578E5?style=square&logo=recoil&logoColor=white">
+<img src="https://img.shields.io/badge/Styled Components-DB7093?style=square&logo=styled components&logoColor=white">
 </div>
 
 <br>
@@ -87,6 +111,16 @@
 |   메인, 소개   |   서비스, 게시판, 지도    |
 | :---------: | :---------: |
 | ![pc](https://github.com/hyeonbinnn/my-company/assets/117449788/2f69bf18-42fa-45e0-a6a1-9e229aeb0b7d) | ![pc2](https://github.com/hyeonbinnn/my-company/assets/117449788/4bfdc7ee-eceb-4d27-92e3-5f1ad63ca41d) |
+
+
+<br>
+<br>
+<br>
+
+## 핵심 기술
+
+
+
 
 
 <br>
