@@ -1,33 +1,39 @@
 import React from 'react';
 import * as S from './PostFrom.style';
 import { useForm } from 'react-hook-form';
-import { createPost } from '../../api/post';
-import { createdPostState, loadingState } from '../../recoil/atoms';
-import { useSetRecoilState } from 'recoil';
+import { useCreatePost } from '../../api/post';
+import { useQueryClient } from 'react-query';
 import UploadModal from './../Modal/UploadModal';
 import useModal from './../../hooks/useModal';
+import Loading from './../Loading/Loading';
+import Error from './../Error/Error';
 
 const PostForm = () => {
   const { register, handleSubmit, reset } = useForm();
-  const setLoading = useSetRecoilState(loadingState);
-  const setCreatedPost = useSetRecoilState(createdPostState);
   const { isModalOpen, openModal, closeModal } = useModal();
+  const queryClient = useQueryClient();
+  const { mutate: createPost, isLoading, isError } = useCreatePost();
 
   const onSubmit = async (data) => {
-    setLoading(true);
-
     try {
-      const res = await createPost(data);
-      console.log('게시글이 업로드되었습니다.', res);
-      setCreatedPost((prevPost) => [...prevPost, res]);
+      await createPost(data);
+      queryClient.invalidateQueries('posts');
+      console.log('게시글이 업로드되었습니다.');
       reset();
       openModal();
     } catch (error) {
       console.error('게시글 업로드 실패', error);
-    } finally {
-      setLoading(false);
     }
   };
+
+  if (isLoading) return <Loading />;
+  if (isError)
+    return (
+      <Error
+        content="게시글을 업로드하는 중에 문제가 발생했습니다."
+        nextContent="나중에 다시 시도해 주세요."
+      />
+    );
 
   return (
     <>

@@ -1,37 +1,36 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import * as S from './CommentList.style';
-import user from '../../assets/user.png';
 import { useParams } from 'react-router-dom';
-import { getComment } from '../../api/post';
+import { useGetComment } from '../../api/post';
+import Error from './../Error/Error';
+import Loading from './../Loading/Loading';
+import user from '../../assets/user.png';
 
 const CommentList = () => {
   const { id } = useParams();
-  const [comments, setComments] = useState([]);
+  const { data: comments, isLoading, isError } = useGetComment(id);
 
-  useEffect(() => {
-    const fetchCommentGet = async () => {
-      try {
-        const commentData = await getComment(id);
-        setComments(commentData);
-      } catch (error) {
-        console.log('댓글 추가 중 오류 발생', error);
-      }
-    };
-
-    fetchCommentGet();
-  }, []);
+  if (isLoading) return <Loading />;
+  if (isError)
+    return (
+      <Error
+        content="댓글을 불러오는 중, 문제가 발생했습니다."
+        nextContent="나중에 다시 시도해 주세요."
+      />
+    );
 
   return (
     <S.Container>
-      {comments.map((comment) => (
-        <S.ContentWrap key={comment.id}>
-          <S.UserInfo>
-            <S.ContentImg src={user} />
-            <S.ContentEmail> {comment.email}</S.ContentEmail>
-          </S.UserInfo>
-          <S.ContentComment>{comment.body}</S.ContentComment>
-        </S.ContentWrap>
-      ))}
+      {comments &&
+        comments.map((comment) => (
+          <S.ContentWrap key={comment.id}>
+            <S.UserInfo>
+              <S.ContentImg src={user} />
+              <S.ContentEmail>{comment.email}</S.ContentEmail>
+            </S.UserInfo>
+            <S.ContentComment>{comment.body}</S.ContentComment>
+          </S.ContentWrap>
+        ))}
     </S.Container>
   );
 };

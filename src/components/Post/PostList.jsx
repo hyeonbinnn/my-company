@@ -1,35 +1,42 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import { useGetPost } from '../../api/post';
+import { useRecoilValue } from 'recoil';
+import { deletedPostState } from '../../recoil/atoms';
+import { Container, Text } from './../Loading/Loading';
 import TableWrap from './../Table/TableWrap';
 import TableRow from './../Table/TableRow';
 import TableColumn from './../Table/TableColumn';
-import { getPost } from '../../api/post';
-import { useRecoilValue, useRecoilState } from 'recoil';
-import { deletedPostState, postsState } from '../../recoil/atoms';
+import Loading from './../Loading/Loading';
+import Error from './../Error/Error';
 
 const PostList = () => {
-  const [posts, setPosts] = useRecoilState(postsState);
+  const { data: posts, isLoading, isError } = useGetPost();
   const deletedPost = useRecoilValue(deletedPostState);
 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const postsData = await getPost();
-        const latestPosts = postsData.slice(0, 20);
-        setPosts(latestPosts);
-      } catch (error) {
-        console.error('게시글을 불러오다 오류 발생', error);
-      }
-    };
+  if (isLoading) return <Loading />;
+  if (isError)
+    return (
+      <Error
+        content="게시글을 불러오는 중, 문제가 발생했습니다."
+        nextContent="나중에 다시 시도해 주세요."
+      />
+    );
 
-    fetchPosts();
-  }, []);
+  if (!posts || posts.length === 0) {
+    return (
+      <Container>
+        <Text>게시글 목록이 없습니다 🚫</Text>
+      </Container>
+    );
+  }
 
   return (
     <>
       <TableWrap headersName={['ID', 'Title']}>
         {posts
           .filter((post) => !deletedPost.includes(post.id))
+          .slice(0, 20)
           .map((post) => (
             <TableRow key={post.id}>
               <TableColumn>{post.id}</TableColumn>
