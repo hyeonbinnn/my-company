@@ -1,5 +1,5 @@
 import axios from 'axios';
 
-export const postInstance = axios.create({
+export const axiosInstance = axios.create({
   baseURL: 'https://jsonplaceholder.typicode.com/',
 });
