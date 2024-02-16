@@ -1,56 +1,42 @@
-import { postInstance } from './../axios';
+import { axiosInstance } from './../axios';
+import { useQuery, useMutation } from 'react-query';
 
 // 게시글 목록 가져오기
-export const getPost = async () => {
-  try {
-    const res = await postInstance.get('/posts');
+export const useGetPost = () => {
+  return useQuery('posts', async () => {
+    const res = await axiosInstance.get('/posts');
     return res.data;
-  } catch (error) {
-    console.error('데이터 가져오기 실패', error);
-    throw error;
-  }
+  });
 };
 
 // 게시글 상세 가져오기
-export const getDetailPost = async (id) => {
-  try {
-    const res = await postInstance.get(`/posts/${id}`);
+export const useGetDetailPost = (id) => {
+  return useQuery(['post, id'], async () => {
+    const res = await axiosInstance.get(`/posts/${id}`);
     return res.data;
-  } catch (error) {
-    console.error('포스트 디테일 가져오기 실패', error);
-    throw error;
-  }
+  });
 };
 
 // 게시글 생성
-export const createPost = async () => {
-  try {
-    const res = await postInstance.post('/posts');
+export const useCreatePost = () => {
+  return useMutation(async () => {
+    const res = await axiosInstance.post('/posts');
     return res.data;
-  } catch (error) {
-    console.error('포스트 생성 실패', error);
-    throw error;
-  }
+  });
 };
 
 // 게시글 삭제
-export const deletePost = async (id) => {
-  try {
-    const res = await postInstance.delete(`/posts/${id}`);
+export const useDeletePost = () => {
+  return useMutation(async (id) => {
+    const res = await axiosInstance.delete(`/posts/${id}`);
     return res.data;
-  } catch (error) {
-    console.error('포스트 삭제 실패', error);
-    throw error;
-  }
+  });
 };
 
 // 게시글 상세 댓글 가져오기
-export const getComment = async (id) => {
-  try {
-    const res = await postInstance.get(`/posts/${id}/comments`);
+export const useGetComment = (id) => {
+  return useQuery(['comments', id], async () => {
+    const res = await axiosInstance.get(`/posts/${id}/comments`);
     return res.data;
-  } catch (error) {
-    console.error('댓글 추가 중 에러 발생', error);
-    throw error;
-  }
+  });
 };
