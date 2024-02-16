@@ -20,6 +20,7 @@ export const Section = styled.section`
     overflow: hidden;
     box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.1);
     background: #fff;
+    cursor: pointer;
   }
 
   img {

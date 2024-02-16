@@ -1,12 +1,15 @@
 import React from 'react';
 import * as S from './Service.style';
-import HeaderLayout from '../../components/Layout/HeaderLayout';
+import useModal from './../../hooks/useModal';
+import servicesData from '../../data/servicesData';
 import SocialBar from '../../components/Bar/SocialBar';
 import MainLayout from '../../components/Layout/MainLayout';
-import servicesData from '../../data/servicesData';
+import HeaderLayout from '../../components/Layout/HeaderLayout';
+import ComingSoonModal from './../../components/Modal/ComingSoonModal';
 import service from '../../assets/service.png';
 
 const Service = () => {
+  const { isModalOpen, openModal, closeModal } = useModal();
   return (
     <>
       <HeaderLayout />
@@ -20,7 +23,7 @@ const Service = () => {
         <S.Section>
           <ul>
             {servicesData.map((service) => (
-              <li key={service.id}>
+              <li key={service.id} onClick={openModal}>
                 <img src={service.imgSrc} alt={service.title} loading="lazy" />
                 <div>
                   <h3>{service.title}</h3>
@@ -32,6 +35,7 @@ const Service = () => {
         </S.Section>
       </S.CustomMain>
       <SocialBar />
+      {isModalOpen && <ComingSoonModal onClose={closeModal} />}
     </>
   );
 };
