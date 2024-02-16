@@ -5,17 +5,17 @@ export const deletedPostState = atom({
   default: [],
 });
 
-export const createdPostState = atom({
-  key: 'createPostState',
-  default: [],
-});
+// export const createdPostState = atom({
+//   key: 'createPostState',
+//   default: [],
+// });
 
-export const postsState = atom({
-  key: 'postsState',
-  default: [],
-});
+// export const postsState = atom({
+//   key: 'postsState',
+//   default: [],
+// });
 
-export const loadingState = atom({
-  key: 'loadingState',
-  default: false,
-});
+// export const loadingState = atom({
+//   key: 'loadingState',
+//   default: false,
+// });
