@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { navigateTo, scrollToTop } from '../../utils/utils';
 import * as S from './Home.style';
+import useModal from './../../hooks/useModal';
 import HomeHeader from '../../components/Header/HomeHeader';
 import SocialBar from '../../components/Bar/SocialBar';
+import SubscribeModal from './../../components/Modal/SubscribeModal';
 import hands from '../../assets/hands.webp';
 import astronaut from '../../assets/astronaut.jpeg';
 import earthGirl from '../../assets/earthGirl.jpeg';
 import animal from '../../assets/animal.jpeg';
-import SubscribeModal from './../../components/Modal/SubscribeModal';
-import useModal from './../../hooks/useModal';
-import { navigateTo, scrollToTop } from '../../utils/utils';
 
 const Home = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [isValidEmail, setIsValidEmail] = useState(true);
   const { isModalOpen, openModal, closeModal } = useModal();
-  const navigate = useNavigate();
 
   const validateEmail = (email) => {
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;

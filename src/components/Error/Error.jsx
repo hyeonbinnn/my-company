@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import companyMini from '../../assets/companyMini.png';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Error = ({ title, content, nextContent }) => {
   const navigate = useNavigate();

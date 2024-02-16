@@ -1,7 +1,7 @@
 import React from 'react';
 import * as S from './Modal.style';
-import people3 from '../../assets/people3.webp';
 import CloseButton from '../Button/CloseButton';
+import people3 from '../../assets/people3.webp';
 
 const CeoModal = ({ onClose }) => {
   return (

@@ -1,6 +1,6 @@
 import React from 'react';
-import NavBar from '../Bar/NavBar';
 import * as S from './HomeHeader.style';
+import NavBar from '../Bar/NavBar';
 import earth from '../../assets/earth.png';
 
 const HomeHeader = () => {
