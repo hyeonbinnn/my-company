@@ -134,6 +134,19 @@
 <br>
 
 ### 💻 PC ver.
+|   메인 홈   |   소개    |
+| :---------: | :---------: |
+| ![홈 메인](https://github.com/hyeonbinnn/my-company/assets/117449788/fcdf7101-b032-47df-825f-455d50a0e1cc) | ![소개](https://github.com/hyeonbinnn/my-company/assets/117449788/42d8600b-7f62-4889-a59c-5e8e9035d79a) |
+<br>
+
+|    서비스   | 지도 & 연락망 |
+| :---------: | :---------: |
+| ![서비스](https://github.com/hyeonbinnn/my-company/assets/117449788/a4484c4c-d1f4-4cd8-96a4-08a623882979) | ![지도 연락망](https://github.com/hyeonbinnn/my-company/assets/117449788/154f5818-503c-4bf8-b623-aed9fe8dd036) |
+<br>
+
+|   게시글 업로드   |   게시글 삭제 & 댓글    |
+| :---------: | :---------: |
+| ![게시글 업로드](https://github.com/hyeonbinnn/my-company/assets/117449788/85dba3c6-e650-48f5-9b6d-cd69060ead43) | ![게시글 삭제](https://github.com/hyeonbinnn/my-company/assets/117449788/edb2eb18-5d78-4dae-b90c-23d3c321d81e) |
 
 <br>
 <br>
