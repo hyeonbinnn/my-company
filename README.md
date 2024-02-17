@@ -121,19 +121,33 @@
 
 ### 📱 Mobile ver.
 
-|   메인 홈 페이지   |   소개 페이지    |  서비스 페이지  | 공지 게시판 | 지도 및 연락망 |
-| :---------: | :---------: | :---------: | :---------: | :---------: |
-| ![home](https://github.com/hyeonbinnn/my-company/assets/117449788/ead60c7c-3e1a-48bb-b312-89421c6e8b4b) | ![about](https://github.com/hyeonbinnn/my-company/assets/117449788/d5115ce4-4412-4936-a21f-98276833ca4f) | ![service](https://github.com/hyeonbinnn/my-company/assets/117449788/d32bf6a9-ffd8-4793-97dd-f501a796ae34) | ![notice](https://github.com/hyeonbinnn/my-company/assets/117449788/7c970fbc-830b-4975-b05b-7fa739949bea) | ![contact](https://github.com/hyeonbinnn/my-company/assets/117449788/3465701c-128f-4c26-95e9-fdcf7531a1b6) |
+|   메인 홈 & 이메일 구독   |   회사 소개    |  서비스  |  공지 게시판 & 업로드  |
+| :---------: | :---------: | :---------: | :---------: |
+| ![home](https://github.com/hyeonbinnn/my-company/assets/117449788/ead60c7c-3e1a-48bb-b312-89421c6e8b4b) | ![about](https://github.com/hyeonbinnn/my-company/assets/117449788/d5115ce4-4412-4936-a21f-98276833ca4f) | ![서비스](https://github.com/hyeonbinnn/my-company/assets/117449788/88b02716-d41e-4fe8-80c8-f813b910d233) | ![게시글 업로드](https://github.com/hyeonbinnn/my-company/assets/117449788/c9dff288-2645-40cf-8874-5de60f945756) |
+<br>
+
+|   게시글 상세   |  게시글 댓글    |  게시글 삭제  |  지도 연락망 |
+| :---------: | :---------: | :---------: | :---------: |
+| ![게시글 상세](https://github.com/hyeonbinnn/my-company/assets/117449788/65cdd151-f5a1-46ad-932f-42b806eaf60a) | ![게시글 댓글](https://github.com/hyeonbinnn/my-company/assets/117449788/6358ee7b-763d-470a-a899-9d823a4de5e8) | ![게시글 삭제](https://github.com/hyeonbinnn/my-company/assets/117449788/13929d3b-7e13-4583-a533-305acc92720b) | ![contact](https://github.com/hyeonbinnn/my-company/assets/117449788/3465701c-128f-4c26-95e9-fdcf7531a1b6) |
 
 <br>
 <br>
 
 ### 💻 PC ver.
 
-|   메인, 소개   |   서비스, 게시판, 지도    |
+|   메인 홈   |   소개    |
 | :---------: | :---------: |
-| ![pc](https://github.com/hyeonbinnn/my-company/assets/117449788/2f69bf18-42fa-45e0-a6a1-9e229aeb0b7d) | ![pc2](https://github.com/hyeonbinnn/my-company/assets/117449788/4bfdc7ee-eceb-4d27-92e3-5f1ad63ca41d) |
+| ![홈 메인](https://github.com/hyeonbinnn/my-company/assets/117449788/fcdf7101-b032-47df-825f-455d50a0e1cc) | ![소개](https://github.com/hyeonbinnn/my-company/assets/117449788/42d8600b-7f62-4889-a59c-5e8e9035d79a) |
+<br>
 
+|    서비스   | 지도 & 연락망 |
+| :---------: | :---------: |
+| ![서비스](https://github.com/hyeonbinnn/my-company/assets/117449788/a4484c4c-d1f4-4cd8-96a4-08a623882979) | ![지도 연락망](https://github.com/hyeonbinnn/my-company/assets/117449788/154f5818-503c-4bf8-b623-aed9fe8dd036) |
+<br>
+
+|   게시글 업로드   |   게시글 삭제 & 댓글    |
+| :---------: | :---------: |
+| ![게시글 업로드](https://github.com/hyeonbinnn/my-company/assets/117449788/85dba3c6-e650-48f5-9b6d-cd69060ead43) | ![게시글 삭제](https://github.com/hyeonbinnn/my-company/assets/117449788/edb2eb18-5d78-4dae-b90c-23d3c321d81e) |
 
 <br>
 <br>
@@ -165,86 +179,6 @@
 
 #### 문제 코드
 ```jsx
-const BoardList = () => {
-  const modalRef = useRef();
-  const [boardData, setBoardData] = useState(() => {
-    const num = localStorage.getItem('num') || 0;
-    const initialData = [];
-
-    for (let i = 1; i <= num; i++) {
-      const boardItem = JSON.parse(localStorage.getItem(`board_${i}`));
-      initialData.push(boardItem);
-    }
-
-    return initialData;
-  });
-
-  const [showModal, setShowModal] = useState(false);
-
-  const openModal = () => {
-    setShowModal(true);
-  };
-
-  const closeModal = () => {
-    setShowModal(false);
-  };
-
-  const handleModalClick = (e) => {
-    if (modalRef.current && !modalRef.current.contains(e.target)) {
-      closeModal();
-    }
-  };
-
-  const increaseViews = (num) => {
-    const updatedData = boardData.map((item) => {
-      if (item.num === num) {
-        const updatedViews = (item.views || 0) + 1;
-        return { ...item, views: updatedViews };
-      }
-      return item;
-    });
-    setBoardData(updatedData);
-  };
-
-  return (
-    <>
-      <TableWrap headersName={['Num', 'Name', 'Title', 'Date', 'Views']}>
-        {boardData.map((item) => (
-          <TableRow key={item.num}>
-            <TableColumn>{item.num}</TableColumn>
-            <TableColumn>{item.name}</TableColumn>
-            <TableColumn>
-              <span
-                onClick={() => {
-                  openModal();
-                  increaseViews(item.num);
-                }}
-              >
-                {item.title}
-              </span>
-            </TableColumn>
-            <TableColumn>{item.date}</TableColumn>
-            <TableColumn>{item.views}</TableColumn>
-          </TableRow>
-        ))}
-      </TableWrap>
-      <Button>
-        <Link to="/board">
-          <strong>게시글</strong> <img src={add} alt="게시글 추가 버튼 이미지" />
-        </Link>
-      </Button>
-      {showModal && (
-        <ModalBg onClick={handleModalClick}>
-          <ModalContent ref={modalRef}>
-            <BoardModal />
-          </ModalContent>
-        </ModalBg>
-      )}
-    </>
-  );
-};
-
-export default BoardList;
 ```
 <br>
 <br>
@@ -257,22 +191,7 @@ export default BoardList;
 
 #### 해결 코드
 ```jsx
-// 게시글 클릭 시, 조회수 증가 및 로컬 스토리지 업데이트
-const increaseViews = (num) => {
-  const updatedData = boardData.map((item) => {
-    if (item.num === num) {
-      const updatedViews = (item.views || 0) + 1;
-      // 로컬 스토리지에 업데이트된 조회수 저장
-      localStorage.setItem(`board_${num}`, JSON.stringify({ ...item, views: updatedViews }));
-      return { ...item, views: updatedViews };
-    }
-    return item;
-  });
-  setBoardData(updatedData);
-};
 
-// 조회수가 없을 때 0으로 대체
-<TableColumn>{item.views !== undefined ? item.views : 0}</TableColumn>
 ```
 
 
