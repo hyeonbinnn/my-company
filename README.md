@@ -9,6 +9,7 @@
 - [프로젝트 정보](#프로젝트-정보)
 - [폴더 구조](#폴더-구조)
 - [사용 기술](#사용-기술)
+- [프로젝트 관리](#프로젝트-관리)
 - [구현 페이지](#구현-페이지)
 - [핵심 기술](#핵심-기술)
 - [트러블 슈팅](#트러블-슈팅)
@@ -23,7 +24,6 @@
 
 - **구현 기간 :**  `2023.12.05 ~ 2023.12.28`
 - **배포 사이트 :**  <strong>[`배포 URL 바로가기`](https://my-companyyy.netlify.app)</strong>
-<br>
 <br>
 
 ### 🏢 My-Company 소개
@@ -81,7 +81,7 @@
 <br>
 
 ## 사용 기술
-### [ FrontEnd ]
+#### [ FrontEnd ]
 <div>
 <img src="https://img.shields.io/badge/React-61DAFB?style=square&logo=react&logoColor=black">
 <img src="https://img.shields.io/badge/React Query-FF4154?style=square&logo=react query&logoColor=white">
@@ -117,8 +117,18 @@
 <br>
 <br>
 
-## 구현 페이지
+## 프로젝트 관리
+- 개인 프로젝트에도 이슈를 사용하여 개발할 기능 등 프로젝트의 전반적인 진행 상황을 파악해 우선순위를 정하거나 작업을 분배했습니다.
+- 작업 내용, 결정 사항 내용 등이 이슈에 기록되어 있어 나중에 참고할 수 있고, 프로젝트의 문서화와 작은 지식이라도 공유가 가능합니다.
+<br>
 
+![제목 없음](https://github.com/hyeonbinnn/my-company/assets/117449788/45fa8f7c-678f-4b41-b598-393140a72cd9)
+
+<br>
+<br>
+<br>
+
+## 구현 페이지
 ### 📱 Mobile ver.
 
 |   메인 홈 & 이메일 구독   |   회사 소개    |  서비스  |  공지 게시판 & 업로드  |
