@@ -324,33 +324,74 @@
 
 ## 트러블 슈팅
 ### ✔️ 동일한 상태 공유로 인한 렌더링 오류 발생
-#### 문제점
-1. 초기 화면에 조회수(views) 부분이 0으로 나타나지 않는다.<br>
-2. 조회수가 올라가도 새로고침하면 다시 초기화된다.
+#### 문제
+1. `useModal` 커스텀 훅을 이용해 관련 컴포넌트에 `import`해서 변경하니, 모달을 렌더링하는 모든 컴포넌트에서 문제가 발생했습니다.
+
+2. 예를 들면, `PostDetail` 컴포넌트의 삭제 버튼은 `DeleteModal` 렌더링되어야 하고, `CommentForm` 컴포넌트는 등록 버튼 `CommentModal`이 렌더링되어야 하는데, 전부 DeleteModal이 나타나고 있습니다. 또한 이로 인해 스타일까지 중복되면서 에러가 발생했습니다.
 
 <br>
 
 #### 왜? Why?
-1. 조회수가 없을 때 0 대신 아무것도 표시되지 않는 이유는 **React**에서 0은 `falsy` 값으로 간주되니까... 값이 없을 경우 0으로 나타나게 조건으로 처리해야하지 않을까? <br>
-2. 아래 문제 코드에서는 조회수를 브라우저의 메모리에서만 관리하고 있으니까... 초기화되지 않으려면, 조회수도 값을 로컬스토리지에 저장해야 새로고침해야하지 않을까?
+1. `PostDetail`에서 `CommentForm` 컴포넌트가 렌더링되는 상황인데, `CommentForm` 컴포넌트에서 사용된 모달 상태와 `PostDetail` 컴포넌트에서 사용된 모달 상태가 동일한 상태를 공유하고 있기 때문입니다.
+  
+2. 따라서 `CommentForm` 컴포넌트는 `CommentModal`을 트리거하기 위해 사용되어야 하지만, 현재는 `DeleteModal`을 트리고 하고 있습니다.
+
+3. 그렇기에 문제의 원인은 모달 상태를 공유하고 있는 것이 아니라, 모달이 열리고 닫히는 역할을 하는 `useModal` 훅에서 문제가 발생하고 있습니다.
 
 <br>
 
 #### 문제 코드
 ```jsx
+// useModal.jsx
+import React from 'react';
+import { useRecoilState } from 'recoil';
+import { isModalOpenState } from './../recoil/atoms';
+
+const useModal = () => {
+  const [isModalOpen, setIsModalOpen] = useRecoilState(isModalOpenState);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  return { isModalOpen, openModal, closeModal };
+};
+
+export default useModal;
 ```
-<br>
 <br>
 
 #### 해결 방안
-1. `item.views`가 정의되어 있으면 그 조회수 값을 반환하고, 그렇지 않으면 0을 반환하면 된다.
-2. `localStorage.setItem`을 사용해 저장하고, 게시글을 클릭할 때 조회수를 증가시키면서 함께 로컬 스토리지에 업데이트하면 된다.
+1. 현재 `useModal` 훅은 `useRecoilState(isModalOpenState)` 리코일을 통해 전역으로 상태를 관리하고 있기 때문에, 모든 컴포넌트에서 이 상태를 공유하고 있습니다. 따라서 `PostDetail`과 `CommentForm` 컴포넌트에서는 동일한 모달 상태를 사용하고 있습니다.
+  
+1. 이것이 `CommentModal`이 열리지 않는 이유이기에 `useModal` 커스텀 훅을 `useState`를 사용해 로컬 상태를 관리하도록 변경한다면, 전역으로 상태가 공유되는 문제가 해결될 것입니다. 그럼 각 컴포넌트에서는 자체적으로 모달 상태를 관리할 수 있게 됩니다.
 
 <br>
 
 #### 해결 코드
 ```jsx
+// useModal.jsx
+import { useState } from 'react';
 
+const useModal = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  return { isModalOpen, openModal, closeModal };
+};
+
+export default useModal;
 ```
 
 
