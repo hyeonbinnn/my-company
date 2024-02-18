@@ -332,7 +332,7 @@
 <br>
 
 #### 왜? Why?
-1. `PostDetail`에서 `CommentForm` 컴포넌트가 렌더링되는 상황인데, `CommentForm` 컴포넌트에서 사용된 모달 상태와 `PostDetail` 컴포넌트에서 사용된 모달 상태가 동일한 상태를 공유하고 있기 때문입니다.
+1. `PostDetail` 컴포넌트에서 `CommentForm` 컴포넌트가 렌더링되는 상황인데, `CommentForm` 컴포넌트에서 사용된 모달 상태와 `PostDetail` 컴포넌트에서 사용된 모달 상태가 동일한 상태를 공유하고 있기 때문입니다.
   
 2. 따라서 `CommentForm` 컴포넌트는 `CommentModal`을 트리거하기 위해 사용되어야 하지만, 현재는 `DeleteModal`을 트리고 하고 있습니다.
 
