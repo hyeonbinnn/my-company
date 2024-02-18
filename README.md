@@ -179,7 +179,6 @@
 
 ```jsx
   // navigateTo 유틸리티 함수 정의
-
   export const navigateTo = (navigate, path) => {
     navigate(path);
   };
@@ -187,7 +186,6 @@
   ↓↓↓
   
   // 모달에서 함수 사용
-
   import React from 'react';
   import BaseModal from './BaseModal';
   import { useNavigate } from 'react-router-dom';
@@ -220,7 +218,6 @@
 
 ```jsx
   // scrollToTop 유틸리티 함수 정의
-
   export const scrollToTop = () => {
     window.scrollTo(0, 0);
   };
@@ -228,7 +225,6 @@
   ↓↓↓
   
   // 모달에서 함수 사용 (위 코드와 동일)
-
   import React from 'react';
   import BaseModal from './BaseModal';
   import { useNavigate } from 'react-router-dom';
@@ -265,7 +261,6 @@
 
 ```jsx
   // 메인 레이아웃 합성 컴포넌트
-
   const MainLayout = ({ icon, iconTxt, title, desc }) => {
     return (
       <Main>
@@ -283,12 +278,10 @@
   ↓↓↓
   
   // 다른 컴포넌트에서 재사용
-
   <MainLayout icon={notice} iconTxt="공지 아이콘" title="Notice" desc="공지 게시판" />
 ```
 ```jsx
   // 모달 합성 컴포넌트
-
   const BaseModal = ({ onClose, title, message }) => {
     return (
       <S.ModalBg>
@@ -306,7 +299,6 @@
   ↓↓↓
   
   // 다른 컴포넌트에서 기능을 추가해 재사용
-
   const UploadModal = ({ onClose }) => {
     const navigate = useNavigate();
   
