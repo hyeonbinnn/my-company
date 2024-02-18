@@ -119,10 +119,7 @@
 
 ## 프로젝트 관리
 - 개인 프로젝트에도 이슈를 사용하여 개발할 기능 등 프로젝트의 전반적인 진행 상황을 파악해 우선순위를 정하거나 작업을 분배했습니다.
-- 작업 내용, 결정 사항 내용 등이 이슈에 기록되어 있어 나중에 참고할 수 있고, 프로젝트의 문서화와 작은 지식이라도 공유가 가능합니다.
-<br>
-
-![제목 없음](https://github.com/hyeonbinnn/my-company/assets/117449788/45fa8f7c-678f-4b41-b598-393140a72cd9)
+- 작업 내용, 결정 사항 내용 등이 이슈에 기록되어 있어 나중에 참고할 수 있고, 프로젝트의 문서화와 작은 지식이라도 공유가 가능합니다. <br><br> ![제목 없음](https://github.com/hyeonbinnn/my-company/assets/117449788/45fa8f7c-678f-4b41-b598-393140a72cd9)
 
 <br>
 <br>
@@ -163,17 +160,178 @@
 <br>
 
 ## 핵심 기술
+### ✔️ 리액트 쿼리 도입으로 성능 향상
+1. 원래는 `Axios`만을 사용해 데이터를 처리했기에 상태 관리 작업을 리코일을 통해 처리했고, 데이터를 가져오는 과정, 로딩 상태와 에러를 처리하는 과정을 모두 구현했지만, `React-Query`를 도입해 함께 사용하면서 `useQuery`와 `useMutation` 훅을 사용해서 데이터를 가져오고 수정할 수 있으며, 관리하는 과정이 간단해졌습니다.
 
+2. `Axios`를 사용하면 데이터를 캐싱하고, 재사용하는 기능을 별도로 구현해야 하며, 새로운 요청을 보낼 때마다 데이터를 다시 가져와야 하므로 성능 면에서 좋지 않을 수 있지만, `React-Query`를 함께 사용하면 자체적으로 데이터를 캐싱하고 관리해 필요할 때마다 캐시된 데이터를 사용하기에 성능을 향상시키고 서버에 불필요한 요청을 줄여줍니다. 또한 데이터가 자동으로 갱신되기 때문에 최신 데이터를 유지할 수 있습니다.
 
+3. 아래 변경된 `api` 파일을 살펴보면, 이전에는 각각의 `API` 호출마다 비동기 함수를 `export`하여 호출하는 방식이었지만, 리액트 쿼리를 사용하면서 함수 내에 직접적으로 `API` 호출이 이루어지지 않고 쿼리 훅에 연결됩니다. <br><br> 이로써 `API` 호출과 관련된 로직을 캡슐화하고 추상화할 수 있고, 이는 컴포넌트 내부에서 데이터 로직을 감춤으로써 코드의 가독성을 향상시키고 유지보수를 쉽게 만듭니다. 또한 데이터 로딩 상태, 데이터 캐싱, 에러 처리 등을 쉽게 관리할 수 있습니다. <br><br> ![제목 없음](https://github.com/hyeonbinnn/my-company/assets/117449788/e2fe0ab6-3d2e-4235-badf-7171dfb3a812)
 
+<br>
 
+4. 아래 변경된 `CommentList` 컴포넌트를 보면, `useGetComment` 훅을 사용하여 해당 포스트의 댓글 데이터를 비동기적으로 가져옵니다. 이 훅은 리액트 쿼리를 사용해 데이터를 관리하며, 데이터 로딩 상태 및 에러 상태를 자동으로 처리합니다. <br><br> ![제목 없음](https://github.com/hyeonbinnn/my-company/assets/117449788/c63626a0-98a6-4515-8478-32e613aa45f7)
+
+<br>
+
+### ✔️ 재사용되는 작은 기능 유틸리티 함수 사용
+1. `navigateTo` 유틸리티 함수를 만들어 라우터의 경로를 변경합니다. 첫번째 매개변수 `navigate`(경로 이동 함수)와 두번째 매개변수 `path`(이동하는 경로)를 통해 `navigate(path)`를 호출하여 해당 경로로 이동합니다.
+<br>
+
+```jsx
+  // navigateTo 유틸리티 함수 정의
+
+  export const navigateTo = (navigate, path) => {
+    navigate(path);
+  };
+  
+  ↓↓↓
+  
+  // 모달에서 함수 사용
+
+  import React from 'react';
+  import BaseModal from './BaseModal';
+  import { useNavigate } from 'react-router-dom';
+  import { navigateTo, scrollToTop } from './../../utils/utils';
+  
+  const UploadModal = ({ onClose }) => {
+    const navigate = useNavigate();
+  
+    const handleCloseAndNavigate = () => {
+      onClose();
+      navigateTo(navigate, '/notice');
+      scrollToTop();
+    };
+  
+    return (
+      <BaseModal
+        onClose={handleCloseAndNavigate}
+        title="Success! ☺️"
+        message="Your post has been uploaded."
+      />
+    );
+  };
+  
+  export default UploadModal;
+```
+<br>
+
+2. `scrollToTop` 유틸리티 함수를 통해 웹 페이지의 스크롤 위치를 페이지의 맨 위로 이동시킵니다. `window.scrollTo(0, 0)`를 호출하여 브라우저 창의 스크롤 위치를 가로축(x)과 세로축(y)에서 각각 0으로 설정하여 페이지의 맨 위로 스크롤합니다. <br><br> `scrollToTop` 함수를 사용하는 이유는 웹 페이지에서 새로운 내용을 탐색하거나 새로운 페이지로 이동할 때 기본적으로 브라우저는 이전 페이지의 스크롤 위치를 유지하기 때문입니다. 따라서 꼭 필요한 페이지 전환시에 사용자 경험을 향상시키며, 웹 사이트를 편안하게 사용할 수 있도록 합니다.
+<br>
+
+```jsx
+  // scrollToTop 유틸리티 함수 정의
+
+  export const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
+  
+  ↓↓↓
+  
+  // 모달에서 함수 사용 (위 코드와 동일)
+
+  import React from 'react';
+  import BaseModal from './BaseModal';
+  import { useNavigate } from 'react-router-dom';
+  import { navigateTo, scrollToTop } from './../../utils/utils';
+  
+  const UploadModal = ({ onClose }) => {
+    const navigate = useNavigate();
+  
+    const handleCloseAndNavigate = () => {
+      onClose();
+      navigateTo(navigate, '/notice');
+      scrollToTop();
+    };
+  
+    return (
+      <BaseModal
+        onClose={handleCloseAndNavigate}
+        title="Success! ☺️"
+        message="Your post has been uploaded."
+      />
+    );
+  };
+  
+  export default UploadModal;
+```
+
+<br>
+
+### ✔️ 유사한 기능을 가진 컴포넌트를 분리해 공통 컴포넌트 추출
+1. 레이아웃, 로딩, 에러, 모달 등 여러 컴포넌트에서 공통적으로 사용되는 부분을 추출해 합성 컴포넌트를 만들어 재사용함으로써 애플리케이션의 확장성과 개발 생산성을 향상시킵니다.
+
+2. 합성 컴포넌트를 통해 코드 중복을 줄이고, 유지보수성을 높이며 새로운 컴포넌트를 만들 때 기존의 컴포넌트를 조합해 빠르게 개발할 수 있습니다.
+<br>
+
+```jsx
+  // 메인 레이아웃 합성 컴포넌트
+
+  const MainLayout = ({ icon, iconTxt, title, desc }) => {
+    return (
+      <Main>
+        <Article>
+          <H2>
+            <img src={icon} alt={iconTxt} />
+            <strong>{title}</strong>
+            <span>{desc}</span>
+          </H2>
+        </Article>
+      </Main>
+    );
+  };
+  
+  ↓↓↓
+  
+  // 다른 컴포넌트에서 재사용
+
+  <MainLayout icon={notice} iconTxt="공지 아이콘" title="Notice" desc="공지 게시판" />
+```
+```jsx
+  // 모달 합성 컴포넌트
+
+  const BaseModal = ({ onClose, title, message }) => {
+    return (
+      <S.ModalBg>
+        <S.Modal>
+          <CloseButton onClose={onClose} />
+          <S.ContentBox>
+            <h2>{title}</h2>
+            <p>{message}</p>
+          </S.ContentBox>
+        </S.Modal>
+      </S.ModalBg>
+    );
+  };
+  
+  ↓↓↓
+  
+  // 다른 컴포넌트에서 기능을 추가해 재사용
+
+  const UploadModal = ({ onClose }) => {
+    const navigate = useNavigate();
+  
+    const handleCloseAndNavigate = () => {
+      onClose();
+      navigateTo(navigate, '/notice');
+      scrollToTop();
+    };
+  
+    return (
+      <BaseModal
+        onClose={handleCloseAndNavigate}
+        title="Success! ☺️"
+        message="Your post has been uploaded."
+      />
+    );
+  };
+```
 
 <br>
 <br>
 <br>
 
 ## 트러블 슈팅
-### ✔️ 게시글 클릭 시 조회수(Views) 관련 오류
+### ✔️ 동일한 상태 공유로 인한 렌더링 오류 발생
 #### 문제점
 1. 초기 화면에 조회수(views) 부분이 0으로 나타나지 않는다.<br>
 2. 조회수가 올라가도 새로고침하면 다시 초기화된다.
