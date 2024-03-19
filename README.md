@@ -339,7 +339,7 @@ PostDetail 컴포넌트에서 CommentForm 컴포넌트가 렌더링되는 상황
 따라서 CommentForm 컴포넌트는 CommentModal을 트리거하기 위해 사용되어야 하지만, 현재는 DeleteModal을 트리고 하고 있습니다.
 <br>
 
-그렇기에 문제의 원인은 모달 상태를 공유하고 있는 것이 아니라, 모달이 열리고 닫히는 역할을 하는 `useModal` 훅에서 문제가 발생하고 있습니다.
+그렇기에 문제의 원인은 모달이 열리고 닫히는 역할을 하는 `useModal` 훅에서 발생하고 있습니다.
 <br>
 <br>
 
