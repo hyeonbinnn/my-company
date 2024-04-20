@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 import menu from '../../assets/menu.svg';
 
+type NavProps = {
+  visible: boolean;
+};
+
 export const Container = styled.header``;
 
 export const H1 = styled.h1`
@@ -13,7 +17,7 @@ export const H1 = styled.h1`
   }
 `;
 
-export const Nav = styled.nav`
+export const Nav = styled.nav<NavProps>`
   float: right;
   margin-top: 20px;
   margin-bottom: 226px;
