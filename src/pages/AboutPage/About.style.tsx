@@ -13,7 +13,7 @@ export const Section1 = styled.section`
   margin-bottom: 140px;
   gap: 50px;
 
-  ::after {
+  &::after {
     content: '';
     display: block;
     width: 100%;
@@ -70,6 +70,16 @@ export const Section2 = styled.section`
   position: relative;
   margin-bottom: 140px;
 
+  &::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: #edeeef;
+    position: absolute;
+    bottom: -80px;
+  }
+
   h2 {
     font-size: 35px;
     margin-bottom: 50px;
@@ -92,15 +102,14 @@ export const Section2 = styled.section`
       flex-direction: column;
       align-items: center;
 
-      ::before {
+      &::before {
         content: '';
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.4);
-        z-index: -1;
+        background-color: rgba(0, 0, 0, 0.5);
         border-radius: 30px;
       }
 
@@ -123,16 +132,6 @@ export const Section2 = styled.section`
           }
         }
       }
-    }
-
-    ::after {
-      content: '';
-      display: block;
-      width: 100%;
-      height: 4px;
-      background-color: #edeeef;
-      position: absolute;
-      bottom: -80px;
     }
   }
 
