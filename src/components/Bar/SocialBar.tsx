@@ -1,4 +1,3 @@
-import React from 'react';
 import * as S from './SocialBar.style';
 import { Link } from 'react-router-dom';
 import companyLogo from '../../assets/companyLogo.png';

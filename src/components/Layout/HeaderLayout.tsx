@@ -1,4 +1,3 @@
-import React from 'react';
 import NavBar from '../Bar/NavBar';
 import styled from 'styled-components';
 

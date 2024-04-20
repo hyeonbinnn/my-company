@@ -21,7 +21,7 @@ export const FooterBg = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.5);
+    background: #ffffff7f;
     z-index: 1;
   }
 
@@ -66,7 +66,6 @@ const aSocial = css`
   display: inline-block;
   width: 42px;
   height: 42px;
-  background-color: #d97652;
   border-radius: 50%;
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
@@ -80,14 +79,14 @@ export const BaseLink = styled.a`
 `;
 
 export const InstaLink = styled(BaseLink)`
-  background: url(${insta}) #d97652 center no-repeat;
+  background: url(${insta}) ${({ theme }) => theme.colors.secondary} center no-repeat;
 `;
 export const YoutubeLink = styled(BaseLink)`
-  background: url(${youtube}) #d97652 center no-repeat;
+  background: url(${youtube}) ${({ theme }) => theme.colors.secondary} center no-repeat;
 `;
 export const FacebookLink = styled(BaseLink)`
-  background: url(${facebook}) #d97652 center no-repeat;
+  background: url(${facebook}) ${({ theme }) => theme.colors.secondary} center no-repeat;
 `;
 export const BlogLink = styled(BaseLink)`
-  background: url(${blog}) #d97652 center no-repeat;
+  background: url(${blog}) ${({ theme }) => theme.colors.secondary} center no-repeat;
 `;

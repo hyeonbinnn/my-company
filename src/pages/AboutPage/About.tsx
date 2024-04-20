@@ -1,6 +1,6 @@
 import React from 'react';
 import * as S from './About.style';
-import useModal from './../../hooks/useModal';
+import useModal from '../../hooks/useModal';
 import HeaderLayout from '../../components/Layout/HeaderLayout';
 import SocialBar from '../../components/Bar/SocialBar';
 import MainLayout from '../../components/Layout/MainLayout';

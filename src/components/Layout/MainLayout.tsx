@@ -1,7 +1,7 @@
-import React from 'react';
 import styled from 'styled-components';
+import { MainLayoutProps } from '../../types/Common';
 
-const MainLayout = ({ icon, iconTxt, title, desc }) => {
+const MainLayout = ({ icon, iconTxt, title, desc }: MainLayoutProps) => {
   return (
     <Main>
       <Article>

@@ -70,16 +70,6 @@ export const Section2 = styled.section`
   position: relative;
   margin-bottom: 140px;
 
-  ::after {
-    content: '';
-    display: block;
-    width: 100%;
-    height: 4px;
-    background-color: #edeeef;
-    position: absolute;
-    bottom: -80px;
-  }
-
   h2 {
     font-size: 35px;
     margin-bottom: 50px;
@@ -109,30 +99,40 @@ export const Section2 = styled.section`
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        z-index: 1;
+        background-color: rgba(0, 0, 0, 0.4);
+        z-index: -1;
         border-radius: 30px;
       }
 
       button {
-        color: white;
+        color: ${({ theme }) => theme.colors.third};
         font-size: 17px;
         padding: 20px;
         border-radius: 20px;
-        z-index: 2;
         margin: auto;
+        z-index: 2;
 
         span,
         p {
           font-size: 20px;
           line-height: 30px;
 
-          ::after {
+          &::after {
             content: '>';
             margin-left: 10px;
           }
         }
       }
+    }
+
+    ::after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 4px;
+      background-color: #edeeef;
+      position: absolute;
+      bottom: -80px;
     }
   }
 

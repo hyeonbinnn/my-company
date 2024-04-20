@@ -56,9 +56,9 @@ const GlobalStyle = createGlobalStyle`
     font-size: 16px;
     font-weight: 700;
     line-height: 20px;
-    background-color: #d97652;
+    background-color: ${({ theme }) => theme.colors.secondary};
     border-radius: 40px;
-    color: #fff;
+    color: ${({ theme }) => theme.colors.white};
 
     @media screen and (min-width: 375px) and (max-width: 1000px) {
       padding: 11px 24px;
