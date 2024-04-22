@@ -2,7 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import close from '../../assets/close.png';
 
-const CloseButton = ({ onClose }) => {
+type CloseButtonProps = {
+  onClose: () => void;
+};
+
+const CloseButton = ({ onClose }: CloseButtonProps) => {
   return (
     <Button onClick={onClose}>
       <Img src={close} alt="닫기 버튼 이미지" />

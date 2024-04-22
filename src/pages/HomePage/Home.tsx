@@ -1,34 +1,34 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { NavigateFunction, useNavigate } from 'react-router-dom';
 import { navigateTo, scrollToTop } from '../../utils/utils';
 import * as S from './Home.style';
-import useModal from './../../hooks/useModal';
+import useModal from '../../hooks/useModal';
 import HomeHeader from '../../components/Header/HomeHeader';
 import SocialBar from '../../components/Bar/SocialBar';
-import SubscribeModal from './../../components/Modal/SubscribeModal';
+import SubscribeModal from '../../components/Modal/SubscribeModal';
 import hands from '../../assets/hands.webp';
 import astronaut from '../../assets/astronaut.jpeg';
 import earthGirl from '../../assets/earthGirl.jpeg';
 import animal from '../../assets/animal.jpeg';
 
 const Home = () => {
-  const navigate = useNavigate();
-  const [email, setEmail] = useState('');
-  const [isValidEmail, setIsValidEmail] = useState(true);
+  const navigate: NavigateFunction = useNavigate();
+  const [email, setEmail] = useState<string>('');
+  const [isValidEmail, setIsValidEmail] = useState<boolean>(true);
   const { isModalOpen, openModal, closeModal } = useModal();
 
-  const validateEmail = (email) => {
+  const validateEmail = (email: string): boolean => {
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     return emailRegex.test(email);
   };
 
-  const handleEmailChange = (e) => {
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const inputEmail = e.target.value;
     setEmail(inputEmail);
     setIsValidEmail(validateEmail(inputEmail));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     if (isValidEmail) {
       console.log('유효한 이메일 주소:', email);
@@ -39,7 +39,7 @@ const Home = () => {
     }
   };
 
-  const goToService = () => {
+  const goToService = (): void => {
     navigateTo(navigate, '/service');
     scrollToTop();
   };

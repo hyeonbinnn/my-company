@@ -1,8 +1,9 @@
 import React from 'react';
 import * as S from './Modal.style';
 import CloseButton from '../Button/CloseButton';
+import { BaseModalProps } from '../../types/common';
 
-const BaseModal = ({ onClose, title, message }) => {
+const BaseModal = ({ onClose, title, message }: BaseModalProps) => {
   return (
     <S.ModalBg>
       <S.Modal>

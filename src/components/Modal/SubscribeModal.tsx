@@ -1,7 +1,8 @@
 import React from 'react';
+import { BaseModalProps } from '../../types/common';
 import BaseModal from './BaseModal';
 
-const SubscribeModal = ({ onClose }) => {
+const SubscribeModal = ({ onClose }: BaseModalProps) => {
   return (
     <BaseModal
       onClose={onClose}
