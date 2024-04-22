@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import { ModalState } from '../types/common';
 
-const useModal = () => {
+const useModal = (): ModalState => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {

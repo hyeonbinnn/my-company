@@ -7,8 +7,9 @@ import service06 from '../assets/service06.webp';
 import service07 from '../assets/service07.webp';
 import service08 from '../assets/service08.webp';
 import service09 from '../assets/service09.webp';
+import { ServiceItem } from '../types/data';
 
-const servicesData = [
+const servicesData: ServiceItem[] = [
   {
     id: 1,
     imgSrc: service01,

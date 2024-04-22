@@ -1,12 +1,13 @@
 import React from 'react';
 import * as S from './Service.style';
-import useModal from './../../hooks/useModal';
+import useModal from '../../hooks/useModal';
 import servicesData from '../../data/servicesData';
 import SocialBar from '../../components/Bar/SocialBar';
 import MainLayout from '../../components/Layout/MainLayout';
 import HeaderLayout from '../../components/Layout/HeaderLayout';
-import ComingSoonModal from './../../components/Modal/ComingSoonModal';
+import ComingSoonModal from '../../components/Modal/ComingSoonModal';
 import service from '../../assets/service.png';
+import { ServiceItem } from '../../types/data';
 
 const Service = () => {
   const { isModalOpen, openModal, closeModal } = useModal();
@@ -22,7 +23,7 @@ const Service = () => {
         />
         <S.Section>
           <ul>
-            {servicesData.map((service) => (
+            {servicesData.map((service: ServiceItem) => (
               <li key={service.id} onClick={openModal}>
                 <img src={service.imgSrc} alt={service.title} loading="lazy" />
                 <div>

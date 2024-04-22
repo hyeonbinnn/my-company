@@ -4,3 +4,9 @@ export interface MainLayoutProps {
   title: string;
   desc: string;
 }
+
+export interface ModalState {
+  isModalOpen: boolean;
+  openModal: () => void;
+  closeModal: () => void;
+}

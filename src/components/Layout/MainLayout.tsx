@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { MainLayoutProps } from '../../types/Common';
+import { MainLayoutProps } from '../../types/common';
 
 const MainLayout = ({ icon, iconTxt, title, desc }: MainLayoutProps) => {
   return (
