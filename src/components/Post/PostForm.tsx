@@ -1,5 +1,5 @@
-import React from 'react';
 import * as S from './PostFrom.style';
+import { Post } from '../../types/data';
 import { useForm } from 'react-hook-form';
 import { useCreatePost } from '../../api/post';
 import { useQueryClient } from 'react-query';
@@ -9,12 +9,12 @@ import Loading from '../Loading/Loading';
 import Error from '../Error/Error';
 
 const PostForm = () => {
-  const { register, handleSubmit, reset } = useForm();
+  const { register, handleSubmit, reset } = useForm<Post>();
   const { isModalOpen, openModal, closeModal } = useModal();
   const queryClient = useQueryClient();
   const { mutate: createPost, isLoading, isError } = useCreatePost();
 
-  const onSubmit = async (data) => {
+  const onSubmit = async (data: Post) => {
     try {
       await createPost(data);
       queryClient.invalidateQueries('posts');
@@ -46,15 +46,10 @@ const PostForm = () => {
             <S.Title type="text" id="title" placeholder="제목" {...register('title')} />
           </S.TitleBox>
           <S.ContentBox>
-            <label htmlFor="content" className="a11y-hidden">
+            <label htmlFor="body" className="a11y-hidden">
               내용
             </label>
-            <S.Content
-              type="body"
-              id="content"
-              placeholder="내용을 입력해주세요."
-              {...register('content')}
-            />
+            <S.Content id="body" placeholder="내용을 입력해주세요." {...register('body')} />
           </S.ContentBox>
         </S.Section>
         <S.UploadButton type="submit">업로드</S.UploadButton>

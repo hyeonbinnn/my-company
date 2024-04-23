@@ -18,6 +18,11 @@ export interface DeleteModalProps {
   onConfirm: () => void;
 }
 
+export interface FormData {
+  title: string;
+  content: string;
+}
+
 export interface ErrorProps {
   title?: string;
   content: string;
