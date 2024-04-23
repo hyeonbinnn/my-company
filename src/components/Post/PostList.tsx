@@ -1,8 +1,8 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
+import { Post } from '../../types/data';
 import { useGetPost } from '../../api/post';
 import { useRecoilValue } from 'recoil';
-import { deletedPostState } from '../../recoil/atoms';
+import { deletedPostState, DeletePostState } from '../../recoil/atoms';
 import { Container, Text } from '../Loading/Loading';
 import TableWrap from '../Table/TableWrap';
 import TableRow from '../Table/TableRow';
@@ -12,7 +12,8 @@ import Error from '../Error/Error';
 
 const PostList = () => {
   const { data: posts, isLoading, isError } = useGetPost();
-  const deletedPost = useRecoilValue(deletedPostState);
+  const deletedPost = useRecoilValue<DeletePostState>(deletedPostState);
+  const deletedPostId = deletedPost.deletedId;
 
   if (isLoading) return <Loading />;
   if (isError)
@@ -35,9 +36,9 @@ const PostList = () => {
     <>
       <TableWrap headersName={['ID', 'Title']}>
         {posts
-          .filter((post) => !deletedPost.includes(post.id))
+          .filter((post: Post) => !deletedPostId.includes(post.id))
           .slice(0, 20)
-          .map((post) => (
+          .map((post: Post) => (
             <TableRow key={post.id}>
               <TableColumn>{post.id}</TableColumn>
               <TableColumn>

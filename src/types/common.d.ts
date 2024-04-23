@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 export interface MainLayoutProps {
   icon: string;
   iconTxt: string;
@@ -20,6 +22,11 @@ export interface ErrorProps {
   title?: string;
   content: string;
   nextContent: string;
+}
+
+export interface TableProps {
+  headersName?: string[];
+  children: ReactNode;
 }
 
 export interface ModalState {

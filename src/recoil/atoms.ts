@@ -1,8 +1,14 @@
 import { atom } from 'recoil';
 
-export const deletedPostState = atom({
+export interface DeletePostState {
+  deletedId: number[];
+}
+
+export const deletedPostState = atom<DeletePostState>({
   key: 'deletePostState',
-  default: [],
+  default: {
+    deletedId: [],
+  },
 });
 
 // export const createdPostState = atom({

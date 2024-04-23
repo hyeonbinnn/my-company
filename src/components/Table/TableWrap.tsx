@@ -1,14 +1,15 @@
-import React from 'react';
 import styled from 'styled-components';
+import { TableProps } from '../../types/common';
 
-const TableWrap = ({ headersName, children }) => {
+const TableWrap = ({ headersName, children }: TableProps) => {
   return (
     <Table>
       <Thead>
         <tr>
-          {headersName.map((item, index) => {
-            return <th key={index}>{item}</th>;
-          })}
+          {headersName &&
+            headersName.map((item, index) => {
+              return <th key={index}>{item}</th>;
+            })}
         </tr>
       </Thead>
       <Tbody>{children}</Tbody>
