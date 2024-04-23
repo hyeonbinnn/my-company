@@ -1,14 +1,15 @@
-import React from 'react';
 import * as S from './CommentList.style';
+import { Comment } from '../../types/data';
 import { useParams } from 'react-router-dom';
 import { useGetComment } from '../../api/post';
-import Error from './../Error/Error';
-import Loading from './../Loading/Loading';
+import Error from '../Error/Error';
+import Loading from '../Loading/Loading';
 import user from '../../assets/user.png';
 
 const CommentList = () => {
   const { id } = useParams();
-  const { data: comments, isLoading, isError } = useGetComment(id);
+  const postId = id ? parseInt(id, 10) : 0;
+  const { data: comments, isLoading, isError } = useGetComment(postId);
 
   if (isLoading) return <Loading />;
   if (isError)
@@ -22,7 +23,7 @@ const CommentList = () => {
   return (
     <S.Container>
       {comments &&
-        comments.map((comment) => (
+        comments.map((comment: Comment) => (
           <S.ContentWrap key={comment.id}>
             <S.UserInfo>
               <S.ContentImg src={user} />

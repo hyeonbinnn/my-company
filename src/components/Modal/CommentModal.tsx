@@ -1,7 +1,7 @@
-import React from 'react';
+import { BaseModalProps } from '../../types/common';
 import BaseModal from './BaseModal';
 
-const CommentModal = ({ onClose }) => {
+const CommentModal = ({ onClose }: BaseModalProps) => {
   return (
     <BaseModal onClose={onClose} title="Success! ☺️" message="Your comment has been uploaded." />
   );

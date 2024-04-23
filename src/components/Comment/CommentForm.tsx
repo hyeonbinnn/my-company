@@ -2,19 +2,20 @@ import React, { useState } from 'react';
 import * as S from './CommentForm.style';
 import comment from '../../assets/comment.png';
 import CommentModal from '../Modal/CommentModal';
-import useModal from './../../hooks/useModal';
+import useModal from '../../hooks/useModal';
 
 const CommentForm = () => {
-  const [inputComment, setInputComment] = useState('');
+  const [inputComment, setInputComment] = useState<string>('');
   const { isModalOpen, openModal, closeModal } = useModal();
 
-  const onSubmit = (e) => {
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
+    console.log('댓글 데이터:', inputComment);
     openModal();
     setInputComment('');
   };
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setInputComment(e.target.value);
   };
 
