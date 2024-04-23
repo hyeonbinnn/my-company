@@ -1,12 +1,12 @@
-import React from 'react';
 import BaseModal from './BaseModal';
 import { useNavigate } from 'react-router-dom';
-import { navigateTo, scrollToTop } from './../../utils/utils';
+import { navigateTo, scrollToTop } from '../../utils/utils';
+import { BaseModalProps } from '../../types/common';
 
-const UploadModal = ({ onClose }) => {
+const UploadModal = ({ onClose }: BaseModalProps) => {
   const navigate = useNavigate();
 
-  const handleCloseAndNavigate = () => {
+  const handleCloseAndNavigate = (): void => {
     onClose();
     navigateTo(navigate, '/notice');
     scrollToTop();
