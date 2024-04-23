@@ -69,10 +69,11 @@
 │  ├─ 📂 recoil
 │  ├─ 📂 routes
 │  ├─ 📂 styles
+│  ├─ 📂 types
 │  ├─ 📂 utils
-|  ├─ 📜 App.js
-|  ├─ 📜 axios.js
-|  └─ 📜 index.js
+|  ├─ 📜 App.tsx
+|  ├─ 📜 axios.ts
+|  └─ 📜 index.tsx
 ```
 
 <br>
@@ -83,6 +84,7 @@
 #### [ FrontEnd ]
 <div>
 <img src="https://img.shields.io/badge/React-61DAFB?style=square&logo=react&logoColor=black">
+<img src="https://img.shields.io/badge/typescript-3178C6?style=square&logo=typescript&logoColor=white">
 <img src="https://img.shields.io/badge/React Query-FF4154?style=square&logo=react query&logoColor=white">
 <img src="https://img.shields.io/badge/Axios-5A29E4?style=square&logo=Axios&logoColor=white">
 <img src="https://img.shields.io/badge/Recoil-3578E5?style=square&logo=recoil&logoColor=white">
@@ -108,8 +110,10 @@
 "react-router-dom": "^6.14.2",
 "react-scripts": "5.0.1",
 "recoil": "^0.7.7",
-"styled-components": "^5.3.11",
+"styled-components": "^6.1.8",
 "styled-normalize": "^8.0.7",
+"typescript": "^4.9.5",
+"web-vitals": "^2.1.4"
 ```
 
 <br>
