@@ -1,4 +1,3 @@
-import React from 'react';
 import * as S from './About.style';
 import useModal from '../../hooks/useModal';
 import HeaderLayout from '../../components/Layout/HeaderLayout';

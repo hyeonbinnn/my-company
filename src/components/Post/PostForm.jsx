@@ -3,10 +3,10 @@ import * as S from './PostFrom.style';
 import { useForm } from 'react-hook-form';
 import { useCreatePost } from '../../api/post';
 import { useQueryClient } from 'react-query';
-import UploadModal from './../Modal/UploadModal';
-import useModal from './../../hooks/useModal';
-import Loading from './../Loading/Loading';
-import Error from './../Error/Error';
+import UploadModal from '../Modal/UploadModal';
+import useModal from '../../hooks/useModal';
+import Loading from '../Loading/Loading';
+import Error from '../Error/Error';
 
 const PostForm = () => {
   const { register, handleSubmit, reset } = useForm();

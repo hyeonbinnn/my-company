@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import menu from '../../assets/menu.svg';
 
-type NavProps = {
+interface NavProps {
   visible: boolean;
-};
+}
 
 export const Container = styled.header``;
 

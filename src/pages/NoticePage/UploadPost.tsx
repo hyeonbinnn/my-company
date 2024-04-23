@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import { Main } from '../../components/Layout/MainLayout';
 import HeaderLayout from '../../components/Layout/HeaderLayout';
@@ -6,10 +5,6 @@ import SocialBar from '../../components/Bar/SocialBar';
 import PostForm from '../../components/Post/PostForm';
 import MainLayout from '../../components/Layout/MainLayout';
 import post from '../../assets/post.png';
-
-export const CustomMain = styled(Main)`
-  padding: 0px 30px;
-`;
 
 const UploadPost = () => {
   return (
@@ -30,3 +25,7 @@ const UploadPost = () => {
 };
 
 export default UploadPost;
+
+const CustomMain = styled(Main)`
+  padding: 0px 30px;
+`;

@@ -1,22 +1,21 @@
-import React from 'react';
 import * as S from './PostDetail.style';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import { useQueryClient } from 'react-query';
 import { useGetDetailPost, useDeletePost } from '../../api/post';
 import { deletedPostState } from '../../recoil/atoms';
-import { navigateTo, scrollToTop } from './../../utils/utils';
-import HeaderLayout from './../../components/Layout/HeaderLayout';
-import MainLayout from './../../components/Layout/MainLayout';
-import SocialBar from './../../components/Bar/SocialBar';
+import { navigateTo, scrollToTop } from '../../utils/utils';
+import HeaderLayout from '../../components/Layout/HeaderLayout';
+import MainLayout from '../../components/Layout/MainLayout';
+import SocialBar from '../../components/Bar/SocialBar';
 import postDetail from '../../assets/poster.png';
 import trash from '../../assets/trash.png';
-import DeleteModal from './../../components/Modal/DeleteModal';
+import DeleteModal from '../../components/Modal/DeleteModal';
 import CommentForm from '../../components/Comment/CommentForm';
 import CommentList from '../../components/Comment/CommentList';
-import Loading from './../../components/Loading/Loading';
+import Loading from '../../components/Loading/Loading';
 import Error from '../../components/Error/Error';
-import useModal from './../../hooks/useModal';
+import useModal from '../../hooks/useModal';
 
 const PostDetail = () => {
   const navigate = useNavigate();

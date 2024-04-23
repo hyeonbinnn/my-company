@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 import { useGetPost } from '../../api/post';
 import { useRecoilValue } from 'recoil';
 import { deletedPostState } from '../../recoil/atoms';
-import { Container, Text } from './../Loading/Loading';
-import TableWrap from './../Table/TableWrap';
-import TableRow from './../Table/TableRow';
-import TableColumn from './../Table/TableColumn';
-import Loading from './../Loading/Loading';
-import Error from './../Error/Error';
+import { Container, Text } from '../Loading/Loading';
+import TableWrap from '../Table/TableWrap';
+import TableRow from '../Table/TableRow';
+import TableColumn from '../Table/TableColumn';
+import Loading from '../Loading/Loading';
+import Error from '../Error/Error';
 
 const PostList = () => {
   const { data: posts, isLoading, isError } = useGetPost();

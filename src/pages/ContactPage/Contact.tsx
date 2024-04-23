@@ -1,4 +1,3 @@
-import React from 'react';
 import * as S from './Contact.style';
 import { Map, MapMarker } from 'react-kakao-maps-sdk';
 import SocialBar from '../../components/Bar/SocialBar';
@@ -6,8 +5,13 @@ import HeaderLayout from '../../components/Layout/HeaderLayout';
 import MainLayout from '../../components/Layout/MainLayout';
 import contact from '../../assets/contact.png';
 
+interface LatLng {
+  lat: number;
+  lng: number;
+}
+
 const Contact = () => {
-  const center = {
+  const center: LatLng = {
     lat: 37.566535,
     lng: 126.9779692,
   };

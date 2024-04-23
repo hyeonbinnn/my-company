@@ -1,8 +1,8 @@
-import React from 'react';
+import { DeleteModalProps } from '../../types/common';
 import * as S from './Modal.style';
 
-const DeleteModal = ({ onClose, onConfirm }) => {
-  const handleConfirm = () => {
+const DeleteModal = ({ onClose, onConfirm }: DeleteModalProps) => {
+  const handleConfirm = (): void => {
     onConfirm();
   };
 

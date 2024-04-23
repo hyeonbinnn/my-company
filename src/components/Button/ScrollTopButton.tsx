@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import upArrow from '../../assets/upArrow.png';
 
+interface ButtonProps {
+  show: boolean;
+}
+
 const ScrollTopButton = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState<boolean>(false);
 
   const toggleVisible = () => {
     if (window.scrollY > 500) {
@@ -20,7 +24,16 @@ const ScrollTopButton = () => {
     });
   };
 
-  window.addEventListener('scroll', toggleVisible);
+  useEffect(() => {
+    const handleScroll = () => {
+      toggleVisible();
+    };
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
     <Button onClick={scrollTop} show={isVisible}>
@@ -31,7 +44,7 @@ const ScrollTopButton = () => {
 
 export default ScrollTopButton;
 
-const Button = styled.button`
+const Button = styled.button<ButtonProps>`
   display: ${({ show }) => (show ? 'block' : 'none')};
   position: fixed;
   bottom: 80px;

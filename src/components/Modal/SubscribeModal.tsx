@@ -1,4 +1,3 @@
-import React from 'react';
 import { BaseModalProps } from '../../types/common';
 import BaseModal from './BaseModal';
 

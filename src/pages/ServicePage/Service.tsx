@@ -1,4 +1,3 @@
-import React from 'react';
 import * as S from './Service.style';
 import useModal from '../../hooks/useModal';
 import servicesData from '../../data/servicesData';

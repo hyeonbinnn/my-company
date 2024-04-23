@@ -1,10 +1,9 @@
-import React from 'react';
 import styled from 'styled-components';
 import close from '../../assets/close.png';
 
-type CloseButtonProps = {
+interface CloseButtonProps {
   onClose: () => void;
-};
+}
 
 const CloseButton = ({ onClose }: CloseButtonProps) => {
   return (

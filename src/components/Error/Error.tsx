@@ -1,12 +1,12 @@
-import React from 'react';
 import styled from 'styled-components';
 import companyMini from '../../assets/companyMini.png';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, NavigateFunction, useNavigate } from 'react-router-dom';
+import { ErrorProps } from '../../types/common';
 
-const Error = ({ title, content, nextContent }) => {
-  const navigate = useNavigate();
+const Error = ({ title, content, nextContent }: ErrorProps) => {
+  const navigate: NavigateFunction = useNavigate();
 
-  const goBack = () => {
+  const goBack = (): void => {
     navigate(-1);
   };
 

@@ -4,7 +4,7 @@ import * as S from './NavBar.style';
 import companyLogo from '../../assets/companyLogo.png';
 
 const NavBar = () => {
-  const [navVisible, setNavVisible] = useState(false);
+  const [navVisible, setNavVisible] = useState<boolean>(false);
 
   const toggleNav = () => {
     setNavVisible(!navVisible);

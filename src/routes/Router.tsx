@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from '../pages/HomePage/Home';
 import About from '../pages/AboutPage/About';
@@ -7,7 +6,7 @@ import Contact from '../pages/ContactPage/Contact';
 import Notice from '../pages/NoticePage/Notice';
 import UploadPost from '../pages/NoticePage/UploadPost';
 import Error404 from '../pages/ErrorPage/Error404';
-import PostDetail from './../pages/NoticePage/PostDetail';
+import PostDetail from '../pages/NoticePage/PostDetail';
 
 const Router = () => {
   return (
