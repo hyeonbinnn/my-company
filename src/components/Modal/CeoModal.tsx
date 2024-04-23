@@ -1,9 +1,9 @@
-import React from 'react';
 import * as S from './Modal.style';
 import CloseButton from '../Button/CloseButton';
 import people3 from '../../assets/people3.webp';
+import { CloseButtonProps } from '../../types/common';
 
-const CeoModal = ({ onClose }) => {
+const CeoModal = ({ onClose }: CloseButtonProps) => {
   return (
     <S.ModalBg>
       <S.CeoModal>

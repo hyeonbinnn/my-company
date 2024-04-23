@@ -13,9 +13,12 @@ export interface BaseModalProps {
   onClose: () => void;
 }
 
-export interface DeleteModalProps {
-  onClose: () => void;
+export interface DeleteModalProps extends CloseButtonProps {
   onConfirm: () => void;
+}
+
+export interface CloseButtonProps {
+  onClose: () => void;
 }
 
 export interface FormData {

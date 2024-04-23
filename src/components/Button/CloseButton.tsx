@@ -1,9 +1,6 @@
 import styled from 'styled-components';
 import close from '../../assets/close.png';
-
-interface CloseButtonProps {
-  onClose: () => void;
-}
+import { CloseButtonProps } from '../../types/common';
 
 const CloseButton = ({ onClose }: CloseButtonProps) => {
   return (
