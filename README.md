@@ -23,6 +23,7 @@
 
 - **구현 기간 :**  `2023.12.05 ~ 2023.12.28`
 - **배포 사이트 :**  <strong>[`배포 URL 바로가기`](https://my-companyyy.netlify.app)</strong>
+- **개인 회고 블로그 :**  <strong>[`블로그 바로가기`](https://velog.io/@hyeonbinnn/React-TypeScript-%EB%A7%88%EC%9D%B4-%EC%BB%B4%ED%8D%BC%EB%8B%88-%ED%9A%8C%EA%B3%A0%EB%A1%9D-%EB%A6%AC%ED%8C%A9%ED%86%A0%EB%A7%81)</strong>
 <br>
 
 ### 🏢 My-Company 소개
