@@ -14,7 +14,7 @@ export interface Post {
 
 export interface Comment {
   postId?: number;
-  id: 1;
+  id: number;
   name: string;
   email: string;
   body: string;
