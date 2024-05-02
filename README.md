@@ -101,8 +101,9 @@
 
 #### [ Version ]
 ```
+"@types/react": "^18.2.79",
+"@types/react-dom": "^18.2.25",
 "axios": "^1.6.7",
-"eslint-plugin-jsx-a11y": "^6.7.1",
 "react": "^18.2.0",
 "react-dom": "^18.2.0",
 "react-hook-form": "^7.50.1",
