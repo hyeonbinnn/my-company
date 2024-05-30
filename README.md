@@ -165,6 +165,62 @@
 <br>
 
 ## 트러블 슈팅
+### ✔️ 코드 스플리팅으로 번들 크기 감소
+1. 일단 코드 스플리팅을 하기 전에 WHY? 왜 필요할까? 라는 생각을 먼저했습니다. <br> 리액트와 같이 SPA로 개발된 프로젝트를 빌드하면 자바스크립트 파일로 번들링되는데, 하나의 파일로 번들링된 결과물인 배포 사이트에 들어가면 처음 진입 시 모든 페이지에 대한 정보를 불러오게 되고, 이는 초기 로딩을 느리게 만들어 사용자 경험에 좋지 않습니다.
+
+2. 이같이 초기 로딩이 느려지는 것이 CSR의 문제점 중 하나며, 이를 해결하기 위해 SSR 같은 방법도 있습니다. <br> 하지만 성능 향상과 SEO만을 위해 SSR을 사용하기 보다는 리액트에서도 다양한 성능 향상 방법을 통해 문제점을 개선해보고자 리팩토링에서 코드 스플리팅을 하게 되었습니다.
+
+3. 우선, 코드 분할을 사용하면 초기 번들만 로드하고 필요에 따라 추가 번들을 로드하기 때문에 초기 로딩 시간이 단축됩니다. <br> 또한 코드를 작은 청크로 분할해 전체 번들 크기를 줄일 수 있습니다. 이는 다운로드 시간을 단축할 수 있고, 대역폭 소비를 줄일 수 있습니다. 그 다음, 사용되는 컴포넌트만 로드되기에 브라우저가 효과적으로 캐싱할 수 있습니다.
+
+4. 라우트 기반 코드 스플리팅을 통해 `React.lazy` 함수는 동적으로 컴포넌트를 로드하고, `Suspense`는 로드되는 동안 보여줄 풀백 UI를 정의의합니다. `Suspense` 컴포넌트를 사용하는 이유는 코드 분할을 하면 초기 로딩 시간은 단축되지만, 사용자가 다른 페이지로 이동할 때 로딩 지연이 발생할 수 있기에 이 같은 로딩 지표를 사용합니다.
+<br>
+
+```js
+import { lazy, Suspense } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+import Loading from '../components/Loading/Loading';
+
+const Home = lazy(() => import('../pages/HomePage/Home'));
+const About = lazy(() => import('../pages/AboutPage/About'));
+const Service = lazy(() => import('../pages/ServicePage/Service'));
+const Contact = lazy(() => import('../pages/ContactPage/Contact'));
+const Notice = lazy(() => import('../pages/NoticePage/Notice'));
+const UploadPost = lazy(() => import('../pages/NoticePage/UploadPost'));
+const Error404 = lazy(() => import('../pages/ErrorPage/Error404'));
+const PostDetail = lazy(() => import('../pages/NoticePage/PostDetail'));
+
+const Router = () => {
+  return (
+    <BrowserRouter>
+      <Suspense fallback={<Loading />}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/service" element={<Service />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/notice" element={<Notice />} />
+          <Route path="/notice/upload" element={<UploadPost />} />
+          <Route path="/notice/:id" element={<PostDetail />} />
+          <Route path="*" element={<Error404 />} />
+          <Route path="/error" element={<Error404 />} />
+        </Routes>
+      </Suspense>
+    </BrowserRouter>
+  );
+};
+
+export default Router;
+```
+<br>
+
+5. 코드 스플리팅을 통해 성능이 향상되었는지 확인하기 위해서는 WebPack 번들 분석 도구나, Netlify 배포 로그로 확인할 수 있습니다. <br> 전후 이미지를 보면 애플리케이션의 자바스크립트 파일이 여러 개의 청크로 분리되어, 각 청크는 애플리케이션의 특정 부분에 대응하고, 독립적으로 로드될 수 있으며 메인 번들 크기가 35% 감소한 것을 알 수 있습니다. 또한 개발자 도구 네트워크 탭의 리소스도 감소해 로딩 속도 향상에 기여하였습니다.
+![2](https://github.com/hyeonbinnn/my-company/assets/117449788/e9afc080-22ec-4baa-b27b-602332bdc04f)
+![a](https://github.com/hyeonbinnn/my-company/assets/117449788/73639f28-dcc8-468c-8f19-879bb33415e5)
+
+<br>
+<br>
+
 ### ✔️ 리액트 쿼리 도입으로 성능 향상
 1. 원래는 **Axios**만을 사용해 데이터를 처리했기에 상태 관리 작업을 리코일을 통해 처리했고, 데이터를 가져오는 과정, 로딩 상태와 에러를 처리하는 과정을 모두 구현했지만, **React-Query**를 도입해 함께 사용하면서 `useQuery`와 `useMutation` 훅을 사용해서 데이터를 가져오고 수정할 수 있으며, 관리하는 과정이 간단해졌습니다.
 
@@ -180,7 +236,7 @@
 <br>
 
 ### ✔️ 재사용되는 작은 기능 유틸리티 함수 사용
-1. `navigateTo` 유틸리티 함수를 만들어 라우터의 경로를 변경합니다. <br><br> 첫번째 매개변수 `navigate`(경로 이동 함수)와 두번째 매개변수 `path`(이동하는 경로)를 통해 `navigate(path)`를 호출하여 해당 경로로 이동합니다.
+1. `navigateTo` 유틸리티 함수를 만들어 라우터의 경로를 변경합니다. <br> 첫번째 매개변수 `navigate`(경로 이동 함수)와 두번째 매개변수 `path`(이동하는 경로)를 통해 `navigate(path)`를 호출하여 해당 경로로 이동합니다.
 <br>
 
 ```jsx
